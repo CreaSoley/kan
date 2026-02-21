@@ -24,7 +24,7 @@ body {
 /* TITRES DEGRADE GRIS */
 h1 {
   font-family: "Melt";
-  font-size: 2.1em;
+  font-size: 2.9em;
   background:
     linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(0,0,0,0.15)),
     radial-gradient(at top center, rgba(255,255,255,0.40), rgba(0,0,0,0.40)) #989898;
@@ -258,11 +258,11 @@ h1 {
 }
 @media (max-width: 480px) {
   .logo-inline {
-    width: 34px !important;
-    height: 34px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 
   .title-inline {
-    font-size: 1.35em;
+    font-size: 2.35em;
   }
 }
