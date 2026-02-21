@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>TaïKan</title>
 
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ff7eb3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="home-page">
+
+<img src="images/logo.png" alt="Logo TaïKan" class="logo-pwa">
+
+<div class="home-text">
+La ceinture marque un moment.<br>
+L’apprentissage, lui, ne s’arrête jamais.<br>
+Entraîne-toi avec justesse.<br>
+Avance avec humilité.
+</div>
+
+<button id="install-btn" class="btn-home">Installer l'application</button>
+<button id="start-btn" class="btn-home" onclick="location.href='index.html'">Commencer l'entraînement</button>
+
+<script>
+// IMPORTANT pour GitHub Pages /kan/
+if ('serviceWorker' in navigator) {
+ window.addEventListener('load', () => {
+  navigator.serviceWorker.register('./service-worker.js');
+ });
+}
+
+// install PWA
+let deferredPrompt;
+const installBtn = document.getElementById('install-btn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+ e.preventDefault();
+ deferredPrompt = e;
+ installBtn.style.display = 'inline-block';
+});
+
+installBtn.addEventListener('click', async () => {
+ if (!deferredPrompt) return;
+ deferredPrompt.prompt();
+ await deferredPrompt.userChoice;
+ deferredPrompt = null;
+ installBtn.style.display = 'none';
+});
+</script>
+
+</body>
+</html>
