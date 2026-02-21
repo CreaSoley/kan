@@ -219,8 +219,20 @@ h1 {
   line-height: 1.2;
 }
 .tech-card {
-  padding: 14px 16px;
-  gap: 4px;
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+  padding: 12px 14px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* ← plus d’espace automatique */
+  align-items: stretch;
+  gap: 4px;                      /* ← contrôle global des espacements */
+}
 }
 /* ===== TOP BAR COMPACT MOBILE SAFE ===== */
 .top-bar {
