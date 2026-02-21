@@ -1,1 +1,64 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body style="background:linear-gradient(to right,#43e97b,#38f9d7)">
+
+<h1>Dextérité</h1>
+<p>exercices de travail de la mobilité articulaire</p>
+
+<select id="niveau"></select>
+<select id="materiel"></select>
+<select id="modalite"></select>
+
+<button onclick="randomTech()">🎲 Surprise</button>
+<button onclick="countJP()">🔊 Compter</button>
+
+<div id="result" class="card"></div>
+
+<script>
+let data = [];
+
+fetch("../data/dext.json")
+.then(r => r.json())
+.then(d => {
+ data = d;
+ afficher(d[0]);
+});
+
+function afficher(t) {
+ document.getElementById("result").innerHTML = `
+  <h2>${t.nom}</h2>
+  <p>${t.description}</p>
+  <button onclick="speak('${t.description}')">▶️ Lecture</button>
+  <iframe width="100%" height="200" src="${t.video}" allowfullscreen></iframe>
+ `;
+}
+
+function speak(text){
+ let msg = new SpeechSynthesisUtterance(text);
+ msg.rate = 0.7;
+ speechSynthesis.speak(msg);
+}
+
+function randomTech(){
+ let t = data[Math.floor(Math.random()*data.length)];
+ afficher(t);
+}
+
+function countJP(){
+ const numbers = ["ichi","ni","san","shi","go","roku","shichi","hachi","kyu","ju"];
+ let i=0;
+ setInterval(()=>{
+  let msg = new SpeechSynthesisUtterance(numbers[i]);
+  speechSynthesis.speak(msg);
+  i=(i+1)%10;
+ },2000);
+}
+</script>
+
+</body>
+</html>
