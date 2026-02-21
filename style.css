@@ -75,3 +75,72 @@ h1 {
   font-size: 1.2em;
   text-decoration: none;
 }
+/* LAYOUT PAGE */
+.page-flex {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+/* SOUS-TITRE */
+.subtitle {
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+/* FILTRES */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px;
+}
+
+/* CARD COULEUR DEXT */
+.tech-card {
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* BADGES */
+.badges {
+  margin: 10px;
+}
+
+.badge {
+  background: rgba(255,255,255,0.3);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 3px;
+  display: inline-block;
+}
+
+/* VIDEO */
+iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  border: none;
+}
+
+/* BARRE ENTRAINEMENT */
+.training-bar {
+  margin: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
