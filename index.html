@@ -2,13 +2,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-<img src="images/logo.png" width="140">
+<img src="images/logo.png" class="logo-pwa">
 <h1>TaïKan</h1>
+
+<div class="menu-grid">
 
 <a class="menu-btn" style="background:linear-gradient(to right,#43e97b,#38f9d7)" href="pages/dext.html">🌀 Dextérité</a>
 
@@ -22,12 +23,7 @@
 
 <a class="menu-btn" style="background:linear-gradient(to right,#4facfe,#00f2fe)" href="pages/cours.html">🎓 Cours complet</a>
 
-<script>
-if ("serviceWorker" in navigator) {
- navigator.serviceWorker.register("/service-worker.js");
-}
-</script>
+</div>
 
 </body>
 </html>
-
