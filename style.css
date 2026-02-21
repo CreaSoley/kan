@@ -237,3 +237,24 @@ h1 {
   padding: 14px 16px;
   gap: 4px;
 }
+.logo-inline {
+  width: 42px;      /* taille réelle affichée */
+  height: 42px;     /* empêche l'étirement */
+  object-fit: contain;
+  display: block;
+}
+.top-bar img {
+  max-width: 100%;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0 2px 0;
+}
+
+.title-inline {
+  font-size: 1.6em;
+  margin: 0;
+}
