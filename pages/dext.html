@@ -87,13 +87,18 @@ function applyFilters(){
 function afficher(t){
  current=t;
 
- const badgesMateriel = t.materiel.map(x=>`<span class="badge">${x==="canne"?"🦯":"棒 bô"}</span>`).join("");
+ const badgesMateriel = t.materiel.map(x=>`<span class="badge">${x==="canne"?"🦯":"棒"}</span>`).join("");
  const badgesPosture = t.modalite.map(x=>`<span class="badge">${x==="debout"?"🧍":"🪑"}</span>`).join("");
 
  document.getElementById("card").innerHTML=`
-   <h2>${t.nom}</h2>
+   <div class="title-row">
+     <h2>${t.nom}</h2>
+     <button class="info-btn" onclick="showInfo()">ℹ️</button>
+   </div>
+
    <div class="badges">${badgesMateriel} ${badgesPosture}</div>
    <p>${t.description}</p>
+
    <iframe src="${t.video}" allowfullscreen></iframe>
  `;
 }
@@ -130,6 +135,10 @@ function startTimer(){
 
 function saveProgress(){
  localStorage.setItem("taikan_last",current.nom);
+}
+  function showInfo(){
+ if(!current.explication) return;
+ alert(current.explication);
 }
 </script>
 
