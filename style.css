@@ -212,23 +212,8 @@ h1 {
 .badges {
   margin: 4px 0;
 }
-.top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 4px 0 2px 0;
-}
 
-.logo-inline {
-  width: 55px;
-  margin: 0;
-}
 
-.title-inline {
-  font-size: 1.8em;
-  margin: 0;
-}
 .tech-card p {
   margin: 2px 0 4px 0;
   line-height: 1.2;
@@ -237,24 +222,47 @@ h1 {
   padding: 14px 16px;
   gap: 4px;
 }
-.logo-inline {
-  width: 42px;      /* taille réelle affichée */
-  height: 42px;     /* empêche l'étirement */
-  object-fit: contain;
-  display: block;
-}
-.top-bar img {
-  max-width: 100%;
-}
+/* ===== TOP BAR COMPACT MOBILE SAFE ===== */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 4px 0 2px 0;
+  margin: 2px 0;
+  padding: 0;
 }
 
+/* Empêche tout débordement flex mobile */
+.top-bar a {
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO FIXE ET BLOQUÉ */
+.logo-inline {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px;
+  min-height: 38px;
+  max-width: 38px;
+  max-height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+/* TITRE COMPACT */
 .title-inline {
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin: 0;
+  line-height: 1;
+}
+@media (max-width: 480px) {
+  .logo-inline {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .title-inline {
+    font-size: 1.35em;
+  }
 }
