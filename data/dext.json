@@ -5,16 +5,72 @@
   "modalite": ["debout", "assis"],
   "materiel": ["canne"],
   "description": "Rotation vers l’avant en cercle avec main souple.",
-  "video": "https://youtube.com/clip/UgkxNxeJsWDMxKTg7a6Ex5p4PWALGFplsWFc"
+  "explication":"Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet
+La partie longue de la canne vers l’extérieur
+Faire tourner la canne en formant un cercle vers l’avant, en poussant
+La main doit être souple, fermée et légère sans serrer trop fort.",
+  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQL?start=45"
  },
 
  {
   "nom": "Infinity",
   "niveau": "débutant",
   "modalite": ["debout", "assis"],
-  "materiel": ["canne"],
+  "materiel": ["canne", "bô"],
   "description": "Rotation en forme de 8 fluide.",
-  "video": "https://youtube.com/clip/UgkxNxeJsWDMxKTg7a6Ex5p4PWALGFplsWFc"
+   "explication":"Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet
+La partie longue de la canne vers l’extérieur
+Faire tourner la canne, comme si vous donniez une claque du revers de la main
+Faire tourner la canne en formant le signe infini
+L’autre main est levée pour se protéger la tête.",
+  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQL?start=92"
+ },
+
+  {
+  "nom": "Rotation simple",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne", "bô"],
+  "description": "Rotation en demi-huit.",
+   "explication":"Prendre la canne, sur la partie droite, en dessous du crochet
+Effectuer un mouvement orbital, la main va se tourner paume vers le haut. Le pouce se place vers l’arrière.
+Dans un premier temps, on l’amène vers l’extérieur du corps. Puis répéter le mouvement vers l’intérieur du corps. En assemblant les mouvements, on obtient le mouvement infini.",
+  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQL?start=99"
+ },
+
+   {
+  "nom": "Le rameur",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne", "bô"],
+  "description": "Effectuer un mouvement de rameur",
+   "explication":"Prendre la canne, sur la partie droite, en dessous du crochet, l’autre main à distance
+Effectuer des mouvements de rame à droite et à gauche, en mobilisant les hanches.",
+  "video": "https://www.youtube-nocookie.com/embed/nM_sFq5Nn9k?start=8"
+ },
+
+  {
+  "nom": "Twirling bâton",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne", "bô"],
+  "description": "Mouvement de la majorette",
+   "explication":"Tenir la canne à proximité du corps, bras souple, au milieu de la canne, coude près du corps.
+La main est verticale, pouce vers le haut.
+Faire pivoter la canne vers l’index, elle est retenue par le pouce.",
+  "video": "https://www.youtube-nocookie.com/embed/1k-4gFsyY-E"
+ },
+
+"nom": "Twirling bâton à deux mains de face",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne", "bô"],
+  "description": "Mouvement de la majorette de face",
+   "explication":"Prendre la canne en son milieu, pouce vers le haut. Tourner la canne à 180°. ouvrir la main et placer la main gauche au-dessus, paume ouverte. Cela doit ressembler à des ailes de papillons
+Effectuer un tour à 360°, jusqu’à ne plus pouvoir tourner, placer la main au-dessus en position de shuto. On alterne, lors du changement, une main au-dessus, une main en dessous.
+Les mains restent proches l’une de l’autre. Les mains doivent être au niveau des coudes.",
+  "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=70"
  }
+
 ]
 
