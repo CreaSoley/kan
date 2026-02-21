@@ -1,1 +1,20 @@
+[
+ {
+  "nom": "Moulinet extérieur",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne"],
+  "description": "Rotation vers l’avant en cercle avec main souple.",
+  "video": "https://youtube.com/clip/UgkxNxeJsWDMxKTg7a6Ex5p4PWALGFplsWFc"
+ },
+
+ {
+  "nom": "Infinity",
+  "niveau": "débutant",
+  "modalite": ["debout", "assis"],
+  "materiel": ["canne"],
+  "description": "Rotation en forme de 8 fluide.",
+  "video": "https://youtube.com/clip/UgkxNxeJsWDMxKTg7a6Ex5p4PWALGFplsWFc"
+ }
+]
 
