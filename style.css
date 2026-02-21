@@ -15,21 +15,23 @@ body {
   background: white;
 }
 
+/* LOGO PLUS PROCHE */
 .logo-pwa {
-  width: 130px;
-  margin-top: 30px;
+  width: 100px;
+  margin: 2px 0 6px 0;
 }
 
 /* TITRES DEGRADE GRIS */
 h1 {
   font-family: "Melt";
-  font-size: 3em;
+  font-size: 2.1em;
   background:
     linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(0,0,0,0.15)),
     radial-gradient(at top center, rgba(255,255,255,0.40), rgba(0,0,0,0.40)) #989898;
   background-blend-mode: multiply, multiply;
   -webkit-background-clip: text;
   color: transparent;
+  margin: 6px 0 2px 0;
 }
 
 /* HOME */
@@ -89,6 +91,8 @@ h1 {
 .subtitle {
   max-width: 500px;
   margin-bottom: 10px;
+  margin: 4px 0 6px 0;
+  font-size: 0.9em;
 }
 
 /* FILTRES */
@@ -113,6 +117,10 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.tech-card h2 {
+  margin: 4px 0 4px 0;
+  font-size: 1.3em;
 }
 
 /* BADGES */
@@ -146,16 +154,18 @@ iframe {
   justify-content: center;
 }
 h1 {
-  margin: 10px 0 5px 0;
+ margin: 6px 0 2px 0;
 }
 
 .logo-pwa {
-  margin: 5px 0 10px 0;
+  width: 100px;
+  margin: 2px 0 6px 0;
 }
 
 .page-flex {
   justify-content: flex-start;
-  gap: 5px;
+  padding: 6px;
+  gap: 4px;
 }
 .kawaii-btn {
   padding: 12px 18px;
@@ -188,4 +198,9 @@ h1 {
   font-size: 16px;
   background: rgba(255,255,255,0.4);
   color: white;
+}
+.filters-label {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-top: 4px;
 }
