@@ -144,3 +144,31 @@ iframe {
   align-items: center;
   justify-content: center;
 }
+h1 {
+  margin: 10px 0 5px 0;
+}
+
+.logo-pwa {
+  margin: 5px 0 10px 0;
+}
+
+.page-flex {
+  justify-content: flex-start;
+  gap: 5px;
+}
+.kawaii-btn {
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  font-family: "Fredoka";
+  font-size: 0.95em;
+  color: white;
+  background: linear-gradient(145deg,#ff9ac6,#ff6fa5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
+}
+
+.kawaii-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
