@@ -1,51 +1,77 @@
 @font-face {
   font-family: "Melt";
-  src: url("font/Melt-Swashes.ttf");
+  src: url("./font/Melt-Swashes.ttf");
 }
 
 @font-face {
   font-family: "Fredoka";
-  src: url("font/Fredoka.ttf");
+  src: url("./font/Fredoka.ttf");
 }
 
 body {
   margin: 0;
   font-family: "Fredoka", sans-serif;
   text-align: center;
+  background: white;
+}
+
+.logo-pwa {
+  width: 130px;
+  margin-top: 30px;
+}
+
+/* TITRES DEGRADE GRIS */
+h1 {
+  font-family: "Melt";
+  font-size: 3em;
   background:
     linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(0,0,0,0.15)),
     radial-gradient(at top center, rgba(255,255,255,0.40), rgba(0,0,0,0.40)) #989898;
   background-blend-mode: multiply, multiply;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-h1 {
-  font-family: "Melt";
-  font-size: 3em;
+/* HOME */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-text {
+  margin: 30px;
+  font-size: 1.1em;
+}
+
+.btn-home {
+  padding: 15px 25px;
+  margin: 10px;
+  border-radius: 15px;
+  border: none;
+  font-size: 1em;
+  background: linear-gradient(to right,#ff758c,#ff7eb3);
+  color: white;
+}
+
+/* INDEX GRID 2x3 PLEIN ECRAN */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 80vh;
+  gap: 15px;
+  padding: 15px;
 }
 
 .menu-btn {
-  display: block;
-  margin: 15px auto;
-  padding: 18px;
-  width: 80%;
-  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
   color: white;
   font-size: 1.2em;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.card {
-  background: white;
-  padding: 15px;
-  margin: 20px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-select, button {
-  padding: 10px;
-  margin: 8px;
-  border-radius: 10px;
-  border: none;
 }
