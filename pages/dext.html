@@ -24,16 +24,13 @@ rapidité, fluidité, précision du geste
   <select id="niveau"></select>
   <select id="materiel"></select>
   <select id="modalite"></select>
+  <select id="techniqueSelect"></select>
 <button class="kawaii-btn" onclick="techniqueRandom()">🎲 Surprise</button>
 
 </div>
 
 <div id="card" class="tech-card"></div>
-<div class="training-bar">
-  <button class="kawaii-btn" onclick="toggleVoice()">🔊 Lecture / Pause</button>
-  <button class="kawaii-btn" onclick="startTimer()">⏱️ Démarrer</button>
-  <span id="timer">00:00</span>
-</div>
+
 
 
 <script>
@@ -61,7 +58,16 @@ function initFilters(){
  fillSelect("materiel",materiels);
  fillSelect("modalite",modalites);
 
- document.querySelectorAll("select").forEach(s=>s.onchange=applyFilters);
+ document.querySelectorAll("#niveau,#materiel,#modalite")
+   .forEach(s=>s.onchange=applyFilters);
+
+ document.getElementById("techniqueSelect").onchange = () => {
+  const nom = techniqueSelect.value;
+  const t = data.find(x=>x.nom===nom);
+  if(t) afficher(t);
+ };
+
+ applyFilters();
 }
 
 function fillSelect(id,values){
@@ -81,9 +87,24 @@ function applyFilters(){
   (!mo||t.modalite.includes(mo))
  );
 
- if(filtered.length) afficher(filtered[0]);
+ remplirTechniques(filtered);
 }
 
+function remplirTechniques(list){
+ const select = document.getElementById("techniqueSelect");
+
+ if(!list.length){
+  select.innerHTML = "<option>Aucune technique</option>";
+  card.innerHTML = "";
+  return;
+ }
+
+ select.innerHTML = list
+   .map(t=>`<option>${t.nom}</option>`)
+   .join("");
+
+ afficher(list[0]);
+}
 function afficher(t){
  current=t;
 
@@ -107,35 +128,6 @@ function techniqueRandom(){
  afficher(data[Math.floor(Math.random()*data.length)]);
 }
 
-function toggleVoice(){
- if(!current) return;
-
- if(synth.speaking){
-   synth.cancel();
-   return;
- }
-
- utterance=new SpeechSynthesisUtterance(current.description);
- utterance.rate=0.7;
- synth.speak(utterance);
-}
-
-function startTimer(){
- clearInterval(timerInterval);
- seconds=0;
- timerInterval=setInterval(()=>{
-  seconds++;
-  const m=Math.floor(seconds/60).toString().padStart(2,"0");
-  const s=(seconds%60).toString().padStart(2,"0");
-  timer.textContent=`${m}:${s}`;
- },1000);
-
- saveProgress();
-}
-
-function saveProgress(){
- localStorage.setItem("taikan_last",current.nom);
-}
   function showInfo(){
  if(!current.explication) return;
  alert(current.explication);
