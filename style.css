@@ -240,19 +240,19 @@ h1 {
 
 /* LOGO FIXE ET BLOQUÉ */
 .logo-inline {
-  width: 38px !important;
-  height: 38px !important;
-  min-width: 38px;
-  min-height: 38px;
-  max-width: 38px;
-  max-height: 38px;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
   object-fit: contain;
   display: block;
 }
 
 /* TITRE COMPACT */
 .title-inline {
-  font-size: 1.5em;
+  font-size: 3.5em;
   margin: 0;
   line-height: 1;
 }
