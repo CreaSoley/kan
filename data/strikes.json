@@ -13,6 +13,83 @@
     "description": "Porter la canne , puis prise de combat\nPointer la canne vers le bas\nFaire un mouvement rapide vers l'entre-jambe.\nIl s'agit d'un mouvement leger du poignet.\nL'objectif est d'enfoncer les 15 cm dans l'aine.",
     "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=885"
   },
+   {
+    "nom": "Rame à deux mains",
+    "objectif": "Mettre hors état de nuire par une frappe haute",
+    "zone_impact": "images/ptcro.png",
+    "description": "Porter la canne, puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nDirect niveau plexus\nRamener la canne vers soi (toujours à deux mains)\nPivoter le crochet de la canne vers l'extérieur de mon corps\nEffectuer une rotation (coup de rame) et donner un coup niveau clavicule (tetsui) avec l'extrémité du crochet et ramener vers le côté opposé du corps",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=735"
+  },
+  {
+    "nom": "Coup de hache",
+    "objectif": "Mettre hors état de nuire par une frappe haute",
+    "zone_impact": "images/mh.png",
+    "description": "Porter la canne , puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nOuvrir la main qui tient le crochet\nPivoter la canne vers l'avant de façon qu'elle arrive en position haute crochet vers le haut\nGlisser la main supérieure vers le bas et frapper comme un coup de hache par dessus l'épaule\nObjectif : frapper la clavicule",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=890"
+  },
+  {
+    "nom": "Coup du batelier",
+    "objectif": "Mettre hors état de nuire par une frappe latérale basse",
+    "zone_impact": "images/mm.png",
+    "description": "Porter la canne, puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nOuvrir la main qui tient le crochet et faire un mouvement de hanches\nFrapper latéralement vers le bas, le mouvement est sec",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=983"
+  },
+  {
+    "nom": "Crochetage de l'épaule",
+    "objectif": "Deséquilibrer",
+    "zone_impact": "images/cro.png",
+    "description": "Porter la canne, puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nFrapper fort avec le milieu de la canne crochet vers le bas en effectuant une rotation (coup de hache)\nRamener vers soi en tirant vers le bas pour déséquilibrer",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1199"
+  },
+  {
+    "nom": "Crochetage de la jambe",
+    "objectif": "Deséquilibrer",
+    "zone_impact": "images/cro.png",
+    "description": "Porter la canne, puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nFrapper fort avec le milieu de la canne crochet ouvert vers la cuisse en effectuant une rotation\nRamener vers soi en soulevant pour déséquilibrer",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1268"
+  },
+  {
+    "nom": "Crochetage entre-jambe",
+    "objectif": "Défense contre tentative d'étranglement ou d'encerclement",
+    "zone_impact": "images/cro.png",
+    "description": "Porter la canne, saisie de la canne horizontale à deux mains partie basse, crochet vers le bas\nPivoter la canne crochet vers le bas, accrocher l'entrejambe en remontant\nÉcraser le haut de canne sur le visage",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1360"
+  },
+  {
+    "nom": "Crochetage du cou",
+    "objectif": "Défense contre tentative d'agression au couteau",
+    "zone_impact": "images/cro.png",
+    "description": "Porter la canne, saisie de la canne horizontale à deux mains partie basse, crochet vers le bas\nDonner un coup manche contre la gorge de l'agresseur crochet vers le cou\nUne fois l'appui pris, tirer la canne vers le bas et pousser la tête vers l'autre sens (atteinte colonne vertébrale)",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1399"
+  },
+  {
+    "nom": "Crochetage du bras",
+    "objectif": "Défense contre tsuki",
+    "zone_impact": "images/cro.png",
+    "description": "Porter la canne, saisie de la canne horizontale à deux mains partie basse, crochet vers le bas\nEsquive latérale, crocheter le bras par le dessous",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1443"
+  },
+  {
+    "nom": "Coup de balai",
+    "objectif": "Défense contre coup de pied",
+    "zone_impact": "images/mb.png",
+    "description": "Saisie de la canne dans le creux du crochet\nLever la canne bien droite devant\nSaisir avec la main libre le manche à mi-hauteur\nDéplacer l'extrémité du crochet rapidement comme si on passait le balai",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=383"
+  },
+  {
+    "nom": "Coup d'arrêt horizontal",
+    "objectif": "Défense contre coup de genou",
+    "zone_impact": "images/mm.png",
+    "description": "Porter la canne, prise de combat puis saisie de la canne horizontale, un tiers haut, un tiers bas\nGarder les coudes bien pliés et donner un coup sec vers le bas",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=659"
+  },
+  {
+    "nom": "Coup entre-jambe",
+    "objectif": "Défense contre saisie de poignet croisée ou directe",
+    "zone_impact": "images/mm.png",
+    "description": "Saisie normale de la canne pour marcher\nGlisser la saisie de la canne pour attraper le manche en partie haute\nCoup sec à l'entre-jambe avec possibilité de déplacement latéral pour saisir la pointe et remonter",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=713"
+  }
   {
     "nom": "Bouclier",
     "objectif": "Protection de la tête",
@@ -55,6 +132,62 @@
     "description": "Porter la canne , puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nFaire des mouvements de frappe en va-et-vient niveau plexus",
     "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=353"
   },
+   {
+    "nom": "Degraphage avec canne",
+    "objectif": "Défense contre saisie de poignet croisée",
+    "zone_impact": "images/mm.png",
+    "description": "Saisie normale de la canne pour marcher\nGlisser la saisie de la canne pour attraper le manche en partie haute\nRotation du poignet vers l'extérieur\nSaisir le manche de la canne au tiers de la hauteur avec l'autre main et donner une impulsion vers le bas",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=815"
+  },
+  {
+    "nom": "Degraphage avec canne croisé",
+    "objectif": "Défense contre saisie de poignet croisée",
+    "zone_impact": "images/mm.png",
+    "description": "Saisie normale de la canne pour marcher\nGlisser la saisie de la canne pour attraper le manche en partie haute\nRotation du poignet vers l'intérieur\nLa main libre passe sous les deux bras et saisit le manche de la canne près du poignet de l'agresseur\nTirer vers le bas sèchement",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=878"
+  },
+  {
+    "nom": "Pointe dans le dos",
+    "objectif": "Défense encerclement de face sur ou sous les bras",
+    "zone_impact": "images/ptcro.png",
+    "description": "S'affaisser un peu pour abaisser son centre de gravité\nInverser la saisie de la canne et remonter le crochet\nEnfoncer l'extrémité du crochet dans le milieu du dos\nUne main contrôle l'extrémité du crochet, l'autre main tire vers moi et je pousse vers l'avant avec le haut du corps",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=982"
+  },
+  {
+    "nom": "Crochetage de l'étreinte",
+    "objectif": "Défense encerclement arrière sur les bras",
+    "zone_impact": "images/ptcro.png",
+    "description": "S'affaisser un peu pour abaisser son centre de gravité et poser l'une des mains sur la sienne\nInverser la saisie de la canne, la remonter et crocheter ses bras\nTirer vers l'avant sèchement, les deux mains sur la canne en donnant un coup de fesse, centre de gravité bas\nSe retourner en garde",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=1219"
+  },
+  {
+    "nom": "Crochetage de l'étranglement",
+    "objectif": "Défense contre étranglement arrière",
+    "zone_impact": "images/ptcro.png",
+    "description": "Saisir l'avant-bras au-dessus du poignet et abaisser son centre de gravité\nChanger la prise de la canne et crocheter l'avant-bras\nSaisir la canne à deux mains et tirer vers l'avant\nEssayer de se retourner",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=1362"
+  },
+  {
+    "nom": "Lance à deux mains basse",
+    "objectif": "Défense contre une prise de tête latérale",
+    "zone_impact": "images/pt.png",
+    "description": "Saisie normale de canne\nPrise de combat puis frappe selon la technique de la lance à deux mains",
+    "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=1450"
+  },
+  {
+    "nom": "Frappe de baseball",
+    "objectif": "Mettre hors d'état de nuire par une frappe latérale haute",
+    "zone_impact": "images/mm.png",
+    "description": "Saisie normale de canne\nPrise de combat puis prendre la canne comme une batte de baseball, crochet vers le devant\nDonner des coups répétés ; les coups doivent avoir une grande ampleur",
+    "yt": "https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=115"
+  },
+  {
+    "nom": "Balayage par le crochet",
+    "objectif": "Mettre de la distance",
+    "zone_impact": "images/mm.png",
+    "description": "Saisie de la canne dans le creux du crochet\nEffectuer un balayage",
+    "yt": "https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=177"
+  }
   {
     "nom": "Clé en z",
     "objectif": "Défense contre une saisie de canne à une ou deux mains",
