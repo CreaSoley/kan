@@ -369,3 +369,24 @@ iframe {
   background: rgba(0,0,0,0.15);
   color: white;
 }
+/* Icône zone d'impact dans un médaillon */
+.impact-icon {
+  width: 64px;
+  height: 64px;
+  margin: 6px auto 4px auto;
+
+  background: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.impact-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
