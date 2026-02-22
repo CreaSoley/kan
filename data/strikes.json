@@ -89,7 +89,7 @@
     "zone_impact": "images/mm.png",
     "description": "Saisie normale de la canne pour marcher\nGlisser la saisie de la canne pour attraper le manche en partie haute\nCoup sec à l'entre-jambe avec possibilité de déplacement latéral pour saisir la pointe et remonter",
     "yt": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=713"
-  }
+  },
   {
     "nom": "Bouclier",
     "objectif": "Protection de la tête",
@@ -187,7 +187,7 @@
     "zone_impact": "images/mm.png",
     "description": "Saisie de la canne dans le creux du crochet\nEffectuer un balayage",
     "yt": "https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=177"
-  }
+  },
   {
     "nom": "Clé en z",
     "objectif": "Défense contre une saisie de canne à une ou deux mains",
