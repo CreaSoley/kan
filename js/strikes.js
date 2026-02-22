@@ -47,8 +47,10 @@ function showStrike(index) {
   const card = document.getElementById("card");
 
   const zoneIcon = s.zone_impact === "non concerné"
-    ? ""
-    : `<img src="../${s.zone_impact}" style="width:60px;margin:auto;">`;
+  ? ""
+  : `<div class="impact-icon">
+       <img src="../${s.zone_impact}">
+     </div>`;
 
   card.innerHTML = `
     <h2>${s.nom}</h2>
