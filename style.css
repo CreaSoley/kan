@@ -390,3 +390,28 @@ iframe {
   height: 60%;
   object-fit: contain;
 }
+/* Accordion description */
+.tech-card details {
+  text-align: left;
+  width: 100%;
+}
+
+.tech-card summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.tech-card details p {
+  text-align: left;
+  margin: 4px 0 2px 0;
+  line-height: 1.2;
+}
+.tech-card summary {
+  list-style: none;
+}
+
+.tech-card summary::after {
+  content: " ▼";
+  font-size: 0.8em;
+}
