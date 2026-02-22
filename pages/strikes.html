@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>TaïKan — Strikes</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
+<body class="page-flex">
+
+<!-- HEADER STANDARD -->
+<div class="top-bar">
+  <a href="../index.html">
+    <img src="../images/logo.png" class="logo-inline">
+  </a>
+  <h1 class="title-inline">Strikes</h1>
+</div>
+
+<!-- SELECTEURS -->
+<div class="controls">
+  <select id="objectifSelect"></select>
+  <select id="techniqueSelect"></select>
+  <button class="kawaii-btn" onclick="randomStrike()">🎲 Surprise</button>
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-arrows">
+  <button onclick="prevStrike()">⬅</button>
+  <button onclick="nextStrike()">➡</button>
+</div>
+
+<!-- CARD -->
+<div id="card" class="tech-card strike-color"></div>
+
+<script src="../js/strikes.js"></script>
+</body>
+</html>
