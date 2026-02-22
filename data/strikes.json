@@ -1,0 +1,65 @@
+[
+  {
+    "nom": "Saisie de la canne",
+    "objectif": "Se mettre en position de combat",
+    "zone_impact": "non concerné",
+    "description": "Porter la canne , crochet sur l'avant-bras\nTourner la paume vers le bas\nLaisser tomber la canne dans la main",
+    "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=456"
+  },
+  {
+    "nom": "Coup à l'aine",
+    "objectif": "Mettre de la distance",
+    "zone_impact": "images/mb.png",
+    "description": "Porter la canne , puis prise de combat\nPointer la canne vers le bas\nFaire un mouvement rapide vers l'entre-jambe.\nIl s'agit d'un mouvement leger du poignet.\nL'objectif est d'enfoncer les 15 cm dans l'aine.",
+    "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=885"
+  },
+  {
+    "nom": "Bouclier",
+    "objectif": "Protection de la tête",
+    "zone_impact": "images/mm.png",
+    "description": "Porter la canne , puis prise de combat\nPointer la canne vers le bas et l'appuyer au sol\nPivoter le crochet de la canne vers l'extérieur\nHaut du bras plaqué contre le corps\nPlier le poignet à 90°\nLa canne se trouve pile devant le nez\nL'autre bras est en garde derrière la canne",
+    "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1105"
+  },
+  {
+    "nom": "Revers",
+    "objectif": "Mettre hors d'état de nuire par une frappe latérale basse",
+    "zone_impact": "images/mm.png",
+    "description": "Porter la canne , puis prise de combat\nEsquive latérale\nPivoter l'extrémité du crochet vers l'extérieur du corps.\nLe point de visée le coude vers l'épaule. La canne est parallèle au sol. Tout le corps ne doit pas pivoter.",
+    "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1258"
+  },
+  {
+    "nom": "Suivi de revers",
+    "objectif": "Mettre hors d'état de nuire par une frappe latérale basse",
+    "zone_impact": "images/mm.png",
+    "description": "Après un coup en revers, la canne se trouve en position haute\nViser le milieu de la cuisse, voire le milieu du mollet\nL'objectif est de briser la jambe.\nFrapper avec le milieu de la canne.",
+    "yt": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1542"
+  },
+  {
+    "nom": "Poussée du crochet",
+    "objectif": "Mettre de la distance",
+    "zone_impact": "images/cro.png",
+    "description": "Après un coup en revers et une frappe basse\nSaisir le corps de la canne, à mi-hauteur avec la main gauche\nLa canne doit être à l'horizontale le long du corps comme si on s'apprêtait à dégainer.\nRelâcher la main qui tient le crochet\nLa main droite sert de coulisse et guide la canne\nLa main gauche pousse la canne vers l'avant\nPousser les hanches vers l'avant pour donner de la puissance\nFrapper au milieu de la poitrine, puis glisser jusqu'au menton",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=45"
+  },
+  {
+    "nom": "Lance à une main",
+    "objectif": "Faire reculer par une frappe modérée",
+    "zone_impact": "images/pt.png",
+    "description": "Porter la canne , puis prise de combat\nMonter la canne et donner un coup direct (gyaku).\nLe bras libre se positionne en garde\nMouvement de recul",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=162"
+  },
+  {
+    "nom": "Lance à deux mains",
+    "objectif": "Faire reculer par une frappe forte",
+    "zone_impact": "images/pt.png",
+    "description": "Porter la canne , puis prise de combat\nLever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nFaire des mouvements de frappe en va-et-vient niveau plexus",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=353"
+  },
+  {
+    "nom": "Clé en z",
+    "objectif": "Défense contre une saisie de canne à une ou deux mains",
+    "zone_impact": "images/pt.png",
+    "description": "Plaquer la canne contre la hanche\nMa deuxième main saisit la canne (pronation ou supination) à un tiers du bas\nPasser sous son poignet et faire un petit cercle de l'extérieur vers l'intérieur\nPousser droit devant et avancer\nL'objectif est que son petit doigt pointe vers son nez\nPossibilité de le faire en bloquant la main (Clé en Z)",
+    "yt": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=471"
+  }
+]
