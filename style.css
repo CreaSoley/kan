@@ -102,7 +102,12 @@ h1 {
   font-size:22px;
  }
 }
-
+.page-flex{
+ min-height:100vh;
+ justify-content:flex-start;
+ gap:6px;
+ padding:6px 0;
+}
 /* LAYOUT PAGE */
 .page-flex {
   min-height: 100vh;
