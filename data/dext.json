@@ -1,61 +1,137 @@
 [
- {
-  "nom": "Moulinet extérieur",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne"],
-  "description": "Rotation vers l’avant en cercle avec main souple.",
-  "explication": "Prendre la canne, crochet vers le haut, paume sur l’intérieur du crochet.\nLa partie longue vers l’extérieur.\nFaire tourner en cercle vers l’avant.\nMain souple sans serrer.",
-  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=45"
- },
-
- {
-  "nom": "Infinity",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne", "bô"],
-  "description": "Rotation en forme de 8 fluide.",
-  "explication": "Prendre la canne crochet vers le haut.\nRotation type revers.\nTracer un signe infini.\nMain libre protège la tête.",
-  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=92"
- },
-
- {
-  "nom": "Rotation simple",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne", "bô"],
-  "description": "Rotation en demi-huit.",
-  "explication": "Tenir sous le crochet.\nMouvement orbital paume vers le haut.\nExtérieur puis intérieur du corps.",
-  "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=99"
- },
-
- {
-  "nom": "Le rameur",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne", "bô"],
-  "description": "Mouvement de rame.",
-  "explication": "Tenir sous le crochet.\nEffectuer des mouvements de rame.\nMobiliser les hanches.",
-  "video": "https://www.youtube-nocookie.com/embed/nM_sFq5Nn9k?start=8"
- },
-
- {
-  "nom": "Twirling bâton",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne", "bô"],
-  "description": "Mouvement de majorette.",
-  "explication": "Tenir au milieu.\nPouce vers le haut.\nPivot autour de l’index.",
-  "video": "https://www.youtube-nocookie.com/embed/1k-4gFsyY-E"
- },
-
- {
-  "nom": "Twirling bâton à deux mains de face",
-  "niveau": "débutant",
-  "modalite": ["debout", "assis"],
-  "materiel": ["canne", "bô"],
-  "description": "Majorette de face.",
-  "explication": "Prendre la canne au centre.\nRotation 180° puis 360°.\nMains en ailes de papillon.",
-  "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=70"
- }
+  {
+    "nom": "Moulinet extérieur",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotation circulaire vers l’avant avec prise souple et contrôle du poignet.",
+    "explication": "Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet/nLa partie longue de la canne vers l’extérieur/nFaire tourner la canne en formant un cercle vers l’avant, en poussant/nLa main doit être souple, fermée et légère sans serrer trop fort.",
+    "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=45"
+  },
+  {
+    "nom": "Infinity",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Mouvement en forme de huit avec protection de la tête.",
+    "explication": "Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet/nLa partie longue de la canne vers l’extérieur/nFaire tourner la canne, comme si vous donniez une claque du revers de la main/nFaire tourner la canne en formant le signe infini/nL’autre main est levée pour se protéger la tête.",
+    "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=92"
+  },
+  {
+    "nom": "Rotation simple du poignet",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Travail orbital du poignet vers l’intérieur et l’extérieur du corps.",
+    "explication": "Prendre la canne, sur la partie droite, en dessous du crochet/nEffectuer un mouvement orbital, la main va se tourner paume vers le haut. Le pouce se place vers l’arrière./nDans un premier temps, on l’amène vers l’extérieur du corps. Puis répéter le mouvement vers l’intérieur du corps./nEn assemblant les mouvements, on obtient le mouvement infini.",
+    "video": "https://www.youtube-nocookie.com/embed/HUZ9TtVQ7qY?start=99"
+  },
+  {
+    "nom": "La rame",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Mouvement de rame latéral avec engagement des hanches.",
+    "explication": "Prendre la canne, sur la partie droite, en dessous du crochet, l’autre main à distance/nEffectuer des mouvements de rame à droite et à gauche, en mobilisant les hanches.",
+    "video": "https://www.youtube-nocookie.com/embed/nM_sFq5Nn9k?start=8"
+  },
+  {
+    "nom": "Twirling bâton à une main",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Pivot contrôlé du bâton autour de l’index avec pouce guide.",
+    "explication": "Tenir la canne à proximité du corps, bras souple, au milieu de la canne, coude près du corps./nLa main est verticale, pouce vers le haut./nFaire pivoter la canne vers l’index, elle est retenue par le pouce.",
+    "video": "https://www.youtube-nocookie.com/embed/1k-4gFsyY-E??start=1"
+  },
+  {
+    "nom": "Twirling bâton à deux mains de face",
+    "niveau": "débutant",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotation papillon à deux mains avec alternance au centre.",
+    "explication": "Prendre la canne en son milieu, pouce vers le haut./nTourner la canne à 180°, ouvrir la main et placer la main gauche au-dessus, paume ouverte./nCela doit ressembler à des ailes de papillons/nEffectuer un tour à 360°, jusqu’à ne plus pouvoir tourner./nPlacer la main au-dessus en position de shuto./nOn alterne, lors du changement, une main au-dessus, une main en dessous./nLes mains restent proches l’une de l’autre./nLes mains doivent être au niveau des coudes.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=70"
+  },
+  {
+    "nom": "Twirling bâton à deux mains papillon latéral",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Papillon latéral avec rotations successives et changement de main.",
+    "explication": "Effectuer un mouvement vers le bas, vers le côté opposé./nEffectuer une rotation à 360° pour se retrouver main paume vers le haut./nA ce moment changer de main, en mettant la main en dessous en ailes de papillon./nIl est possible de faire plusieurs tours de chaque côté./nRemettre la canne à la verticale (pouce au-dessus).",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=197"
+  },
+  {
+    "nom": "Twirling bâton à une main papillon latéral",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotations latérales à une main avec prise légère à deux doigts.",
+    "explication": "Tenir la canne avec 2 doigts et relâcher les 3 autres./nLes mains doivent être détendues./nTenir le bâton en son milieu et faire des rotations de part et d’autre du corps (3 fois)./nChanger de mains sur le côté, en posant les mains en ailes de papillon.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=261"
+  },
+  {
+    "nom": "Balancement sur le côté",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Balancement latéral dynamique avec frappe ascendante.",
+    "explication": "Peu importe la longueur de la canne, la tenir, à 2 mains, à un tiers de sa longueur en partant du bas. Donner des coups en remontant, comme si on voulait frapper le menton de quelqu’un./nAlterner les côtés. Le mouvement doit ressembler à un balancement latéral./nAu cours du mouvement, les mains ne changent pas de place./nLa prise en main doit être détendue.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=312"
+  },
+  {
+    "nom": "Rameur",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Mouvement d’aviron vertical à deux mains.",
+    "explication": "Tenir la canne en son milieu, à deux mains./nFaire un mouvement d’aviron ; la canne doit faire un mouvement du haut vers le bas./nAu cours du mouvement, les mains ne changent pas de place./nLa prise en main doit être détendue.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=349"
+  },
+  {
+    "nom": "Rotation sous les aisselles",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotation complète avec passage sous l’aisselle et travail de hanche.",
+    "explication": "Tenir le bâton à 2 mains, chacune à distance d’un tiers de la longueur totale en partant des extrémités./nUne main va de l’autre côté, sous l’aisselle./nL’un des bras est collé contre le corps. Amener la canne horizontalement, le long de la poitrine, les bras sont croisés./nEffectuer un mouvement de hanche, vers le côté opposé./nFaire une rotation à 360° de la canne et ramener la canne sous le bras.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=390"
+  },
+  {
+    "nom": "Hélicoptère",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotation horizontale au-dessus de la tête avec changement en papillon.",
+    "explication": "La canne reste toujours à l’horizontal./nFaire un mouvement vers le haut./nFaire un mouvement d’hélice au-dessus de la tête et changer de mains, en formant un papillon lorsque la main ne peut plus effectuer de rotation.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=430"
+  },
+  {
+    "nom": "Dessus Dessous épaule",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Enchaînement derrière l’épaule avec rotation complète.",
+    "explication": "Tenir la canne, à une main, à un tiers de son extrémité inférieure./nRamener la canne derrière l’épaule./nBras plié devant la tête, attraper l’extrémité haute de la canne (un tiers depuis l’extrémité) et la rabattre vers l’avant pour la tenir complètement verticalement./nRamener vers le côté opposé, en faisant une rotation vers l’avant./nFaire une rotation complète, pour ramener la canne derrière l’épaule.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=492"
+  },
+  {
+    "nom": "Révolution",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Rotation circulaire autour du corps avec transition papillon.",
+    "explication": "La rotation se fait autour du corps./nLa transition papillon se fait devant et derrière le corps.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=544"
+  },
+  {
+    "nom": "Finition",
+    "niveau": "avancé",
+    "modalite": ["debout", "assis"],
+    "materiel": ["canne"],
+    "description": "Enchaînement final avec passages dans le dos et rotations complètes.",
+    "explication": "Tenir la canne à un tiers du bas./nLa canne passe derrière le bras. Le bras est à l’équerre ; coude au niveau de l’épaule./nRamener la canne derrière le dos en la basculant vers le bas./nLa canne est maintenant le long du corps./nLa deuxième main passe dans le dos et saisi la canne en son milieu./nFaire une rotation complète et passer la canne à nouveau dans le dos ; le bras est à l’équerre, coude au niveau de l’épaule./nFaire pivoter la canne, jusqu’à ce que la rotation ne puisse être possible et passer la canne à l’autre main (en ailes de papillon)./nFaire une rotation complète et ramener dans le dos.",
+    "video": "https://www.youtube-nocookie.com/embed/BCGsO6H9nKQ?start=605"
+  }
 ]
