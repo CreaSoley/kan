@@ -59,24 +59,48 @@ h1 {
 }
 
 /* INDEX GRID 2x3 PLEIN ECRAN */
-.menu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  height: 80vh;
-  gap: 15px;
-  padding: 15px;
+/* GRID MENU */
+.menu-grid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:14px;
+ width:100%;
+ max-width:420px;
+ margin:10px auto;
+ padding:0 12px;
 }
 
-.menu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  color: white;
-  font-size: 1.2em;
-  text-decoration: none;
+/* BOUTONS MENU */
+.menu-btn{
+ display:flex;
+ align-items:center;
+ gap:14px;
+ padding:14px 18px;
+ border-radius:18px;
+ color:white;
+ font-family:Fredoka;
+ font-size:20px;
+ text-decoration:none;
+ box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
+
+/* ICÔNES MENU */
+.menu-icon{
+ font-size:30px;
+ line-height:1;
+}
+
+/* MOBILE OPTIM */
+@media (max-width:480px){
+ .menu-btn{
+  font-size:18px;
+  padding:12px 16px;
+ }
+ .menu-icon{
+  font-size:26px;
+ }
+}
+
 /* LAYOUT PAGE */
 .page-flex {
   min-height: 100vh;
