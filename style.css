@@ -415,3 +415,30 @@ iframe {
   content: " ▼";
   font-size: 0.8em;
 }
+.accordion-btn{
+ width:100%;
+ background:#fff;
+ border:none;
+ padding:12px;
+ font-family:Fredoka;
+ font-size:16px;
+ border-radius:12px;
+ cursor:pointer;
+}
+
+.accordion-content{
+ max-height:0;
+ overflow:hidden;
+ text-align:left;
+ padding:0 12px;
+ transition:max-height .3s ease;
+}
+
+.accordion-content.open{
+ max-height:500px;
+ padding:12px;
+}
+
+.desc{
+ text-align:left;
+}
