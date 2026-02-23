@@ -17,127 +17,25 @@
 </div>
 
 <p class="subtitle">
-exercices de travail de la mobilité articulaire :
+exercices de mobilité articulaire :
 rapidité, fluidité, précision du geste
 </p>
-  
+
 <div class="filters-label">
-  Niveau · Arme · Position
+Niveau · Arme · Position
 </div>
-  
+
 <div class="controls">
   <select id="niveau"></select>
   <select id="materiel"></select>
   <select id="modalite"></select>
   <select id="techniqueSelect"></select>
-<button class="kawaii-btn" onclick="techniqueRandom()">🎲 Surprise</button>
-
+  <button class="kawaii-btn" onclick="techniqueRandom()">🎲 Surprise</button>
 </div>
 
 <div id="card" class="tech-card"></div>
 
-
-
-<script>
-let data = [];
-let current = null;
-let synth = speechSynthesis;
-let utterance = null;
-let timerInterval = null;
-let seconds = 0;
-
-fetch("../data/dext.json")
-.then(r=>r.json())
-.then(d=>{
- data = d;
- initFilters();
- afficher(d[0]);
-});
-
-function initFilters(){
- const niveaux=[...new Set(data.map(x=>x.niveau))];
- const materiels=[...new Set(data.flatMap(x=>x.materiel))];
- const modalites=[...new Set(data.flatMap(x=>x.modalite))];
-
- fillSelect("niveau",niveaux);
- fillSelect("materiel",materiels);
- fillSelect("modalite",modalites);
-
- document.querySelectorAll("#niveau,#materiel,#modalite")
-   .forEach(s=>s.onchange=applyFilters);
-
- document.getElementById("techniqueSelect").onchange = () => {
-  const nom = techniqueSelect.value;
-  const t = data.find(x=>x.nom===nom);
-  if(t) afficher(t);
- };
-
- applyFilters();
-}
-
-function fillSelect(id,values){
- const s=document.getElementById(id);
- s.innerHTML="<option value=''>Tous</option>";
- values.forEach(v=>s.innerHTML+=`<option>${v}</option>`);
-}
-
-function applyFilters(){
- const n=niveau.value;
- const m=materiel.value;
- const mo=modalite.value;
-
- const filtered=data.filter(t=>
-  (!n||t.niveau===n) &&
-  (!m||t.materiel.includes(m)) &&
-  (!mo||t.modalite.includes(mo))
- );
-
- remplirTechniques(filtered);
-}
-
-function remplirTechniques(list){
- const select = document.getElementById("techniqueSelect");
-
- if(!list.length){
-  select.innerHTML = "<option>Aucune technique</option>";
-  card.innerHTML = "";
-  return;
- }
-
- select.innerHTML = list
-   .map(t=>`<option>${t.nom}</option>`)
-   .join("");
-
- afficher(list[0]);
-}
-function afficher(t){
- current=t;
-
- const badgesMateriel = t.materiel.map(x=>`<span class="badge">${x==="canne"?"🦯":"棒"}</span>`).join("");
- const badgesPosture = t.modalite.map(x=>`<span class="badge">${x==="debout"?"🧍":"🪑"}</span>`).join("");
-
- document.getElementById("card").innerHTML=`
-   <div class="title-row">
-     <h2>${t.nom}</h2>
-     <button class="info-btn" onclick="showInfo()">ℹ️</button>
-   </div>
-
-   <div class="badges">${badgesMateriel} ${badgesPosture}</div>
-   <p>${t.description}</p>
-
-   <iframe src="${t.video}" allowfullscreen></iframe>
- `;
-}
-
-function techniqueRandom(){
- afficher(data[Math.floor(Math.random()*data.length)]);
-}
-
-  function showInfo(){
- if(!current.explication) return;
- alert(current.explication);
-}
-</script>
+<script src="../js/dext.js"></script>
 
 </body>
 </html>
