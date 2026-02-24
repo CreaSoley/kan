@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>TaïKan — Kata</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
+<body class="page-flex">
+
+<div class="top-bar">
+  <a href="../index.html">
+    <img src="../images/logo.png" class="logo-inline">
+  </a>
+  <h1 class="title-inline">Kata</h1>
+</div>
+
+<p class="subtitle">
+enchaînements techniques structurés pour coordination et mémoire motrice
+</p>
+
+<div class="nav-arrows">
+  <button class="nav-btn" onclick="prevKata()">◀</button>
+  <button class="nav-btn" onclick="nextKata()">▶</button>
+  <button class="kawaii-btn" onclick="randomKata()">🎲 Surprise</button>
+</div>
+
+<div id="card" class="tech-card kata-card"></div>
+
+<script src="../js/kata.js"></script>
+
+</body>
+</html>
