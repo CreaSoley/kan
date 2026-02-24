@@ -1,5 +1,5 @@
 const data = [
- { nom:"Kata 1", video: "https://www.w3schools.com/html/mov_bbb.mp4", pdf:"../video/kata1.pdf" },
+ { nom:"Kata 1", video:"../video/kata1.mp4", pdf:"../video/kata1.pdf", pdf:"../video/kata1.pdf" },
  { nom:"Kata 2", video:"../video/kata2.mp4", pdf:"../video/kata2.pdf" },
  { nom:"Kata 3", video:"../video/kata3.mp4", pdf:"../video/kata3.pdf" },
  { nom:"Kata 4", video:"../video/kata4.mp4", pdf:"../video/kata4.pdf" }
@@ -8,6 +8,7 @@ const data = [
 let index = 0;
 
 const select = document.getElementById("kataSelect");
+const card = document.getElementById("card");
 
 function initSelect(){
  select.innerHTML = data
