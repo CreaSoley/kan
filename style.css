@@ -473,3 +473,33 @@ iframe {
 .desc{
  text-align:left;
 }
+/* CARD COULEUR KATA */
+.kata-card{
+ background: linear-gradient(-20deg,#b721ff,#21d4fd);
+}
+
+/* VIDEO LOCALE */
+video{
+ width:100%;
+ border-radius:15px;
+ margin:2px 0;
+}
+
+/* NAVIGATION */
+.nav-arrows{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ justify-content:center;
+ margin:4px 0;
+}
+
+.nav-btn{
+ border:none;
+ border-radius:50%;
+ width:38px;
+ height:38px;
+ font-size:18px;
+ background:rgba(0,0,0,0.15);
+ color:white;
+}
