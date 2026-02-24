@@ -28,8 +28,9 @@ function afficher(){
  card.innerHTML = `
    <h2>${k.nom}</h2>
 
-   <video controls playsinline>
+   <video controls preload="metadata" playsinline class="kata-video">
      <source src="${k.video}" type="video/mp4">
+     Votre navigateur ne supporte pas la vidéo.
    </video>
 
    <a href="${k.pdf}" target="_blank" class="kawaii-btn">
