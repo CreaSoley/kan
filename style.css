@@ -510,3 +510,6 @@ video{
  font-family:"Fredoka";
  font-size:0.9em;
 }
+.kihon-card{
+  background: linear-gradient(135deg,#f6d365,#fda085);
+}
