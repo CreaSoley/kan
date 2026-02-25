@@ -577,21 +577,18 @@ video{
 }
 
 .accordion-content{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height 0.3s ease;
+  display:none;
   text-align:left;
   background:white;
   border-radius:12px;
-  padding:0 12px;
+  padding:10px 12px;
 }
 
 .accordion-content.open{
-  max-height:400px;
-  padding:10px 12px;
+  display:block;
 }
 
 /* ===== HIDDEN ===== */
 .hidden{
-  display:none;
+  display:none !important;
 }
