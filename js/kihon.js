@@ -53,13 +53,15 @@ const BG_MAP = {
 /* ===== LOADERS ===== */
 async function loadData(){
   const res = await fetch("../data/enchainements.json");
+  if(!res.ok) throw new Error("enchainements.json introuvable");
   DATA = await res.json();
 }
 
 async function loadGammes(){
   const res = await fetch("../data/gammes2.json");
-  const data = await res.json();
+  if(!res.ok) throw new Error("gammes2.json introuvable");
 
+  const data = await res.json();
   GAMMES = data.map(g => ({
     katakana: g.jp_katakana,
     romaji: g.jp_romaji,
