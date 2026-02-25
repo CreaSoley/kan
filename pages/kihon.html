@@ -101,10 +101,12 @@ rythme, coordination, souffle et structure
 <script src="../js/kihon.js"></script>
 
 <script>
-document.querySelectorAll(".accordion-toggle").forEach(btn=>{
-  btn.onclick = () => {
-    btn.nextElementSibling.classList.toggle("open");
-  };
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".accordion-toggle").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      btn.nextElementSibling.classList.toggle("open");
+    });
+  });
 });
 </script>
 
