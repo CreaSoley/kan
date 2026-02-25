@@ -3,7 +3,7 @@ const data = [
  { nom:"Kata 2", video:"../video/kata2.mp4", pdf:"../video/kata2.pdf" },
  { nom:"Kata 3", video:"../video/kata3.mp4", pdf:"../video/kata3.pdf" },
  { nom:"Kata 4", video:"../video/kata4.mp4", pdf:"../video/kata4.pdf" },
- { nom:"Kata 5", video:"../video/kata4.mp4", pdf:"../video/kata5.pdf" }
+ { nom:"Kata 5", video:"../video/kata5.mp4", pdf:"../video/kata5.pdf" }
 ];
 
 let index = 0;
