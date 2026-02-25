@@ -1,19 +1,18 @@
 /* =========================
-   TAIKAN — KIHON ENGINE
+   TAIKAN — KIHON ENGINE FINAL
    ========================= */
 
 /* ===== DATA ===== */
 let DATA = {};
 let GAMMES = [];
+let COMBINAISONS = [];
+
 let sequence = [];
 let index = 0;
 let timer = null;
 let paused = false;
 let stopped = false;
-let examMode = false;
 let workedSeconds = 0;
-let examRecapData = [];
-let trainingRecapData = [];
 
 /* ===== ELEMENTS ===== */
 const mode = document.getElementById("mode");
@@ -21,19 +20,17 @@ const categorie = document.getElementById("categorie");
 const countInput = document.getElementById("count");
 const intervalInput = document.getElementById("interval");
 const intervalVal = document.getElementById("intervalVal");
-const shortText = document.getElementById("shortText");
 
 const startBtn = document.getElementById("start");
 const pauseBtn = document.getElementById("pause");
 const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
-const presentationBtn = document.getElementById("presentationExam");
-const startExamBtn = document.getElementById("startExam");
 
-const visual = document.getElementById("visual");
 const text = document.getElementById("text");
 const countdown = document.getElementById("countdown");
-const recap = document.getElementById("recap");
+const visual = document.getElementById("visual");
+
+const gammeLevels = document.getElementById("gammeLevels");
 
 /* ===== MAPS ===== */
 const CATEGORY_MAP = {
@@ -43,39 +40,33 @@ const CATEGORY_MAP = {
   "cibles": "Cibles"
 };
 
-const BG_MAP = {
-  "3pas":"bg-3pas",
-  "surplace":"bg-surplace",
-  "multi":"bg-multi",
-  "cibles":"bg-cibles"
-};
-
 /* ===== LOADERS ===== */
 async function loadData(){
   const res = await fetch("../data/enchainements.json");
-  if(!res.ok) throw new Error("enchainements.json introuvable");
   DATA = await res.json();
 }
 
 async function loadGammes(){
   const res = await fetch("../data/gammes2.json");
-  if(!res.ok) throw new Error("gammes2.json introuvable");
-
   const data = await res.json();
+
   GAMMES = data.map(g => ({
-    katakana: g.jp_katakana,
-    romaji: g.jp_romaji,
-    fr: g.fr,
+    display: g.fr,
+    spoken: g.jp_romaji,
     level: g.level
   }));
+}
+
+async function loadCombinaisons(){
+  const res = await fetch("../data/combinaisons.json");
+  COMBINAISONS = await res.json();
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
   await loadData();
   await loadGammes();
-  if (typeof loadCombinaisons === "function") {
-    await loadCombinaisons();
-  }
+  await loadCombinaisons();
+  updateModeUI();
 });
 
 /* ===== UTILS ===== */
@@ -92,43 +83,127 @@ function speak(text, rate = 1, lang = "fr-FR") {
   });
 }
 
-function speakJP(text, rate = 0.7){
-  if(!text) return Promise.resolve();
-  return speak(text.replace(/\s+/g,""), rate, "ja-JP");
+function shuffle(array){
+  return [...array].sort(()=>Math.random()-0.5);
 }
 
-function shuffleArray(array){
-  for (let i=array.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [array[i],array[j]]=[array[j],array[i]];
-  }
-  return array;
+/* ===== UI MODE ===== */
+mode.addEventListener("change", updateModeUI);
+
+function updateModeUI(){
+  const m = mode.value;
+
+  gammeLevels.classList.toggle("hidden", m !== "6");
+
+  const showCategorie = m === "2" || m === "3";
+  categorie.parentElement.classList.toggle("hidden", !showCategorie);
 }
 
-function startLocalCountdown(seconds){
-  let remaining = seconds;
-  countdown.textContent = fmt(remaining);
-
-  const timerId = setInterval(() => {
-    if (paused || stopped) return;
-    remaining--;
-    countdown.textContent = fmt(remaining);
-    if (remaining <= 0) clearInterval(timerId);
-  }, 1000);
-
-  return timerId;
-}
-
-/* ===== PICK RANDOM ===== */
-function pickRandom(cat, n = 1){
+/* ===== RANDOM PICK ===== */
+function pickRandom(cat){
   const label = CATEGORY_MAP[cat];
   const list = DATA[label] || [];
-  if(!list.length) return n===1?null:[];
-  const shuffled=[...list].sort(()=>Math.random()-0.5);
-  return n===1?shuffled[0]:shuffled.slice(0,n);
+  if (!list.length) return null;
+  return list[Math.floor(Math.random()*list.length)];
 }
 
-/* ===== RUN CORE ===== */
+/* ===== SEQUENCE BUILD ===== */
+function buildSequence(){
+
+  const m = mode.value;
+  const cat = categorie.value;
+  const qty = +countInput.value;
+  const t = +intervalInput.value;
+
+  let seq = [];
+
+  /* === 1 ALEATOIRE GLOBAL === */
+  if (m === "1"){
+    Object.entries(DATA).forEach(([key,list])=>{
+      list.forEach(item=>{
+        seq.push({
+          display:item.display,
+          spoken:item.spoken,
+          time:t
+        });
+      });
+    });
+    return shuffle(seq).slice(0,qty);
+  }
+
+  /* === 2 PAR CATEGORIE === */
+  if (m === "2"){
+    const label = CATEGORY_MAP[cat];
+    return shuffle(DATA[label]).slice(0,qty).map(x=>({
+      display:x.display,
+      spoken:x.spoken,
+      time:t
+    }));
+  }
+
+  /* === 3 CATEGORIE CHOISIE === */
+  if (m === "3"){
+    const label = CATEGORY_MAP[cat];
+    return shuffle(DATA[label]).slice(0,qty).map(x=>({
+      display:x.display,
+      spoken:x.spoken,
+      time:t
+    }));
+  }
+
+  /* === 4 GAMMES === */
+  if (m === "4"){
+    return shuffle(GAMMES).slice(0,qty).map(g=>({
+      display:g.display,
+      spoken:g.spoken,
+      time:t
+    }));
+  }
+
+  /* === 5 HARA LIGNE === */
+  if (m === "5"){
+    const label = CATEGORY_MAP[cat];
+    return shuffle(DATA[label]).slice(0,qty).map(x=>({
+      display:`Hara — ${x.display}`,
+      spoken:x.spoken,
+      time:t
+    }));
+  }
+
+  /* === 6 COMBINAISONS === */
+  if (m === "6"){
+    const levelBtn = document.querySelector(".level-btn.active");
+    const level = levelBtn ? levelBtn.dataset.level : "1";
+
+    return shuffle(COMBINAISONS.filter(c=>c.level==level))
+      .slice(0,qty)
+      .map(x=>({
+        display:x.display,
+        spoken:x.spoken,
+        time:t
+      }));
+  }
+
+  /* === EXAM === */
+  if (m === "exam"){
+    const cats = Object.keys(CATEGORY_MAP);
+    cats.forEach(c=>{
+      const ex = pickRandom(c);
+      if(ex){
+        seq.push({
+          display:ex.display,
+          spoken:ex.spoken,
+          time:t
+        });
+      }
+    });
+    return seq;
+  }
+
+  return [];
+}
+
+/* ===== RUN ===== */
 async function run(){
 
   if (!sequence.length || stopped) return;
@@ -137,8 +212,6 @@ async function run(){
   if (!ex) return;
 
   text.textContent = ex.display;
-  const bg = BG_MAP[ex.cat];
-  if (bg) visual.className = bg;
 
   await speak(ex.spoken || ex.display, 0.7);
   await speak("Hajimé", 1);
@@ -150,6 +223,7 @@ async function run(){
 
   timer = setInterval(() => {
     if (paused || stopped) return;
+
     t--;
     workedSeconds++;
     countdown.textContent = fmt(t);
@@ -162,61 +236,28 @@ async function run(){
   },1000);
 }
 
-/* ===== START ===== */
+/* ===== COMMANDS ===== */
 startBtn.onclick = async () => {
-  if (!DATA || Object.keys(DATA).length === 0){
-    alert("Données non chargées");
+  stopped = false;
+  paused = false;
+  index = 0;
+  workedSeconds = 0;
+
+  sequence = buildSequence();
+
+  if (!sequence.length){
+    alert("Aucune donnée pour ce mode");
     return;
   }
 
-  stopped = false;
-  paused = false;
-  workedSeconds = 0;
-  index = 0;
-  sequence = [];
-
-  const m = mode.value;
-  const cat = categorie.value;
-  const qty = +countInput.value;
-  const t = +intervalInput.value;
-
-  if (m === "1"){
-    Object.entries(DATA).forEach(([key,list])=>{
-      list.forEach(item=>{
-        sequence.push({
-          cat:key,
-          display:item.display,
-          spoken:item.spoken,
-          time:t
-        });
-      });
-    });
-
-    sequence = shuffleArray(sequence).slice(0,qty);
-  }
-
-  if (m === "3"){
-    const realCat = CATEGORY_MAP[cat];
-    sequence = shuffleArray(DATA[realCat])
-      .slice(0,qty)
-      .map(item=>({
-        cat:cat,
-        display:item.display,
-        spoken:item.spoken,
-        time:t
-      }));
-  }
-
-  await run();
+  run();
 };
 
-/* ===== PAUSE ===== */
 pauseBtn.onclick = () => {
   paused = !paused;
   pauseBtn.textContent = paused ? "▶️ Reprendre" : "⏸ Pause";
 };
 
-/* ===== STOP ===== */
 stopBtn.onclick = () => {
   stopped = true;
   paused = false;
@@ -226,7 +267,6 @@ stopBtn.onclick = () => {
   countdown.textContent = "";
 };
 
-/* ===== RESET ===== */
 resetBtn.onclick = () => {
   stopped = true;
   paused = false;
@@ -238,15 +278,15 @@ resetBtn.onclick = () => {
   countdown.textContent = "";
 };
 
-/* ===== UI ===== */
+/* ===== INTERVAL UI ===== */
 intervalInput.oninput = () => {
   intervalVal.textContent = fmt(+intervalInput.value);
 };
 
-mode.onchange = () => {
-  const exam = mode.value === "exam";
-  startBtn.disabled = exam;
-  categorie.disabled = exam;
-  countInput.disabled = exam;
-  intervalInput.disabled = exam;
-};
+/* ===== LEVEL BUTTONS ===== */
+document.querySelectorAll(".level-btn").forEach(btn=>{
+  btn.onclick = () => {
+    document.querySelectorAll(".level-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+  };
+});
