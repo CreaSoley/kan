@@ -88,16 +88,52 @@ function shuffle(array){
 }
 
 /* ===== UI MODE ===== */
-mode.addEventListener("change", updateModeUI);
+/* ===== UI INIT ===== */
 
-function updateModeUI(){
+function updateUI(){
+
   const m = mode.value;
 
-  gammeLevels.classList.toggle("hidden", m !== "6");
+  // tout visible par défaut
+  categorie.parentElement.style.display = "flex";
+  countInput.parentElement.style.display = "flex";
+  intervalInput.parentElement.style.display = "flex";
+  document.getElementById("gammeLevels").classList.add("hidden");
 
-  const showCategorie = m === "2" || m === "3";
-  categorie.parentElement.classList.toggle("hidden", !showCategorie);
+  // affichage spécifique
+  if(m === "1"){ // aléatoire global
+    categorie.parentElement.style.display = "none";
+  }
+
+  if(m === "2"){ // par catégorie
+    categorie.parentElement.style.display = "flex";
+  }
+
+  if(m === "3"){ // catégorie choisie
+    categorie.parentElement.style.display = "flex";
+  }
+
+  if(m === "4"){ // gammes
+    categorie.parentElement.style.display = "none";
+  }
+
+  if(m === "5"){ // hara ligne
+    categorie.parentElement.style.display = "none";
+  }
+
+  if(m === "6"){ // combinaisons
+    categorie.parentElement.style.display = "none";
+    document.getElementById("gammeLevels").classList.remove("hidden");
+  }
+
+  if(m === "exam"){ // examen
+    categorie.parentElement.style.display = "none";
+    countInput.parentElement.style.display = "none";
+  }
 }
+
+mode.addEventListener("change", updateUI);
+document.addEventListener("DOMContentLoaded", updateUI);
 
 /* ===== RANDOM PICK ===== */
 function pickRandom(cat){
