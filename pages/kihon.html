@@ -9,7 +9,6 @@
 
 <body class="page-flex">
 
-<!-- ===== HEADER STANDARD TAIKAN ===== -->
 <div class="top-bar">
   <a href="../index.html">
     <img src="../images/logo.png" class="logo-inline">
@@ -22,134 +21,92 @@ travail des techniques fondamentales :
 rythme, coordination, souffle et structure
 </p>
 
-<!-- ===== CARD COULEUR DÉDIÉE ===== -->
 <div class="tech-card kihon-card">
 
-   <!-- ===================== -->
-      <!-- PARAMÈTRES -->
-      <!-- ===================== -->
-      <div class="sub-section">
-        <h3>⚙️ Paramètres</h3>
+<!-- PARAMÈTRES -->
+<div class="sub-section">
 
-        <div class="controls-row">
-          <label>Mode :</label>
-         <select id="mode" class="input-wide">
-          <option value="1">⚡ Aléatoire global</option>
-          <option value="2">🗂️ Par catégorie</option>
-          <option value="3">🎯 Catégorie choisie</option>
-          <option value="4">🎵 Gammes</option>
-          <option value="6">🧩 Combinaisons</option>
-          <option value="5">🫁 Hara ligne</option>
-          <option value="exam">🏯 Examen blanc</option>
+<div class="controls">
+<select id="mode">
+<option value="1">⚡ Aléatoire global</option>
+<option value="2">🗂️ Par catégorie</option>
+<option value="3">🎯 Catégorie choisie</option>
+<option value="4">🎵 Gammes</option>
+<option value="6">🧩 Combinaisons</option>
+<option value="5">🫁 Hara ligne</option>
+<option value="exam">🏯 Examen blanc</option>
+</select>
 
-          </select>
-        </div>
+<select id="categorie">
+<option value="3pas">3 pas</option>
+<option value="surplace">Sur place</option>
+<option value="multi">Multidirectionnel</option>
+<option value="cibles">Cibles</option>
+</select>
 
-        <div class="controls-row">
-          <label>Catégorie :</label>
-          <select id="categorie" class="input-small">
-            <option value="3pas">3 pas</option>
-            <option value="surplace">Sur place</option>
-            <option value="multi">Multidirectionnel</option>
-            <option value="cibles">Cibles</option>
-          </select>
-        </div>
+<input type="number" id="count" min="1" value="3">
+<input type="range" id="interval" min="30" max="240" value="60">
+<span id="intervalVal">1m 00s</span>
+</div>
 
-        <div class="controls-row">
-          <label>Qté :</label>
-          <input type="number" id="count" class="input-small" min="1" value="3">
-        </div>
-
-        <div class="controls-row">
-          <label>Intervalle :</label>
-          <input type="range" id="interval" min="30" max="240" value="60">
-          <span id="intervalVal" class="muted">1m 00s</span>
-        </div>
-
-        <div class="controls-row">
-          <label>Rythme :</label>
-          <select id="speedMode" class="input-small">
-            <option value="slow">Lent</option>
-            <option value="fast">Rapide</option>
-          </select>
-        </div>
-
-        <div id="shortText" class="muted"></div>
-      </div>
 <div id="gammeLevels" class="level-selector hidden">
-  <button class="btn-kawaii level-btn" data-level="1">Niveau 1</button>
-  <button class="btn-kawaii level-btn" data-level="2">Niveau 2</button>
-  <button class="btn-kawaii level-btn" data-level="3">Niveau 3</button>
+<button class="btn-kawaii level-btn active" data-level="1">Niveau 1</button>
+<button class="btn-kawaii level-btn" data-level="2">Niveau 2</button>
+<button class="btn-kawaii level-btn" data-level="3">Niveau 3</button>
 </div>
 
+</div>
 
-      <!-- ===================== -->
-      <!-- BOUTONS -->
-      <!-- ===================== -->
-      <div class="sub-section">
-        <h3>🎮 Commandes</h3>
+<!-- COMMANDES -->
+<div class="sub-section">
+<div class="button-row">
+<button id="start" class="btn-kawaii start">▶️ Lancer</button>
+<button id="pause" class="btn-kawaii pause">⏸ Pause</button>
+<button id="stop" class="btn-kawaii stop">⏹ Stop</button>
+<button id="reset" class="btn-kawaii reset">🔄 Reset</button>
+</div>
+</div>
 
-        <div class="button-row">
-         <button id="start" class="btn-kawaii start">▶️ Lancer</button>
-          <button id="pause" class="btn-kawaii pause">⏸ Pause</button>
-          <button id="stop" class="btn-kawaii stop">⏹ Stop</button>
-        </div>
+<!-- AFFICHAGE -->
+<div class="sub-section">
+<div id="visual" class="result-display">
+<div id="text">Prêt 🌸</div>
+<div id="countdown"></div>
+</div>
+</div>
 
-        <div class="button-row">
-         <button id="criteria" class="btn-kawaii criteria">📋 Criteres</button>
-          <button id="presentationExam" class="btn-kawaii hidden">📢 Presentation</button>
-          <button id="startExam" class="btn-kawaii hidden">📝 Examen</button>
-          <button id="reset" class="btn-kawaii reset">🔄 Reset</button>
-        </div>
-      </div>
+<!-- CRITÈRES ACCORDION -->
 <div class="accordion">
-  <button class="accordion-header">
-    📋 Critères d’évaluation
-  </button>
+<button class="accordion-toggle">📋 Critères d’évaluation</button>
+<div class="accordion-content">
+<strong>Examen — Enchaînements</strong>
+<ul>
+<li>Puissance et vitesse</li>
+<li>Équilibre</li>
+<li>Structure corporelle</li>
+<li>Détermination</li>
+</ul>
 
-  <div class="accordion-content">
-    <strong>Examen – Enchaînements</strong>
-    <ul>
-      <li>Puissance et vitesse</li>
-      <li>Déplacements fluides</li>
-      <li>Équilibre</li>
-      <li>Attitude corporelle</li>
-      <li>Détermination</li>
-    </ul>
-
-    <strong>Travail avec cibles</strong>
-    <ul>
-      <li>Gestion de distance</li>
-      <li>Maîtrise du geste</li>
-      <li>Précision</li>
-    </ul>
-  </div>
+<strong>Travail avec cibles</strong>
+<ul>
+<li>Distance</li>
+<li>Maîtrise</li>
+<li>Précision</li>
+</ul>
+</div>
 </div>
 
-      <!-- ===================== -->
-      <!-- AFFICHAGE -->
-      <!-- ===================== -->
-      <div class="sub-section">
-        <h3>👀 Exercice en cours</h3>
+</div>
 
-        <div id="visual" class="result-display">
-          <div id="text">Prêt 🌸</div>
-          <div id="countdown"></div>
-        </div>
-      </div>
-
-      <!-- ===================== -->
-      <!-- RÉCAP -->
-      <!-- ===================== -->
-      <div id="recap" class="sub-section hidden"></div>
-
-   </div>
-
-  </div>
-
-<!-- scripts -->
-<script src="../js/combinaisons.js"></script>
 <script src="../js/kihon.js"></script>
+
+<script>
+document.querySelectorAll(".accordion-toggle").forEach(btn=>{
+  btn.onclick = () => {
+    btn.nextElementSibling.classList.toggle("open");
+  };
+});
+</script>
 
 </body>
 </html>
