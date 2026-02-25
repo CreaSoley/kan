@@ -510,49 +510,88 @@ video{
  font-family:"Fredoka";
  font-size:0.9em;
 }
+/* ===== KIHON CARD ===== */
 .kihon-card{
-  background: linear-gradient(135deg,#f6d365,#fda085);
-}
-.btn-kawaii{
-  border:none;
-  border-radius:18px;
-  padding:10px 14px;
-  font-size:0.95rem;
-  font-weight:600;
-  color:white;
-  background: linear-gradient(135deg,#667eea,#764ba2);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition:0.15s;
+  background: linear-gradient(135deg,#4facfe,#00f2fe);
 }
 
-.btn-kawaii:active{
-  transform:scale(0.97);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* ===== RESULT DISPLAY ===== */
+.result-display{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  font-size:1.4em;
+  margin-top:6px;
 }
+
+/* ===== BUTTONS ===== */
+.btn-kawaii{
+  border:none;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:0.95em;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.start{ background:#43e97b; }
+.pause{ background:#f6d365; color:#333; }
+.stop{ background:#ff758c; }
+.reset{ background:#a18cd1; }
 
 .button-row{
   display:flex;
   gap:8px;
+  justify-content:center;
   flex-wrap:wrap;
 }
-.accordion-header{
+
+/* ===== LEVEL SELECTOR ===== */
+.level-selector{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:6px;
+}
+
+.level-btn.active{
+  transform:scale(1.05);
+  box-shadow:0 0 0 3px white inset;
+}
+
+/* ===== ACCORDION ===== */
+.accordion{
+  margin-top:8px;
+}
+
+.accordion-toggle{
   width:100%;
   border:none;
-  border-radius:14px;
-  padding:12px;
-  font-size:1rem;
-  background:#ffffff22;
-  backdrop-filter: blur(6px);
+  border-radius:12px;
+  padding:10px;
+  background:white;
+  cursor:pointer;
+  font-size:0.95em;
 }
 
 .accordion-content{
   max-height:0;
   overflow:hidden;
-  transition:0.3s;
-  padding:0 8px;
+  transition:max-height 0.3s ease;
+  text-align:left;
+  background:white;
+  border-radius:12px;
+  padding:0 12px;
 }
 
 .accordion-content.open{
   max-height:400px;
-  padding:10px 8px;
+  padding:10px 12px;
+}
+
+/* ===== HIDDEN ===== */
+.hidden{
+  display:none;
 }
