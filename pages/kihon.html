@@ -78,7 +78,7 @@ const compteJap = ["Ichi", "Ni", "San", "Shi", "Go", "Roku", "Shichi", "Hachi", 
 // Chargement JSON
 // ============================
 async function loadTechniques() {
-    const res = await fetch("kihon.json");
+    const res = await fetch("../kihon.json");
     techniques = await res.json();
     buildMenu();
     updateFavoris();
