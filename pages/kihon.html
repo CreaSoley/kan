@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>TaïKan — Kihon</title>
+
 <link rel="stylesheet" href="../style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body class="page-flex">
 
+<!-- HEADER -->
 <div class="top-bar">
   <a href="../index.html">
     <img src="../images/logo.png" class="logo-inline">
@@ -16,99 +19,53 @@
   <h1 class="title-inline">Kihon</h1>
 </div>
 
-<p class="subtitle">
-travail des techniques fondamentales :
-rythme, coordination, souffle et structure
-</p>
-
-<div class="tech-card kihon-card">
-
-<!-- PARAMÈTRES -->
-<div class="sub-section">
-
+<!-- MODE -->
 <div class="controls">
-<select id="mode">
-<option value="1">⚡ Aléatoire global</option>
-<option value="2">🗂️ Par catégorie</option>
-<option value="3">🎯 Catégorie choisie</option>
-<option value="4">🎵 Gammes</option>
-<option value="6">🧩 Combinaisons</option>
-<option value="5">🫁 Hara ligne</option>
-<option value="exam">🏯 Examen blanc</option>
+
+<select id="modeSelect">
+<option value="gammes">🎵 Gammes</option>
+<option value="combinaisons">🧩 Combinaisons</option>
+<option value="hara">🫁 Hara ligne</option>
 </select>
 
-<select id="categorie">
-<option value="3pas">3 pas</option>
-<option value="surplace">Sur place</option>
-<option value="multi">Multidirectionnel</option>
-<option value="cibles">Cibles</option>
+<select id="intervalSelect">
+<option value="30">30s</option>
+<option value="45">45s</option>
+<option value="60" selected>1 min</option>
+<option value="90">1m30</option>
+<option value="120">2 min</option>
 </select>
 
-<input type="number" id="count" min="1" value="3">
-<input type="range" id="interval" min="30" max="240" value="60">
-<span id="intervalVal">1m 00s</span>
-</div>
-
-<div id="gammeLevels" class="level-selector hidden">
-<button class="btn-kawaii level-btn active" data-level="1">Niveau 1</button>
-<button class="btn-kawaii level-btn" data-level="2">Niveau 2</button>
-<button class="btn-kawaii level-btn" data-level="3">Niveau 3</button>
-</div>
+<button class="kawaii-btn" onclick="startTraining()">▶️ Lancer</button>
+<button class="kawaii-btn" onclick="pauseTraining()">⏸ Pause</button>
+<button class="kawaii-btn" onclick="stopTraining()">⏹ Stop</button>
 
 </div>
 
-<!-- COMMANDES -->
-<div class="sub-section">
-<div class="button-row">
-<button id="start" class="btn-kawaii start">▶️ Lancer</button>
-<button id="pause" class="btn-kawaii pause">⏸ Pause</button>
-<button id="stop" class="btn-kawaii stop">⏹ Stop</button>
-<button id="reset" class="btn-kawaii reset">🔄 Reset</button>
-</div>
+<!-- NAVIGATION -->
+<div class="nav-arrows">
+<button onclick="prevTech()">⬅</button>
+<button onclick="nextTech()">➡</button>
 </div>
 
-<!-- AFFICHAGE -->
-<div class="sub-section">
-<div id="visual" class="result-display">
-<div id="text">Prêt 🌸</div>
-<div id="countdown"></div>
-</div>
+<!-- CARD -->
+<div id="card" class="tech-card kihon-card">
+
+<h2 id="techName">Prêt 🌸</h2>
+
+<div id="impactZone" class="impact-icon hidden">
+<img id="impactImg" src="">
 </div>
 
-<!-- CRITÈRES ACCORDION -->
-<div class="accordion">
-<button class="accordion-toggle">📋 Critères d’évaluation</button>
-<div class="accordion-content">
-<strong>Examen — Enchaînements</strong>
-<ul>
-<li>Puissance et vitesse</li>
-<li>Équilibre</li>
-<li>Structure corporelle</li>
-<li>Détermination</li>
-</ul>
+<p id="techObjectif"></p>
 
-<strong>Travail avec cibles</strong>
-<ul>
-<li>Distance</li>
-<li>Maîtrise</li>
-<li>Précision</li>
-</ul>
-</div>
-</div>
+<div id="steps"></div>
+
+<iframe id="video" class="hidden"></iframe>
 
 </div>
 
 <script src="../js/kihon.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".accordion-toggle").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      btn.nextElementSibling.classList.toggle("open");
-    });
-  });
-});
-</script>
 
 </body>
 </html>
