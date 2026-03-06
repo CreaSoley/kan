@@ -1,0 +1,26 @@
+[
+{
+"id":1,
+"nom":"Coup à l'aine",
+"objectif":"Frapper l'aine pour stopper l'attaque",
+"zone":"pt",
+"etapes":[
+"Avancer jambe gauche",
+"Frapper à la pointe"
+],
+"video":"https://www.youtube.com/embed/xxxxx"
+},
+
+{
+"id":2,
+"nom":"Bouclier",
+"objectif":"Protéger le buste",
+"zone":"cro",
+"etapes":[
+"Lever la crosse",
+"Bloquer l'attaque"
+],
+"video":"https://www.youtube.com/embed/xxxxx"
+}
+
+]
