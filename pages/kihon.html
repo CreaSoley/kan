@@ -2,70 +2,234 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>TaïKan — Kihon</title>
-
-<link rel="stylesheet" href="../style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>Kihon Dojo – Canne de marche</title>
+<style>
+    body { font-family: Arial, sans-serif; background:#f2f2f2; margin:0; padding:20px; }
+    h1 { text-align:center; }
+    #container { display:flex; gap:20px; }
+    #menu { width:250px; background:#fff; padding:10px; border-radius:10px; max-height:80vh; overflow-y:auto; }
+    #menu ul { list-style:none; padding:0; }
+    #menu li { padding:8px; cursor:pointer; border-bottom:1px solid #eee; }
+    #menu li:hover { background:#ddd; }
+    #details { flex:1; background:#fff; padding:10px; border-radius:10px; }
+    #video-frame { width:100%; height:300px; margin-top:10px; }
+    button { margin:5px; padding:8px 12px; cursor:pointer; border:none; background:#4CAF50; color:white; border-radius:5px; }
+    button:hover { background:#45a049; }
+    #favoris { margin-top:10px; }
+    .favori-item { padding:5px; border-bottom:1px solid #eee; cursor:pointer; }
+    .favori-item:hover { background:#eee; }
+</style>
 </head>
+<body>
 
-<body class="page-flex">
+<h1>Kihon Dojo – Canne de marche</h1>
 
-<!-- HEADER -->
-<div class="top-bar">
-  <a href="../index.html">
-    <img src="../images/logo.png" class="logo-inline">
-  </a>
-  <h1 class="title-inline">Kihon</h1>
+<div id="controls">
+    <label>Tempo : </label>
+    <select id="tempo-select">
+        <option value="1">x1</option>
+        <option value="0.7">x0.7</option>
+        <option value="1.3">x1.3</option>
+    </select>
+    <button onclick="sparring()">Sparring aléatoire</button>
+    <button onclick="playCombo()">Combo aléatoire</button>
 </div>
 
-<!-- MODE -->
-<div class="controls">
+<div id="container">
+    <div id="menu">
+        <h3>Techniques</h3>
+        <ul id="techniques-menu"></ul>
+        <h3>Favoris</h3>
+        <div id="favoris"></div>
+    </div>
 
-<select id="modeSelect">
-<option value="gammes">🎵 Gammes</option>
-<option value="combinaisons">🧩 Combinaisons</option>
-<option value="hara">🫁 Hara ligne</option>
-</select>
-
-<select id="intervalSelect">
-<option value="30">30s</option>
-<option value="45">45s</option>
-<option value="60" selected>1 min</option>
-<option value="90">1m30</option>
-<option value="120">2 min</option>
-</select>
-
-<button class="kawaii-btn" onclick="startTraining()">▶️ Lancer</button>
-<button class="kawaii-btn" onclick="pauseTraining()">⏸ Pause</button>
-<button class="kawaii-btn" onclick="stopTraining()">⏹ Stop</button>
-
+    <div id="details">
+        <h2 id="technique-name">Sélectionnez une technique</h2>
+        <p id="technique-objectif"></p>
+        <p id="technique-zone"></p>
+        <ul id="technique-etapes"></ul>
+        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <button id="toggle-favori" onclick="toggleCurrentFavori()">Ajouter/Supprimer Favori</button>
+    </div>
 </div>
 
-<!-- NAVIGATION -->
-<div class="nav-arrows">
-<button onclick="prevTech()">⬅</button>
-<button onclick="nextTech()">➡</button>
-</div>
+<script>
+// ============================
+// Kihon.js intégré
+// ============================
 
-<!-- CARD -->
-<div id="card" class="tech-card kihon-card">
+let techniques = [];
+let tempo = 1;
+let favoris = JSON.parse(localStorage.getItem("kihon_favoris")) || [];
+let synth = window.speechSynthesis;
+let currentTech = null;
 
-<h2 id="techName">Prêt 🌸</h2>
+const zones = {
+    "none": "Aucune zone spécifique",
+    "mb": "Membres inférieurs",
+    "mm": "Membres supérieurs",
+    "cro": "Crochet / avant-bras",
+    "pt": "Plexus / torse"
+};
 
-<div id="impactZone" class="impact-icon hidden">
-<img id="impactImg" src="">
-</div>
+const compteJap = ["Ichi", "Ni", "San", "Shi", "Go", "Roku", "Shichi", "Hachi", "Ku", "Ju"];
 
-<p id="techObjectif"></p>
+// ============================
+// Chargement JSON
+// ============================
+async function loadTechniques() {
+    const res = await fetch("kihon.json");
+    techniques = await res.json();
+    buildMenu();
+    updateFavoris();
+}
 
-<div id="steps"></div>
+// ============================
+// Menu des techniques
+// ============================
+function buildMenu() {
+    const menu = document.getElementById("techniques-menu");
+    menu.innerHTML = "";
+    techniques.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = t.nom;
+        li.onclick = () => playTechnique(t);
+        menu.appendChild(li);
+    });
+}
 
-<iframe id="video" class="hidden"></iframe>
+// ============================
+// Lecture d’une technique
+// ============================
+async function playTechnique(tech) {
+    currentTech = tech;
+    updateDetails(tech);
+    await speakJapaneseCount(tech.etapes.length);
+    for (let etape of tech.etapes) {
+        await speak(etape);
+        await wait(700 / tempo);
+    }
+    if (tech.video) {
+        document.getElementById("video-frame").src = tech.video;
+    }
+}
 
-</div>
+// ============================
+// Mise à jour détails
+// ============================
+function updateDetails(tech) {
+    document.getElementById("technique-name").textContent = tech.nom;
+    document.getElementById("technique-objectif").textContent = "Objectif : " + tech.objectif;
+    document.getElementById("technique-zone").textContent = "Zone : " + (zones[tech.zone] || tech.zone);
+    const ul = document.getElementById("technique-etapes");
+    ul.innerHTML = "";
+    tech.etapes.forEach(e => {
+        const li = document.createElement("li");
+        li.textContent = e;
+        ul.appendChild(li);
+    });
+}
 
-<script src="../js/kihon.js"></script>
+// ============================
+// Compte japonais
+// ============================
+async function speakJapaneseCount(n) {
+    for (let i = 0; i < n && i < compteJap.length; i++) {
+        await speak(compteJap[i]);
+        await wait(500 / tempo);
+    }
+}
+
+// ============================
+// Synthèse vocale
+// ============================
+function speak(text) {
+    return new Promise(resolve => {
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "fr-FR";
+        utter.rate = 1 * tempo;
+        utter.onend = resolve;
+        synth.speak(utter);
+    });
+}
+
+// ============================
+// Utils
+// ============================
+function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+// ============================
+// Tempo
+// ============================
+document.getElementById("tempo-select").addEventListener("change", (e) => {
+    tempo = parseFloat(e.target.value);
+});
+
+// ============================
+// Favoris
+// ============================
+function toggleCurrentFavori() {
+    if (!currentTech) return;
+    toggleFavori(currentTech.id);
+}
+
+function toggleFavori(id) {
+    const index = favoris.indexOf(id);
+    if (index >= 0) { favoris.splice(index, 1); }
+    else { favoris.push(id); }
+    localStorage.setItem("kihon_favoris", JSON.stringify(favoris));
+    updateFavoris();
+}
+
+function updateFavoris() {
+    const favDiv = document.getElementById("favoris");
+    favDiv.innerHTML = "";
+    favoris.forEach(id => {
+        const tech = techniques.find(t => t.id === id);
+        if (!tech) return;
+        const div = document.createElement("div");
+        div.textContent = tech.nom;
+        div.className = "favori-item";
+        div.onclick = () => playTechnique(tech);
+        favDiv.appendChild(div);
+    });
+}
+
+// ============================
+// Combos aléatoires
+// ============================
+async function playCombo(length = 3) {
+    const combo = generateCombo(length);
+    for (let t of combo) { await playTechnique(t); await wait(500 / tempo); }
+}
+
+function generateCombo(length = 3) {
+    const combo = [];
+    for (let i = 0; i < length; i++) {
+        const t = techniques[Math.floor(Math.random() * techniques.length)];
+        combo.push(t);
+    }
+    return combo;
+}
+
+// ============================
+// Sparring aléatoire
+// ============================
+async function sparring(rounds = 5) {
+    for (let i = 0; i < rounds; i++) {
+        const t = techniques[Math.floor(Math.random() * techniques.length)];
+        await playTechnique(t);
+        await wait(500 / tempo);
+    }
+}
+
+// ============================
+// Démarrage
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+    loadTechniques();
+});
+</script>
 
 </body>
 </html>
