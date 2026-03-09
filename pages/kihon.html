@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <title>TaïKan — Kihon</title>
 
@@ -19,31 +20,57 @@
 <h1 class="title-inline">Kihon</h1>
 </div>
 
-<!-- SELECTEURS -->
+<!-- MODE -->
 <div class="controls">
 
-<select id="techniqueSelect" class="kata-select">
-<option value="">Technique</option>
+<select id="modeSelect" class="kata-select">
+<option value="solo">Technique solo</option>
+<option value="combo">Combo</option>
+<option value="sparring">Sparring</option>
+<option value="sensei">Sensei</option>
+<option value="multi">Multi-directionnel</option>
 </select>
 
-<select id="comboSelect" class="kata-select">
-<option value="">Combo</option>
-</select>
+<select id="techniqueSelect" class="kata-select"></select>
 
-<button class="kawaii-btn" onclick="randomTechnique()">🎲 Technique</button>
+<select id="techniqueSelect2" class="kata-select"></select>
 
-<button class="kawaii-btn" onclick="randomCombo()">🎲 Combo</button>
-
-<button class="kawaii-btn" onclick="startSensei()">🥋 Sensei</button>
+<button class="kawaii-btn" onclick="randomTechnique()">🎲 Surprise</button>
 
 </div>
 
-<!-- NAVIGATION -->
-<div class="nav-arrows">
+<!-- OPTIONS -->
+<div class="controls">
 
-<button onclick="prevTechnique()">⬅</button>
+<select id="countSelect" class="kata-select">
+<option value="5">Compte 5</option>
+<option value="10">Compte 10</option>
+</select>
 
-<button onclick="nextTechnique()">➡</button>
+<select id="sparringCount" class="kata-select">
+<option value="5">5 assauts</option>
+<option value="6">6 assauts</option>
+<option value="7">7 assauts</option>
+<option value="8">8 assauts</option>
+<option value="9">9 assauts</option>
+<option value="10">10 assauts</option>
+</select>
+
+<select id="speedSelect" class="kata-select">
+<option value="2000">Lent</option>
+<option value="1200">Normal</option>
+<option value="700">Rapide</option>
+</select>
+
+</div>
+
+<!-- CONTROLES -->
+<div class="button-row">
+
+<button class="btn-kawaii start" onclick="startTraining()">▶</button>
+<button class="btn-kawaii pause" onclick="pauseTraining()">⏸</button>
+<button class="btn-kawaii stop" onclick="stopTraining()">⏹</button>
+<button class="btn-kawaii reset" onclick="resetTraining()">🔄</button>
 
 </div>
 
