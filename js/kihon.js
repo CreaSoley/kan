@@ -198,7 +198,29 @@ function randomAssaut(){
 return assauts[Math.floor(Math.random()*assauts.length)]
 
 }
+function generateSmartSparring(n){
 
+let result=[]
+let lastCat=null
+let lastId=null
+
+while(result.length<n){
+
+let a=assauts[Math.floor(Math.random()*assauts.length)]
+
+if(a.id===lastId) continue
+if(a.categorie===lastCat) continue
+
+result.push(a)
+
+lastCat=a.categorie
+lastId=a.id
+
+}
+
+return result
+
+}
 /* SPARRING */
 
 async function sparringMode(){
@@ -208,9 +230,9 @@ let n=document.getElementById("sparringCount").value
 await speak("Kamae")
 await speak("Hajime")
 
-for(let i=0;i<n;i++){
+let sequence=generateSmartSparring(n)
 
-let a=randomAssaut()
+for(let a of sequence){
 
 await speak(a.categorie + " : " + a.nom)
 
