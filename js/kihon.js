@@ -193,7 +193,11 @@ await wait(2000)
 await speak("Yassme")
 
 }
+function randomAssaut(){
 
+return assauts[Math.floor(Math.random()*assauts.length)]
+
+}
 
 /* SPARRING */
 
@@ -206,9 +210,9 @@ await speak("Hajime")
 
 for(let i=0;i<n;i++){
 
-let a=assauts[Math.floor(Math.random()*assauts.length)]
+let a=randomAssaut()
 
-await speak(a.nom)
+await speak(a.categorie + " : " + a.nom)
 
 await wait(3000)
 
