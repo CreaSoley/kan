@@ -1,361 +1,257 @@
-/* ================================
-KIHON TRAINER - CANNE DE MARCHE
-================================ */
+// =============================
+// KIHON TRAINER
+// =============================
 
-let techniques = [];
-let running = false;
-let timer = null;
-let tempo = 3000;
+let techniques = []
+let current = null
+let tempo = 1
 
-let selectedTechniques = [];
-let favs = JSON.parse(localStorage.getItem("kihonFavs") || "[]");
-
-/* ================================
-ZONES D'IMPACT
-================================ */
+const synth = window.speechSynthesis
 
 const zones = {
-mh:"haut du manche",
-mm:"milieu du manche",
-mb:"bas du manche",
-cro:"crosse",
-pt:"pointe",
-ptcro:"extrémité de la crosse",
-none:"non concerné"
-};
-
-/* ================================
-COMPTAGE DOJO
-================================ */
+none: "aucune",
+mb: "bas du manche",
+mm: "milieu du manche",
+cro: "crosse",
+pt: "pointe"
+}
 
 const countJP = [
 "ichi","ni","san","shi","go",
 "roku","shichi","hachi","kyu","ju"
-];
+]
 
-/* ================================
-VOIX
-================================ */
-
-function speak(text){
-
-if(!window.speechSynthesis) return;
-
-let utter = new SpeechSynthesisUtterance(text);
-
-utter.lang="fr-FR";
-utter.rate=0.9;
-utter.pitch=1;
-
-speechSynthesis.speak(utter);
-
-}
-
-/* ================================
-CHARGEMENT JSON
-================================ */
+// =============================
+// LOAD JSON
+// =============================
 
 async function loadTechniques(){
 
-let res = await fetch("data/kihon.json");
-techniques = await res.json();
+try{
 
-populateMenu();
+const res = await fetch("kihon.json")
+
+if(!res.ok)
+throw new Error("kihon.json introuvable")
+
+techniques = await res.json()
+
+console.log("techniques chargées:",techniques.length)
+
+buildMenu()
+
+}
+catch(err){
+
+console.error("Erreur chargement JSON :",err)
 
 }
 
-/* ================================
-MENU TECHNIQUES
-================================ */
+}
 
-function populateMenu(){
+// =============================
+// MENU
+// =============================
 
-let menu = document.getElementById("techSelect");
+function buildMenu(){
+
+const menu = document.getElementById("techniques-menu")
+
+if(!menu) return
+
+menu.innerHTML=""
 
 techniques.forEach(t=>{
 
-let opt = document.createElement("option");
+const li=document.createElement("li")
 
-opt.value=t.id;
-opt.textContent=t.nom;
+li.textContent=t.nom
 
-menu.appendChild(opt);
+li.onclick=()=>playTechnique(t)
 
-});
+menu.appendChild(li)
+
+})
 
 }
 
-/* ================================
-AFFICHAGE TECHNIQUE
-================================ */
+// =============================
+// AFFICHAGE
+// =============================
 
-function displayTechnique(t){
+function updateDetails(t){
 
-let name = document.getElementById("techName");
-let steps = document.getElementById("techSteps");
-let video = document.getElementById("techVideo");
-let zone = document.getElementById("impactZone");
+if(!t) return
 
-name.textContent = t.nom;
+document.getElementById("technique-name").textContent = t.nom
 
-steps.innerHTML="";
+document.getElementById("technique-objectif").textContent =
+"Objectif : "+t.objectif
+
+document.getElementById("technique-zone").textContent =
+"Zone : "+(zones[t.zone]||t.zone)
+
+const ul=document.getElementById("technique-etapes")
+
+ul.innerHTML=""
 
 t.etapes.forEach(e=>{
 
-let li=document.createElement("li");
-li.textContent=e;
-steps.appendChild(li);
+const li=document.createElement("li")
 
-});
+li.textContent=e
 
-video.src = t.video;
+ul.appendChild(li)
 
-zone.textContent = zones[t.zone];
+})
 
-}
-
-/* ================================
-RITUEL DEBUT
-================================ */
-
-function dojoStart(){
-
-speak("préparez vous");
-
-setTimeout(()=>{
-
-speak("hajime");
-
-},1000);
+if(t.video)
+document.getElementById("video-frame").src=t.video
 
 }
 
-/* ================================
-RITUEL FIN
-================================ */
+// =============================
+// VOIX
+// =============================
 
-function dojoStop(){
+function speak(text){
 
-speak("yame");
+return new Promise(resolve=>{
 
-}
+if(!synth){
 
-/* ================================
-MODE GAMME
-================================ */
-
-function nextTechnique(){
-
-let list = selectedTechniques.length
-? selectedTechniques
-: techniques;
-
-let t = list[Math.floor(Math.random()*list.length)];
-
-displayTechnique(t);
-
-let phrase =
-t.nom + ". objectif " +
-t.objectif + ". zone " +
-zones[t.zone];
-
-speak(phrase);
+resolve()
+return
 
 }
 
-/* ================================
-MODE COMBO
-================================ */
+const u=new SpeechSynthesisUtterance(text)
 
-function combo(){
+u.lang="fr-FR"
+u.rate=tempo
 
-let t1 = techniques[Math.floor(Math.random()*techniques.length)];
-let t2 = techniques[Math.floor(Math.random()*techniques.length)];
+u.onend=resolve
 
-displayTechnique(t1);
+synth.speak(u)
 
-let phrase =
-t1.nom +
-" suivi de " +
-t2.nom;
-
-speak(phrase);
+})
 
 }
 
-/* ================================
-MODE SPARRING
-================================ */
+// =============================
+// COMPTE JAPONAIS
+// =============================
 
-const attacks = [
-"attaque tête",
-"attaque jambe",
-"attaque latérale",
-"attaque directe",
-"attaque plexus"
-];
+async function count(n){
 
-function sparring(){
+for(let i=0;i<n;i++){
 
-let atk = attacks[Math.floor(Math.random()*attacks.length)];
+await speak(countJP[i]||"")
 
-speak(atk);
+await wait(500/tempo)
 
 }
 
-/* ================================
-BOUCLE TEMPO
-================================ */
+}
 
-function startLoop(mode){
+// =============================
+// PLAY TECHNIQUE
+// =============================
 
-dojoStart();
+async function playTechnique(t){
 
-running=true;
+if(!t) return
 
-timer=setInterval(()=>{
+current=t
 
-if(!running) return;
+updateDetails(t)
 
-let count = countJP[Math.floor(Math.random()*countJP.length)];
+await count(t.etapes.length)
 
-speak(count);
+for(let e of t.etapes){
 
-setTimeout(()=>{
+await speak(e)
 
-if(mode==="kihon") nextTechnique();
-if(mode==="combo") combo();
-if(mode==="sparring") sparring();
-
-},800);
-
-},tempo);
+await wait(600/tempo)
 
 }
 
-/* ================================
-CONTROLES
-================================ */
+}
 
-function start(mode){
+// =============================
+// COMBO
+// =============================
 
-if(running) return;
+async function playCombo(){
 
-startLoop(mode);
+if(techniques.length===0) return
+
+for(let i=0;i<3;i++){
+
+const t=techniques[Math.floor(Math.random()*techniques.length)]
+
+await playTechnique(t)
 
 }
 
-function pause(){
+}
 
-running=false;
-clearInterval(timer);
+// =============================
+// SPARRING
+// =============================
 
-speak("pause");
+async function sparring(){
+
+if(techniques.length===0) return
+
+for(let i=0;i<5;i++){
+
+const t=techniques[Math.floor(Math.random()*techniques.length)]
+
+await playTechnique(t)
 
 }
 
-function stop(){
+}
 
-running=false;
+// =============================
+// TEMPO
+// =============================
 
-clearInterval(timer);
+function setTempo(v){
 
-dojoStop();
+tempo=parseFloat(v)
 
 }
 
-function reset(){
+// =============================
+// UTILS
+// =============================
 
-stop();
+function wait(ms){
 
-document.getElementById("techName").textContent="";
-document.getElementById("techSteps").innerHTML="";
-document.getElementById("techVideo").src="";
-
-}
-
-/* ================================
-FAVORIS
-================================ */
-
-function saveFavorite(){
-
-let t1=document.getElementById("tech1").value;
-let t2=document.getElementById("tech2").value;
-let type=document.getElementById("comboType").value;
-
-let fav={
-t1,t2,type
-};
-
-favs.push(fav);
-
-localStorage.setItem("kihonFavs",JSON.stringify(favs));
-
-renderFavs();
+return new Promise(r=>setTimeout(r,ms))
 
 }
 
-function renderFavs(){
+// =============================
+// INIT
+// =============================
 
-let list=document.getElementById("favList");
+document.addEventListener("DOMContentLoaded",()=>{
 
-list.innerHTML="";
+loadTechniques()
 
-favs.forEach((f,i)=>{
+const tempoSelect=document.getElementById("tempo-select")
 
-let li=document.createElement("li");
+if(tempoSelect){
 
-li.textContent=
-f.t1+" → "+f.t2+" ("+f.type+")";
+tempoSelect.addEventListener("change",e=>{
 
-li.onclick=()=>playFav(f);
+setTempo(e.target.value)
 
-list.appendChild(li);
-
-});
-
-}
-
-function playFav(f){
-
-let t1=techniques.find(t=>t.id==f.t1);
-let t2=techniques.find(t=>t.id==f.t2);
-
-let phrase=
-t1.nom+" suivi de "+t2.nom;
-
-speak(phrase);
-
-displayTechnique(t1);
+})
 
 }
 
-/* ================================
-SELECTION TECHNIQUES
-================================ */
-
-function updateSelection(){
-
-let menu=document.getElementById("techSelect");
-
-selectedTechniques =
-[...menu.selectedOptions].map(o=>
-
-techniques.find(t=>t.id==o.value)
-
-);
-
-}
-
-/* ================================
-INIT
-================================ */
-
-window.addEventListener("DOMContentLoaded",()=>{
-
-loadTechniques();
-
-renderFavs();
-
-});
+})
