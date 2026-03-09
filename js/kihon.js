@@ -21,6 +21,12 @@ const countJP = [
 "roku","shichi","hachi","kyu","ju"
 ]
 
+const btn = document.getElementById("toggle-favori");
+if (favoris.includes(tech.id)) {
+    btn.textContent = "Retirer des favoris";
+} else {
+    btn.textContent = "Ajouter aux favoris";
+}
 // =============================
 // LOAD JSON
 // =============================
@@ -113,31 +119,16 @@ document.getElementById("video-frame").src=t.video
 // =============================
 // VOIX
 // =============================
-
-function speak(text){
-
-return new Promise(resolve=>{
-
-if(!synth){
-
-resolve()
-return
-
+function speak(text) {
+    return new Promise(resolve => {
+        synth.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "fr-FR";
+        utter.rate = 1 * tempo;
+        utter.onend = resolve;
+        synth.speak(utter);
+    });
 }
-
-const u=new SpeechSynthesisUtterance(text)
-
-u.lang="fr-FR"
-u.rate=tempo
-
-u.onend=resolve
-
-synth.speak(u)
-
-})
-
-}
-
 // =============================
 // COMPTE JAPONAIS
 // =============================
