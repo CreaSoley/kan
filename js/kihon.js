@@ -262,41 +262,77 @@ await wait(2000)
 }
 
 }
+async function multiSequence(type,speed){
 
+if(type==="tech"){
+
+let i=document.getElementById("techniqueSelect").value
+let t=kihon[i]
+
+await speak(t.nom)
+
+for(let k=0;k<5;k++){
+
+await speak(compteJap[k])
+
+await wait(speed)
+
+}
+
+}
+
+if(type==="combo"){
+
+let i=document.getElementById("techniqueSelect").value
+let j=document.getElementById("techniqueSelect2").value
+
+await speak(kihon[i].nom)
+await speak(kihon[j].nom)
+
+for(let k=0;k<5;k++){
+
+await speak(compteJap[k])
+
+await wait(speed)
+
+}
+
+}
+
+if(type==="sparring"){
+
+let sequence=generateSmartSparring(5)
+
+for(let a of sequence){
+
+await speak(a.categorie + " : " + a.nom)
+
+await wait(speed)
+
+}
+
+}
+
+}
 
 /* MULTI */
 
 async function multiMode(){
 
-const speed=document.getElementById("speedSelect").value
+let type=document.getElementById("multiType").value
+let speed=parseInt(document.getElementById("speedSelect").value)
 
 await speak("Kamae")
 await speak("Hajime")
 
-for(let i=0;i<5;i++){
-
-let t=kihon[Math.floor(Math.random()*kihon.length)]
-
-await speak(t.nom)
-
-await wait(speed)
-
-}
+await multiSequence(type,speed)
 
 await speak("Yoi")
 
 await speak("Kamae")
 await speak("Hajime")
 
-for(let i=0;i<5;i++){
-
-let t=kihon[Math.floor(Math.random()*kihon.length)]
-
-await speak(t.nom)
-
-await wait(speed)
-
-}
+await multiSequence(type,speed)
 
 await speak("Yame")
 
