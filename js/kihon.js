@@ -29,7 +29,7 @@ async function loadTechniques(){
 
 try{
 
-const res = await fetch("kihon.json")
+const res = await fetch("../data/kihon.json")
 
 if(!res.ok)
 throw new Error("kihon.json introuvable")
