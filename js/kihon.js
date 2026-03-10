@@ -307,8 +307,6 @@ await wait(2000)
 await speak("Yassme")
 
 }
-
-}
 async function multiSequence(type,speed){
 
 if(type==="tech"){
