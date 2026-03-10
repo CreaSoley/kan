@@ -1,3 +1,7 @@
+/* ================================
+   VARIABLES
+================================ */
+
 let kihon=[]
 let assauts=[]
 
@@ -6,26 +10,24 @@ let synth=window.speechSynthesis
 let running=false
 let paused=false
 
+const beep=new Audio("../sound/beep.mp3")
+
 const compteJap=[
 "Ichi","Ni","San","Shi","Go",
 "Roku","Shichi","Hachi","Ku","Ju"
 ]
-const beep = new Audio("../sound/beep.mp3")
 
 const modeDescriptions={
-
 solo:"Réalisation de techniques simples. Possibilité de choix dans le menu ou aléatoire. En mode aléatoire, choix du nombre de techniques.",
-
 combo:"Réalisation de duo de techniques. Possibilité de choix dans le menu ou aléatoire. En mode aléatoire, choix du nombre de combo.",
-
 sparring:"Répondre à l’assaut annoncé par une technique de défense à la canne.",
-
 sensei:"Réaliser les techniques annoncées par le sensei.",
-
-multi:"Choisir le paramétrage (technique, combo ou sparring), à chaque annonce, réaliser l’exercice dans une direction différente."
-
+multi:"Choisir le paramétrage (technique, combo ou sparring), à chaque annonce réaliser l’exercice dans une direction différente."
 }
-/* LOAD JSON */
+
+/* ================================
+   INIT
+================================ */
 
 async function init(){
 
@@ -39,14 +41,50 @@ populateSelectors()
 
 showTechnique(0)
 
+initUI()
+
 }
 
-/* SELECTEURS */
+document.addEventListener("DOMContentLoaded",init)
+
+/* ================================
+   UI INIT
+================================ */
+
+function initUI(){
+
+let modeSelect=document.getElementById("modeSelect")
+
+if(modeSelect){
+
+modeSelect.addEventListener("change",()=>{
+
+updateUI()
+updateSelectors()
+updateModeInfo()
+
+})
+
+}
+
+let randomMode=document.getElementById("randomMode")
+
+if(randomMode){
+randomMode.addEventListener("change",updateSelectors)
+}
+
+}
+
+/* ================================
+   SELECTORS
+================================ */
 
 function populateSelectors(){
 
 const s1=document.getElementById("techniqueSelect")
 const s2=document.getElementById("techniqueSelect2")
+
+if(!s1 || !s2) return
 
 kihon.forEach((t,i)=>{
 
@@ -61,18 +99,25 @@ s2.appendChild(opt.cloneNode(true))
 
 }
 
-
-/* CARD */
+/* ================================
+   CARD
+================================ */
 
 function showTechnique(i){
 
 const t=kihon[i]
 
+if(!t) return
+
 let video=t.video
 ? `<iframe src="${t.video}"></iframe>`
 : `<img src="../images/sansvideo.png" style="width:100%;border-radius:12px;">`
 
-document.getElementById("card").innerHTML=`
+let card=document.getElementById("card")
+
+if(!card) return
+
+card.innerHTML=`
 
 <h2>${t.nom}</h2>
 
@@ -94,64 +139,71 @@ ${video}
 `
 
 }
-/* CHOIX NOMBRE TECHNIQUES */
+
+/* ================================
+   UI LOGIC
+================================ */
+
 function updateSelectors(){
 
-let mode=document.getElementById("modeSelect").value
+let mode=document.getElementById("modeSelect")?.value
 
-let randomEl=document.getElementById("randomMode")
-let random=randomEl ? randomEl.checked : false
+let random=document.getElementById("randomMode")?.checked || false
 
-let isMulti = mode==="multi"
-let isSensei = mode==="sensei"
+let isMulti=mode==="multi"
+let isSensei=mode==="sensei"
 
-/* nombre techniques aléatoires */
+toggle("randomCount",!(random&&(mode==="solo"||mode==="combo")))
+toggle("countSelect",isMulti||isSensei)
+toggle("sparringCount",isMulti)
 
-let randomCount=document.getElementById("randomCount")
-if(randomCount){
-randomCount.classList.toggle(
-"hidden",
-!(random && (mode==="solo" || mode==="combo"))
-)
-}
+toggle("techniqueSelect",isMulti||isSensei)
+toggle("techniqueSelect2",isMulti||isSensei)
 
-/* compte */
-
-let countSelect=document.getElementById("countSelect")
-if(countSelect){
-countSelect.classList.toggle("hidden",isMulti || isSensei)
-}
-
-/* sparring */
-
-let sparringCount=document.getElementById("sparringCount")
-if(sparringCount){
-sparringCount.classList.toggle("hidden",isMulti)
-}
-
-/* techniques */
-
-let tech1=document.getElementById("techniqueSelect")
-let tech2=document.getElementById("techniqueSelect2")
-
-if(tech1) tech1.classList.toggle("hidden",isMulti || isSensei)
-if(tech2) tech2.classList.toggle("hidden",isMulti || isSensei)
-
-/* bouton surprise */
-
-let surprise=document.getElementById("surpriseBtn")
-if(surprise){
-surprise.classList.toggle("hidden",isMulti)
-}
+toggle("surpriseBtn",isMulti)
 
 }
-/* SURPRISE */
+
+function toggle(id,hide){
+
+let el=document.getElementById(id)
+
+if(el) el.classList.toggle("hidden",hide)
+
+}
+
+function updateUI(){
+
+let mode=document.getElementById("modeSelect")?.value
+
+let multi=document.getElementById("multiType")
+
+if(multi) multi.classList.toggle("hidden",mode!=="multi")
+
+}
+
+function updateModeInfo(){
+
+let mode=document.getElementById("modeSelect")?.value
+let box=document.getElementById("modeInfo")
+
+if(box){
+box.innerText=modeDescriptions[mode]||""
+}
+
+}
+
+/* ================================
+   RANDOM
+================================ */
 
 function randomTechnique(){
 
 let i=Math.floor(Math.random()*kihon.length)
 
-document.getElementById("techniqueSelect").value=i
+let select=document.getElementById("techniqueSelect")
+
+if(select) select.value=i
 
 showTechnique(i)
 
@@ -162,14 +214,19 @@ function randomCombo(){
 let a=Math.floor(Math.random()*kihon.length)
 let b=Math.floor(Math.random()*kihon.length)
 
-document.getElementById("techniqueSelect").value=a
-document.getElementById("techniqueSelect2").value=b
+let s1=document.getElementById("techniqueSelect")
+let s2=document.getElementById("techniqueSelect2")
+
+if(s1) s1.value=a
+if(s2) s2.value=b
 
 showTechnique(a)
 
 }
 
-/* CONTROLES */
+/* ================================
+   CONTROLS
+================================ */
 
 function pauseTraining(){
 
@@ -191,14 +248,15 @@ stopTraining()
 
 }
 
-
-/* TRAINING */
+/* ================================
+   START
+================================ */
 
 async function startTraining(){
 
-let mode=document.getElementById("modeSelect").value
+let mode=document.getElementById("modeSelect")?.value
 
-await speak("Mode " + mode)
+await speak("Mode "+mode)
 
 running=true
 paused=false
@@ -211,16 +269,17 @@ if(mode==="multi") multiMode()
 
 }
 
-
-/* SOLO */
+/* ================================
+   SOLO
+================================ */
 
 async function soloMode(){
 
-let randomCount=parseInt(document.getElementById("randomCount").value)
+let count=parseInt(document.getElementById("randomCount")?.value||1)
 
 let list=[]
 
-for(let i=0;i<randomCount;i++){
+for(let i=0;i<count;i++){
 
 let r=Math.floor(Math.random()*kihon.length)
 list.push(kihon[r])
@@ -230,8 +289,6 @@ list.push(kihon[r])
 for(let t of list){
 
 await speak(t.nom)
-await speak(t.objectif)
-await speak(t.description)
 
 await speak("Yoi")
 await speak("Hajime")
@@ -245,43 +302,48 @@ await dojoCount()
 }
 
 await speak("Yame")
+
 await wait(2000)
+
 await speak("Yassme")
 
 }
 
-
-/* COMBO */
+/* ================================
+   COMBO
+================================ */
 
 async function comboMode(){
 
-const i=document.getElementById("techniqueSelect").value
-const j=document.getElementById("techniqueSelect2").value
+let i=document.getElementById("techniqueSelect")?.value
+let j=document.getElementById("techniqueSelect2")?.value
+
+if(!kihon[i]||!kihon[j]) return
 
 await speak(kihon[i].nom)
 await speak(kihon[j].nom)
 
-await speak("Kamaé")
-await speak("Hajimé")
+await speak("Kamae")
+await speak("Hajime")
 
 await dojoCount()
 
-await speak("Mawaté")
+await speak("Mawate")
 
 await dojoCount()
 
-await speak("Yamé")
+await speak("Yame")
 
 await wait(2000)
 
-await speak("Yassmé")
+await speak("Yassme")
 
 }
-function randomAssaut(){
 
-return assauts[Math.floor(Math.random()*assauts.length)]
+/* ================================
+   SPARRING INTELLIGENT
+================================ */
 
-}
 function generateSmartSparring(n){
 
 let result=[]
@@ -305,25 +367,24 @@ lastId=a.id
 return result
 
 }
-/* SPARRING */
 
 async function sparringMode(){
 
-let n=document.getElementById("sparringCount").value
-let interval=parseInt(document.getElementById("sparringInterval").value)
-
+let n=parseInt(document.getElementById("sparringCount")?.value||5)
+let interval=parseInt(document.getElementById("sparringInterval")?.value||4000)
 
 await speak("Kamae")
 await speak("Hajime")
 
-let sequence=generateSmartSparring(n)
+let seq=generateSmartSparring(n)
 
-for(let a of sequence){
+for(let a of seq){
 
 await speak(a.nom)
 
 beep.currentTime=0
 beep.play()
+
 await wait(interval)
 
 }
@@ -336,16 +397,17 @@ await speak("Yassme")
 
 }
 
-
-/* SENSEI */
+/* ================================
+   SENSEI
+================================ */
 
 async function senseiMode(){
 
 await speak("Yoi")
-await speak("Kamaé")
-await speak("Hajimé")
+await speak("Kamae")
+await speak("Hajime")
 
-let n=document.getElementById("sparringCount").value
+let n=parseInt(document.getElementById("sparringCount")?.value||5)
 
 for(let i=0;i<n;i++){
 
@@ -353,30 +415,64 @@ let t=kihon[Math.floor(Math.random()*kihon.length)]
 
 await speak(t.nom)
 
-await wait(4000)
+await wait(3000)
 
 }
 
-await speak("Yamé")
+await speak("Yame")
 
 await wait(2000)
 
-await speak("Yassmé")
+await speak("Yassme")
 
 }
+
+/* ================================
+   MULTI
+================================ */
+
+async function multiMode(){
+
+let type=document.getElementById("multiType")?.value
+let speed=parseInt(document.getElementById("speedSelect")?.value||800)
+
+await speak("Multi directionnel")
+
+if(type==="tech") await speak("Technique")
+if(type==="combo") await speak("Combo")
+if(type==="sparring") await speak("Sparring")
+
+await speak("Kamae")
+await speak("Hajime")
+
+await multiSequence(type,speed)
+
+await speak("Yoi")
+
+await speak("Kamae")
+await speak("Hajime")
+
+await multiSequence(type,speed)
+
+await speak("Yame")
+
+await wait(2000)
+
+await speak("Yassme")
+
+}
+
 async function multiSequence(type,speed){
 
 if(type==="tech"){
 
-let i=document.getElementById("techniqueSelect").value
-let t=kihon[i]
+let t=kihon[Math.floor(Math.random()*kihon.length)]
 
 await speak(t.nom)
 
-for(let k=0;k<5;k++){
+for(let i=0;i<5;i++){
 
-await speak(compteJap[k])
-
+await speak(compteJap[i])
 
 await wait(speed)
 
@@ -386,16 +482,15 @@ await wait(speed)
 
 if(type==="combo"){
 
-let i=document.getElementById("techniqueSelect").value
-let j=document.getElementById("techniqueSelect2").value
+let a=kihon[Math.floor(Math.random()*kihon.length)]
+let b=kihon[Math.floor(Math.random()*kihon.length)]
 
-await speak(kihon[i].nom)
-await speak(kihon[j].nom)
+await speak(a.nom)
+await speak(b.nom)
 
-for(let k=0;k<5;k++){
+for(let i=0;i<5;i++){
 
-await speak(compteJap[k])
-
+await speak(compteJap[i])
 
 await wait(speed)
 
@@ -405,12 +500,11 @@ await wait(speed)
 
 if(type==="sparring"){
 
-let sequence=generateSmartSparring(5)
+let seq=generateSmartSparring(5)
 
-for(let a of sequence){
+for(let a of seq){
 
 await speak(a.nom)
-
 
 await wait(speed)
 
@@ -420,45 +514,14 @@ await wait(speed)
 
 }
 
-/* MULTI */
-
-async function multiMode(){
-
-let type=document.getElementById("multiType").value
-
-
-await speak("Multi directionnel")
-
-if(type==="tech") await speak("Technique")
-if(type==="combo") await speak("Combo")
-if(type==="sparring") await speak("Sparring")
-await speak("Kamaé")
-await speak("Hajimé")
-
-await multiSequence(type,speed)
-
-await speak("Yoi")
-
-await speak("Kamaé")
-await speak("Hajimé")
-
-await multiSequence(type,speed)
-
-await speak("Yamé")
-
-await wait(2000)
-
-await speak("Yassmé")
-
-}
-
-
-/* COMPTE */
+/* ================================
+   COUNT
+================================ */
 
 async function dojoCount(){
 
-let max=document.getElementById("countSelect").value
-let speed=parseInt(document.getElementById("speedSelect").value)
+let max=parseInt(document.getElementById("countSelect")?.value||5)
+let speed=parseInt(document.getElementById("speedSelect")?.value||800)
 
 for(let i=0;i<max;i++){
 
@@ -470,42 +533,17 @@ await wait(speed)
 
 }
 
-function updateUI(){
-
-let mode=document.getElementById("modeSelect").value
-
-document.getElementById("multiType").classList.toggle(
-"hidden",
-mode!=="multi"
-)
-
-}
-function updateModeInfo(){
-
-let mode=document.getElementById("modeSelect").value
-
-document.getElementById("modeInfo").innerText=
-modeDescriptions[mode] || ""
-
-}
-let modeSelect=document.getElementById("modeSelect")
-
-if(modeSelect){
-
-modeSelect.addEventListener("change",()=>{
-
-updateUI()
-updateSelectors()
-updateModeInfo()
-
-})
-
-}
-/* VOICE */
+/* ================================
+   VOICE
+================================ */
 
 function speak(text){
 
-document.getElementById("trainingDisplay").innerText=text
+let display=document.getElementById("trainingDisplay")
+
+if(display){
+display.innerText=text
+}
 
 return new Promise(resolve=>{
 
@@ -525,9 +563,4 @@ function wait(ms){
 
 return new Promise(r=>setTimeout(r,ms))
 
-}
-document.getElementById("modeSelect").addEventListener("change",updateSelectors)
-let randomMode=document.getElementById("randomMode")
-if(randomMode){
-randomMode.addEventListener("change",updateSelectors)
 }
