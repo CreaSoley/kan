@@ -91,8 +91,17 @@ function randomTechnique(){
 
 let i=Math.floor(Math.random()*kihon.length)
 
-document.getElementById("techniqueSelect").value=i
-showTechnique(i)
+function randomCombo(){
+
+let a=Math.floor(Math.random()*kihon.length)
+let b=Math.floor(Math.random()*kihon.length)
+
+document.getElementById("techniqueSelect").value=a
+document.getElementById("techniqueSelect2").value=b
+
+showTechnique(a)
+
+}
 
 }
 
@@ -142,14 +151,24 @@ if(mode==="multi") multiMode()
 
 async function soloMode(){
 
-const i=document.getElementById("techniqueSelect").value
-const t=kihon[i]
+let randomCount=parseInt(document.getElementById("randomCount").value)
+
+let list=[]
+
+for(let i=0;i<randomCount;i++){
+
+let r=Math.floor(Math.random()*kihon.length)
+list.push(kihon[r])
+
+}
+
+for(let t of list){
 
 await speak(t.nom)
 await speak(t.objectif)
 await speak(t.description)
 
-await speak("Kamae")
+await speak("Yoi")
 await speak("Hajime")
 
 await dojoCount()
@@ -158,10 +177,10 @@ await speak("Mawate")
 
 await dojoCount()
 
+}
+
 await speak("Yame")
-
 await wait(2000)
-
 await speak("Yassme")
 
 }
@@ -348,12 +367,13 @@ await speak("Yassme")
 async function dojoCount(){
 
 let max=document.getElementById("countSelect").value
+let speed=parseInt(document.getElementById("speedSelect").value)
 
 for(let i=0;i<max;i++){
 
 await speak(compteJap[i])
 
-await wait(700)
+await wait(speed)
 
 }
 
