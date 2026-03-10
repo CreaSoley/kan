@@ -98,29 +98,52 @@ ${video}
 function updateSelectors(){
 
 let mode=document.getElementById("modeSelect").value
+
 let randomEl=document.getElementById("randomMode")
 let random=randomEl ? randomEl.checked : false
 
-// nombre de techniques / combos
-document.getElementById("randomCount").classList.toggle(
+let isMulti = mode==="multi"
+let isSensei = mode==="sensei"
+
+/* nombre techniques aléatoires */
+
+let randomCount=document.getElementById("randomCount")
+if(randomCount){
+randomCount.classList.toggle(
 "hidden",
 !(random && (mode==="solo" || mode==="combo"))
 )
-let isMulti = mode==="multi"
+}
 
+/* compte */
 
-document.getElementById("sparringCount").classList.toggle("hidden",isMulti)
-document.getElementById("countSelect").classList.toggle("hidden",isMulti)
-document.getElementById("techniqueSelect").classList.toggle("hidden",isMulti)
-document.getElementById("techniqueSelect2").classList.toggle("hidden",isMulti)
+let countSelect=document.getElementById("countSelect")
+if(countSelect){
+countSelect.classList.toggle("hidden",isMulti || isSensei)
+}
 
-document.getElementById("surpriseBtn").classList.toggle("hidden",isMulti)
+/* sparring */
 
-let isSensei = mode==="sensei"
+let sparringCount=document.getElementById("sparringCount")
+if(sparringCount){
+sparringCount.classList.toggle("hidden",isMulti)
+}
 
+/* techniques */
 
-document.getElementById("techniqueSelect").classList.toggle("hidden",isSensei)
-document.getElementById("techniqueSelect2").classList.toggle("hidden",isSensei)
+let tech1=document.getElementById("techniqueSelect")
+let tech2=document.getElementById("techniqueSelect2")
+
+if(tech1) tech1.classList.toggle("hidden",isMulti || isSensei)
+if(tech2) tech2.classList.toggle("hidden",isMulti || isSensei)
+
+/* bouton surprise */
+
+let surprise=document.getElementById("surpriseBtn")
+if(surprise){
+surprise.classList.toggle("hidden",isMulti)
+}
+
 }
 /* SURPRISE */
 
@@ -354,7 +377,7 @@ for(let k=0;k<5;k++){
 
 await speak(compteJap[k])
 
-let speed=parseInt(document.getElementById("speedSelect").value)
+
 await wait(speed)
 
 }
@@ -373,7 +396,7 @@ for(let k=0;k<5;k++){
 
 await speak(compteJap[k])
 
-let speed=parseInt(document.getElementById("speedSelect").value)
+
 await wait(speed)
 
 }
@@ -388,7 +411,7 @@ for(let a of sequence){
 
 await speak(a.nom)
 
-let speed=parseInt(document.getElementById("speedSelect").value)
+
 await wait(speed)
 
 }
@@ -402,7 +425,7 @@ await wait(speed)
 async function multiMode(){
 
 let type=document.getElementById("multiType").value
-let speed=parseInt(document.getElementById("speedSelect").value)
+
 
 await speak("Multi directionnel")
 
@@ -465,13 +488,19 @@ document.getElementById("modeInfo").innerText=
 modeDescriptions[mode] || ""
 
 }
-document.getElementById("modeSelect").addEventListener("change",()=>{
+let modeSelect=document.getElementById("modeSelect")
+
+if(modeSelect){
+
+modeSelect.addEventListener("change",()=>{
 
 updateUI()
 updateSelectors()
 updateModeInfo()
 
 })
+
+}
 /* VOICE */
 
 function speak(text){
@@ -498,4 +527,7 @@ return new Promise(r=>setTimeout(r,ms))
 
 }
 document.getElementById("modeSelect").addEventListener("change",updateSelectors)
-document.getElementById("randomMode").addEventListener("change",updateSelectors)
+let randomMode=document.getElementById("randomMode")
+if(randomMode){
+randomMode.addEventListener("change",updateSelectors)
+}
