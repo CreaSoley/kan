@@ -1,17 +1,60 @@
 [
 {
-"id":1,
-"nom":"Kata fondamental",
-"duration":60
-},
-{
-"id":2,
-"nom":"Kata défense",
-"duration":90
-},
-{
-"id":3,
-"nom":"Kata avancé",
-"duration":120
+"id":"taikyoku_shodan",
+"name":"Taikyoku Shodan",
+"belt":"blanche",
+"duration":150,
+
+"segments":[
+
+{"text":"Taikyoku Shodan", "pause_after":2000},
+{"text":"Yoi", "pause_after":2500},
+{"text":"Hajime", "pause_after":2000},
+
+{"text":"Gedaan barai à gauche", "pause_after":2500},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Tourne à droite", "pause_after":2000},
+{"text":"Gedaan barai", "pause_after":2500},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Tourne à gauche", "pause_after":2000},
+{"text":"Gedaan barai", "pause_after":2500},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Tourne à gauche", "pause_after":2000},
+{"text":"Gedaan barai", "pause_after":2500},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Avance", "pause_after":2000},
+{"text":"Oi tsuki", "pause_after":2500},
+
+{"text":"Yame", "pause_after":3000}
+
+]
 }
 ]
