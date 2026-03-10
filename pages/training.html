@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<title>TaïKan — Entraînement</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="page-flex">
+
+<!-- HEADER -->
+
+<div class="top-bar">
+  <a href="../index.html">
+    <img src="../images/logo.png" class="logo-inline">
+  </a>
+  <h1 class="title-inline">Entraînement</h1>
+</div>
+
+<p class="subtitle">
+séance complète guidée — self défense avec canne
+</p>
+
+<!-- PARAMÈTRES -->
+
+<div class="tech-card">
+
+<button class="accordion-toggle" onclick="toggleAccordion()">
+⚙️ Paramètres de la séance
+</button>
+
+<div id="trainingConfig" class="accordion-content open">
+
+<p><strong>Méditation</strong></p>
+
+<select id="meditationSelect">
+<option value="0">Ancrage et respiration</option>
+<option value="1">Respiration profonde</option>
+<option value="2">Calme intérieur</option>
+</select>
+
+<p><strong>Échauffement</strong></p>
+
+<select id="warmupSelect">
+<option value="0">Échauffement complet</option>
+<option value="1">Échauffement court</option>
+</select>
+
+<p><strong>Flow manipulation de canne</strong></p>
+
+<select id="flowDuration">
+<option value="1">1 minute</option>
+<option value="3">3 minutes</option>
+<option value="5">5 minutes</option>
+<option value="10">10 minutes</option>
+</select>
+
+<p><strong>Multi-directionnel</strong></p>
+
+<select id="multiType">
+<option value="tech">Technique</option>
+<option value="combo">Combo</option>
+<option value="sparring">Sparring</option>
+</select>
+
+<p><strong>Kata</strong></p>
+
+<select id="kataSelect">
+<option value="1">Kata 1</option>
+<option value="2">Kata 2</option>
+<option value="3">Kata 3</option>
+</select>
+
+<select id="kataGuidance">
+<option value="audio">Guidage audio</option>
+<option value="tts">Synthèse vocale</option>
+<option value="none">Sans guidage</option>
+</select>
+
+<select id="kataRepeat">
+<option value="1">1 répétition</option>
+<option value="2">2 répétitions</option>
+<option value="3">3 répétitions</option>
+</select>
+
+</div>
+
+</div>
+
+<!-- BARRE PROGRESSION -->
+
+<div id="progressBar" class="training-bar">
+
+<div class="badge" id="step1">🧘</div>
+<div class="badge" id="step2">🔥</div>
+<div class="badge" id="step3">🦯</div>
+<div class="badge" id="step4">🥋</div>
+<div class="badge" id="step5">⚔️</div>
+<div class="badge" id="step6">📜</div>
+<div class="badge" id="step7">🧘‍♂️</div>
+<div class="badge" id="step8">🌙</div>
+
+</div>
+
+<!-- AFFICHAGE ENTRAINEMENT -->
+
+<div id="trainingDisplay" class="result-display">
+Prêt.
+</div>
+
+<!-- BOUTONS CONTROLE -->
+
+<div class="button-row">
+
+<button class="btn-kawaii start" onclick="startTraining()">
+▶ Lecture
+</button>
+
+<button class="btn-kawaii pause" onclick="pauseTraining()">
+⏸ Pause
+</button>
+
+<button class="btn-kawaii stop" onclick="stopTraining()">
+⏹ Stop
+</button>
+
+<button class="btn-kawaii reset" onclick="resetTraining()">
+🔄 Reset
+</button>
+
+<button class="btn-kawaii" onclick="senseiMode()">
+🥋 Mode Sensei
+</button>
+
+</div>
+
+<script src="../js/trainingEngine.js"></script>
+
+<script>
+
+function toggleAccordion(){
+
+const panel = document.getElementById("trainingConfig")
+
+panel.classList.toggle("open")
+
+}
+
+</script>
+
+</body>
+
+</html>
