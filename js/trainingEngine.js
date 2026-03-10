@@ -102,6 +102,16 @@ document.getElementById("kataRepeat").value=random(repeat)
 startTraining()
 
 }
+function setStep(n){
+
+document.querySelectorAll("#progressBar .badge")
+.forEach(b=>b.style.opacity="0.4")
+
+let step=document.getElementById("step"+n)
+
+if(step) step.style.opacity="1"
+
+}
 async function startTraining(){
 
 if(running) return
