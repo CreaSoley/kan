@@ -41,11 +41,6 @@ showTechnique(0)
 
 }
 
-document.addEventListener("DOMContentLoaded",init)
-document
-.getElementById("modeSelect")
-.addEventListener("change",updateUI)
-
 /* SELECTEURS */
 
 function populateSelectors(){
@@ -103,7 +98,8 @@ ${video}
 function updateSelectors(){
 
 let mode=document.getElementById("modeSelect").value
-let random=document.getElementById("randomMode").checked
+let randomEl=document.getElementById("randomMode")
+let random=randomEl ? randomEl.checked : false
 
 // nombre de techniques / combos
 document.getElementById("randomCount").classList.toggle(
@@ -112,9 +108,9 @@ document.getElementById("randomCount").classList.toggle(
 )
 let isMulti = mode==="multi"
 
-document.getElementById("countSelect").classList.toggle("hidden",isMulti)
-document.getElementById("sparringCount").classList.toggle("hidden",isMulti)
 
+document.getElementById("sparringCount").classList.toggle("hidden",isMulti)
+document.getElementById("countSelect").classList.toggle("hidden",isMulti)
 document.getElementById("techniqueSelect").classList.toggle("hidden",isMulti)
 document.getElementById("techniqueSelect2").classList.toggle("hidden",isMulti)
 
@@ -122,7 +118,7 @@ document.getElementById("surpriseBtn").classList.toggle("hidden",isMulti)
 
 let isSensei = mode==="sensei"
 
-document.getElementById("countSelect").classList.toggle("hidden",isSensei)
+
 document.getElementById("techniqueSelect").classList.toggle("hidden",isSensei)
 document.getElementById("techniqueSelect2").classList.toggle("hidden",isSensei)
 }
@@ -131,6 +127,12 @@ document.getElementById("techniqueSelect2").classList.toggle("hidden",isSensei)
 function randomTechnique(){
 
 let i=Math.floor(Math.random()*kihon.length)
+
+document.getElementById("techniqueSelect").value=i
+
+showTechnique(i)
+
+}
 
 function randomCombo(){
 
@@ -143,9 +145,6 @@ document.getElementById("techniqueSelect2").value=b
 showTechnique(a)
 
 }
-
-}
-
 
 /* CONTROLES */
 
@@ -300,8 +299,8 @@ for(let a of sequence){
 
 await speak(a.nom)
 
+beep.currentTime=0
 beep.play()
-
 await wait(interval)
 
 }
@@ -404,7 +403,6 @@ async function multiMode(){
 
 let type=document.getElementById("multiType").value
 let speed=parseInt(document.getElementById("speedSelect").value)
-let type=document.getElementById("multiType").value
 
 await speak("Multi directionnel")
 
@@ -467,10 +465,9 @@ document.getElementById("modeInfo").innerText=
 modeDescriptions[mode] || ""
 
 }
-document
-.getElementById("modeSelect")
-.addEventListener("change",()=>{
+document.getElementById("modeSelect").addEventListener("change",()=>{
 
+updateUI()
 updateSelectors()
 updateModeInfo()
 
