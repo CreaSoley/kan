@@ -421,6 +421,8 @@ mode!=="multi"
 
 function speak(text){
 
+document.getElementById("trainingDisplay").innerText=text
+
 return new Promise(resolve=>{
 
 let u=new SpeechSynthesisUtterance(text)
