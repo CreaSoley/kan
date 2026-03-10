@@ -29,7 +29,9 @@ showTechnique(0)
 }
 
 document.addEventListener("DOMContentLoaded",init)
-
+document
+.getElementById("modeSelect")
+.addEventListener("change",updateUI)
 
 /* SELECTEURS */
 
@@ -405,7 +407,16 @@ await wait(speed)
 
 }
 
+function updateUI(){
 
+let mode=document.getElementById("modeSelect").value
+
+document.getElementById("multiType").classList.toggle(
+"hidden",
+mode!=="multi"
+)
+
+}
 /* VOICE */
 
 function speak(text){
