@@ -1,0 +1,594 @@
+@font-face {
+  font-family: "Melt";
+  src: url("./font/Melt-Swashes.ttf");
+}
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("./font/Fredoka.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  text-align: center;
+  background: white;
+}
+
+/* LOGO PLUS PROCHE */
+.logo-pwa {
+  width: 100px;
+  margin: 2px 0 6px 0;
+}
+
+/* TITRES DEGRADE GRIS */
+h1 {
+  font-family: "Melt";
+  font-size: 2.9em;
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(0,0,0,0.15)),
+    radial-gradient(at top center, rgba(255,255,255,0.40), rgba(0,0,0,0.40)) #989898;
+  background-blend-mode: multiply, multiply;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 6px 0 2px 0;
+}
+
+/* HOME */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-text {
+  margin: 30px;
+  font-size: 1.1em;
+}
+
+.btn-home {
+  padding: 15px 25px;
+  margin: 10px;
+  border-radius: 15px;
+  border: none;
+  font-size: 1em;
+  background: linear-gradient(to right,#ff758c,#ff7eb3);
+  color: white;
+}
+
+/* INDEX GRID 2x3 PLEIN ECRAN */
+
+/* GRID MENU ULTRA COMPACT */
+.menu-grid{
+ display:grid;
+ grid-template-columns:1fr;
+ gap:10px;              /* espace réduit entre boutons */
+ width:100%;
+ max-width:420px;
+ margin:6px auto;
+ padding:0 10px;
+}
+
+/* BOUTONS MENU COMPACTS */
+.menu-btn{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ padding:10px 14px;     /* ← hauteur réduite */
+ border-radius:16px;
+ color:white;
+ font-family:Fredoka;
+ font-size:18px;
+ text-decoration:none;
+ box-shadow:0 3px 8px rgba(0,0,0,0.15);
+ line-height:1.1;       /* évite la hauteur inutile */
+}
+
+/* ICÔNES */
+.menu-icon{
+ font-size:24px;
+ line-height:1;
+}
+
+/* MOBILE */
+@media (max-width:480px){
+ .menu-btn{
+  padding:9px 12px;
+  font-size:17px;
+ }
+ .menu-icon{
+  font-size:22px;
+ }
+}
+.page-flex{
+ min-height:100vh;
+ justify-content:flex-start;
+ gap:6px;
+ padding:6px 0;
+}
+/* LAYOUT PAGE */
+.page-flex {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+/* SOUS-TITRE */
+.subtitle {
+  max-width: 500px;
+  margin-bottom: 10px;
+  margin: 4px 0 6px 0;
+  font-size: 0.9em;
+}
+
+/* FILTRES */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px;
+}
+
+/* CARD COULEUR DEXT */
+.tech-card {
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tech-card h2 {
+  margin: 4px 0 4px 0;
+  font-size: 1.3em;
+}
+
+/* BADGES */
+.badges {
+ margin: 0;
+  line-height: 1;
+}
+
+.badge {
+  font-size: 1.8em;   /* taille emoji */
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin: 0 3px 0 0;
+  display: inline-block;
+  background: rgba(255,255,255,0.35);
+}
+
+/* VIDEO */
+iframe {
+  width: 100%;
+  height: 240px;
+  border-radius: 15px;
+  border: none;
+}
+
+/* BARRE ENTRAINEMENT */
+.training-bar {
+  margin: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+ margin: 6px 0 2px 0;
+}
+
+.logo-pwa {
+  width: 100px;
+  margin: 2px 0 6px 0;
+}
+
+.page-flex {
+  justify-content: flex-start;
+  padding: 6px;
+  gap: 4px;
+}
+.kawaii-btn {
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  font-family: "Fredoka";
+  font-size: 0.95em;
+  color: white;
+  background: linear-gradient(145deg,#ff9ac6,#ff6fa5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
+}
+
+.kawaii-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.title-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-btn {
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.4);
+  color: white;
+}
+.filters-label {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.controls {
+  margin: 4px 0;
+}
+
+.badges {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.badge {
+  font-size: 1.9em;
+  padding: 2px 6px;
+  margin: 0 2px 0 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.35);
+}
+
+
+.tech-card p {
+  margin: 0;
+  line-height: 1.15;
+}
+.tech-card {
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+  padding: 12px 14px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* ← plus d’espace automatique */
+  align-items: stretch;
+  gap: 4px;                      /* ← contrôle global des espacements */
+}
+}
+/* ===== TOP BAR COMPACT MOBILE SAFE ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 2px 0;
+  padding: 0;
+}
+
+/* Empêche tout débordement flex mobile */
+.top-bar a {
+  display: flex;
+  align-items: center;
+}
+
+/* ===== HEADER STANDARD TAÏKAN (LOGO AU-DESSUS DU TITRE) ===== */
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;              /* espace minimal logo → titre */
+  margin: 2px 0 4px 0;  /* compact mais respirant */
+  padding: 0;
+}
+
+/* LOGO PROPRE ET STABLE */
+.logo-inline {
+  width: 72px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* TITRE COMPACT */
+.title-inline {
+  font-size: 1.9em;
+  margin: 0;
+  line-height: 1;
+}
+
+/* VERSION MOBILE OPTIMISÉE */
+@media (max-width: 480px) {
+  .logo-inline {
+    width: 64px;
+  }
+
+  .title-inline {
+    font-size: 1.6em;
+  }
+}
+
+/* ===== CARD ULTRA COMPACTE ===== */
+
+.tech-card {
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+  padding: 12px 14px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.tech-card h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.tech-card p {
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* BADGES SERRÉS */
+.badges {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.badge {
+  font-size: 1.9em;
+  padding: 2px 6px;
+  margin: 0 2px 0 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.35);
+}
+
+/* VIDEO COLLÉE AU CONTENU */
+iframe {
+  width: 100%;
+  height: 240px;
+  border-radius: 15px;
+  border: none;
+  margin: 2px 0;
+  display: block;
+}
+.strike-color {
+  background: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+}
+.nav-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 4px 0;
+}
+
+.nav-arrows button {
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  background: rgba(0,0,0,0.15);
+  color: white;
+}
+/* Icône zone d'impact dans un médaillon */
+.impact-icon {
+  width: 64px;
+  height: 64px;
+  margin: 6px auto 4px auto;
+
+  background: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.impact-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+/* Accordion description */
+.tech-card details {
+  text-align: left;
+  width: 100%;
+}
+
+.tech-card summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.tech-card details p {
+  text-align: left;
+  margin: 4px 0 2px 0;
+  line-height: 1.2;
+}
+.tech-card summary {
+  list-style: none;
+}
+
+.tech-card summary::after {
+  content: " ▼";
+  font-size: 0.8em;
+}
+.accordion-btn{
+ width:100%;
+ background:#fff;
+ border:none;
+ padding:12px;
+ font-family:Fredoka;
+ font-size:16px;
+ border-radius:12px;
+ cursor:pointer;
+}
+
+.accordion-content{
+ max-height:0;
+ overflow:hidden;
+ text-align:left;
+ padding:0 12px;
+ transition:max-height .3s ease;
+}
+
+.accordion-content.open{
+ max-height:500px;
+ padding:12px;
+}
+
+.desc{
+ text-align:left;
+}
+/* CARD COULEUR KATA */
+.kata-card{
+ background: linear-gradient(-20deg,#b721ff,#21d4fd);
+}
+
+/* VIDEO LOCALE */
+video{
+ width:100%;
+ border-radius:15px;
+ margin:2px 0;
+}
+
+/* NAVIGATION */
+.nav-arrows{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ justify-content:center;
+ margin:4px 0;
+}
+
+.nav-btn{
+ border:none;
+ border-radius:50%;
+ width:38px;
+ height:38px;
+ font-size:18px;
+ background:rgba(0,0,0,0.15);
+ color:white;
+}
+.kata-select{
+ border:none;
+ border-radius:12px;
+ padding:8px 10px;
+ font-family:"Fredoka";
+ font-size:0.9em;
+}
+/* ===== KIHON CARD ===== */
+.kihon-card{
+  background: linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+/* ===== RESULT DISPLAY ===== */
+.result-display{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  font-size:1.4em;
+  margin-top:6px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-kawaii{
+  border:none;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:0.95em;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.start{ background:#43e97b; }
+.pause{ background:#f6d365; color:#333; }
+.stop{ background:#ff758c; }
+.reset{ background:#a18cd1; }
+
+.button-row{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* ===== LEVEL SELECTOR ===== */
+.level-selector{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:6px;
+}
+
+.level-btn.active{
+  transform:scale(1.05);
+  box-shadow:0 0 0 3px white inset;
+}
+
+/* ===== ACCORDION ===== */
+.accordion{
+  margin-top:8px;
+}
+
+.accordion-toggle{
+  width:100%;
+  border:none;
+  border-radius:12px;
+  padding:10px;
+  background:white;
+  cursor:pointer;
+  font-size:0.95em;
+}
+
+.accordion-content{
+  display:none;
+  text-align:left;
+  background:white;
+  border-radius:12px;
+  padding:10px 12px;
+}
+
+.accordion-content.open{
+  display:block;
+}
+
+/* ===== HIDDEN ===== */
+.hidden{
+  display:none !important;
+}
