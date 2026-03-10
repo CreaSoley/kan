@@ -1,399 +1,314 @@
-let running=false
-let paused=false
-let stopRequested=false
+/* ================================
+   TaïKan Training Engine
+   stable version
+================================ */
 
-let display=document.getElementById("trainingDisplay")
+let trainingRunning = false
+let trainingPaused = false
+let senseiMode = false
 
-const compteJap=[
-"ichi",
-"ni",
-"san",
-"shi",
-"go"
-]
+let progress = 0
+let totalSteps = 0
 
-function updateDisplay(text){
-display.innerText=text
-}
+let warmupData = []
+let meditationData = []
+let kataData = []
+let kihonData = []
 
-function setStep(n){
+let progressBar
 
-document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"))
+/* ================================
+   INIT
+================================ */
 
-let step=document.getElementById("step"+n)
+window.addEventListener("DOMContentLoaded", init)
 
-if(step) step.classList.add("active")
+async function init(){
 
-}
+progressBar = document.getElementById("progressBar")
 
-function wait(ms){
-return new Promise(r=>setTimeout(r,ms))
-}
-
-async function speak(text){
-
-updateDisplay(text)
-
-return new Promise(resolve=>{
-
-if(stopRequested) resolve()
-
-const u=new SpeechSynthesisUtterance(text)
-
-u.lang="fr-FR"
-u.rate=0.9
-u.pitch=1
-
-u.onend=resolve
-
-speechSynthesis.speak(u)
-
-})
+await loadData()
 
 }
 
-async function speakPause(text,delay){
+/* ================================
+   DATA LOADING
+================================ */
 
-await speak(text)
+async function loadData(){
 
-await wait(delay)
-
-}
-
-function pauseTraining(){
-
-speechSynthesis.pause()
-
-paused=true
-
-}
-
-function stopTraining(){
-
-stopRequested=true
-
-speechSynthesis.cancel()
-
-running=false
-
-}
-
-function resetTraining(){
-
-stopTraining()
-
-updateDisplay("Prêt.")
-
-document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"))
-
-}
-function senseiMode(){
-
-document.getElementById("flowDuration").value=[3,5,10][Math.floor(Math.random()*3)]
-
-let multi=["tech","combo","sparring"]
-
-document.getElementById("multiType").value=random(multi)
-
-let repeat=[1,2,3]
-
-document.getElementById("kataRepeat").value=random(repeat)
-
-startTraining()
-
-}
-function setStep(n){
-
-document.querySelectorAll("#progressBar .badge")
-.forEach(b=>b.style.opacity="0.4")
-
-let step=document.getElementById("step"+n)
-
-if(step) step.style.opacity="1"
-
-}
-async function startTraining(){
-
-if(running) return
-
-running=true
-stopRequested=false
-
-toggleAccordion()
-
-await runMeditation()
-
-await runWarmup()
-
-await runFlow()
-
-await runKihon()
-
-await runMulti()
-
-await runKata()
-
-await runStretch()
-
-await runCooldown()
-
-updateDisplay("Entraînement terminé")
-
-running=false
+warmupData = await loadJSON("../data/warmup.json")
+meditationData = await loadJSON("../data/meditation.json")
+kataData = await loadJSON("../data/kata.json")
+kihonData = await loadJSON("../data/kihon.json")
 
 }
 
 async function loadJSON(path){
 
-let r=await fetch(path)
+try{
 
-return await r.json()
+const res = await fetch(path)
+
+if(!res.ok) return []
+
+return await res.json()
 
 }
+catch(e){
+
+console.warn("JSON non chargé:",path)
+return []
+
+}
+
+}
+
+/* ================================
+   START TRAINING
+================================ */
+
+async function startTraining(){
+
+if(trainingRunning) return
+
+trainingRunning = true
+trainingPaused = false
+progress = 0
+
+updateProgress()
+
+await runMeditation()
+await runWarmup()
+await runKata()
+await runKihon()
+
+speak("Entraînement terminé")
+
+trainingRunning = false
+
+}
+
+/* ================================
+   PAUSE
+================================ */
+
+function pauseTraining(){
+
+trainingPaused = !trainingPaused
+
+}
+
+/* ================================
+   WAIT
+================================ */
+
+function wait(ms){
+
+return new Promise(resolve=>{
+
+let interval = setInterval(()=>{
+
+if(!trainingPaused){
+
+clearInterval(interval)
+setTimeout(resolve,ms)
+
+}
+
+},100)
+
+})
+
+}
+
+/* ================================
+   SPEECH
+================================ */
+
+function speak(text){
+
+return new Promise(resolve=>{
+
+if(!text){
+
+resolve()
+return
+
+}
+
+const utter = new SpeechSynthesisUtterance(text)
+
+utter.lang = "fr-FR"
+utter.rate = senseiMode ? 0.9 : 1
+utter.pitch = 1
+
+utter.onend = resolve
+
+speechSynthesis.speak(utter)
+
+})
+
+}
+
+/* ================================
+   PROGRESS
+================================ */
+
+function updateProgress(){
+
+if(!progressBar) return
+
+const percent = Math.floor((progress/totalSteps)*100)
+
+progressBar.style.width = percent+"%"
+
+}
+
+/* ================================
+   SEGMENT RUNNER
+================================ */
+
+async function runSegments(segments){
+
+if(!segments) return
+
+for(const seg of segments){
+
+if(!trainingRunning) return
+
+await speak(seg.text)
+
+await wait(seg.pause_after || 1000)
+
+progress++
+
+updateProgress()
+
+}
+
+}
+
+/* ================================
+   MEDITATION
+================================ */
 
 async function runMeditation(){
 
-const res = await fetch("../data/warmup.json");
-const data = await res.json();
+if(meditationData.length === 0) return
 
-/* on prend le premier exercice */
-const meditation = data[0];
+const meditation = meditationData[0]
 
-if(!meditation){
-console.error("Aucune méditation trouvée");
-return;
-}
+if(!meditation || !meditation.segments) return
 
-for(const seg of meditation.segments){
+totalSteps += meditation.segments.length
 
-await speak(seg.text);
-await wait(seg.pause_after);
+await runSegments(meditation.segments)
 
 }
 
-}
+/* ================================
+   WARMUP
+================================ */
 
 async function runWarmup(){
 
-setStep(2)
+if(warmupData.length === 0) return
 
-let data=await loadJSON("../data/warmup.json")
+const warmup = warmupData[0]
 
-let select=document.getElementById("warmupSelect")
+if(!warmup || !warmup.segments) return
 
-let session=data[0]
+totalSteps += warmup.segments.length
 
-if(select && data.length){
-session=data[select.selectedIndex]
-}
-
-for(let s of session.segments){
-
-if(stopRequested) return
-
-await speakPause(s.text,s.pause_after)
+await runSegments(warmup.segments)
 
 }
 
-}
-
-function random(arr){
-return arr[Math.floor(Math.random()*arr.length)]
-}
-
-async function runFlow(){
-
-setStep(3)
-
-let duration=parseInt(document.getElementById("flowDuration").value)
-
-let data=await import("./caneFlowData.js")
-
-let moves=data.caneFlow.moves
-let foot=data.caneFlow.footwork
-let varr=data.caneFlow.variations
-
-let end=Date.now()+duration*60000
-
-while(Date.now()<end){
-
-await speak(random(moves))
-await wait(4000)
-
-await speak(random(foot))
-await wait(4000)
-
-await speak(random(varr))
-await wait(4000)
-
-}
-
-await speak("ralentis progressivement")
-
-await wait(5000)
-
-}
-
-async function runKihon(){
-
-setStep(4)
-
-let kihon=await loadJSON("../data/kihon.json")
-
-for(let i=0;i<3;i++){
-
-let t=random(kihon)
-
-await speak("Technique "+(i+1))
-
-await speak(t.nom)
-
-await speak("Yoi")
-
-await speak("Kamae")
-
-await speak("Hajime")
-
-for(let c of compteJap){
-
-await speak(c)
-
-await wait(800)
-
-}
-
-await speak("Mawate")
-
-for(let c of compteJap){
-
-await speak(c)
-
-await wait(800)
-
-}
-
-}
-
-}
-
-async function runMulti(){
-
-setStep(5)
-
-let type=document.getElementById("multiType").value
-
-let kihon=await loadJSON("../data/kihon.json")
-
-await speak("Multi directionnel")
-
-await speak(type)
-
-await speak("Kamae")
-
-await speak("Hajime")
-
-for(let i=0;i<5;i++){
-
-if(type==="tech"){
-
-let t=random(kihon)
-
-await speak(t.nom)
-
-}
-
-if(type==="combo"){
-
-let a=random(kihon)
-
-let b=random(kihon)
-
-await speak(a.nom)
-
-await speak(b.nom)
-
-}
-
-if(type==="sparring"){
-
-let t=random(kihon)
-
-await speak(t.nom)
-
-}
-
-await wait(1200)
-
-}
-
-await speak("Yame")
-
-await speak("Yassme")
-
-}
+/* ================================
+   KATA
+================================ */
 
 async function runKata(){
 
-setStep(6)
+if(kataData.length === 0) return
 
-let repeat=parseInt(document.getElementById("kataRepeat").value)
+const kata = kataData[0]
 
-let mode=document.getElementById("kataGuidance").value
+if(!kata || !kata.segments) return
 
-let kataSelect=document.getElementById("kataSelect")
+await speak(kata.name)
 
-if(!kataSelect) return
+totalSteps += kata.segments.length
 
-let kataName=kataSelect.value
-
-for(let i=0;i<repeat;i++){
-
-await speak("Kata "+kataName)
-
-await speak("Hajime")
-
-if(mode==="tts"){
-
-await speak("Exécute le kata")
+await runSegments(kata.segments)
 
 }
 
-await wait(20000)
+/* ================================
+   KIHON
+================================ */
 
-await speak("Yame")
+async function runKihon(){
+
+if(kihonData.length === 0) return
+
+const kihon = kihonData[0]
+
+if(!kihon || !kihon.segments) return
+
+await speak("Kihon")
+
+totalSteps += kihon.segments.length
+
+await runSegments(kihon.segments)
+
+}
+
+/* ================================
+   MODE SENSEI
+================================ */
+
+function toggleSensei(){
+
+senseiMode = !senseiMode
+
+if(senseiMode){
+
+speak("Mode Sensei activé")
+
+}else{
+
+speak("Mode Sensei désactivé")
 
 }
 
 }
 
-async function runStretch(){
+/* ================================
+   STOP
+================================ */
 
-setStep(7)
+function stopTraining(){
 
-let data=await loadJSON("../data/etirement.json")
+trainingRunning = false
+speechSynthesis.cancel()
 
-for(let s of data.segments){
-
-if(stopRequested) return
-
-await speakPause(s.text,s.pause_after)
-
-}
+progress = 0
+updateProgress()
 
 }
 
-async function runCooldown(){
+/* ================================
+   RANDOM TECHNIQUE
+================================ */
 
-setStep(8)
+function randomTechnique(list){
 
-let data=await loadJSON("../data/calme.json")
+if(!list || list.length === 0) return null
 
-for(let s of data.segments){
+const index = Math.floor(Math.random()*list.length)
 
-if(stopRequested) return
-
-await speakPause(s.text,s.pause_after)
-
-}
+return list[index]
 
 }
