@@ -1,0 +1,46 @@
+{
+  "session_id": "meditation_pre_warmup_1",
+  "title": "Ancrage et respiration",
+  "duration_sec": 180,
+  "segments": [
+    { "text": "Inspire lentement.", "pause_after": 2000 },
+    { "text": "Par le nez.", "pause_after": 1500 },
+    { "text": "Expire doucement.", "pause_after": 2000 },
+    { "text": "Par la bouche.", "pause_after": 2000 },
+
+    { "text": "Encore une fois.", "pause_after": 2000 },
+
+    { "text": "Inspire.", "pause_after": 3000 },
+    { "text": "Expire.", "pause_after": 3000 },
+
+    { "text": "Relâche les épaules.", "pause_after": 2500 },
+    { "text": "Laisse le poids du corps descendre dans le sol.", "pause_after": 3500 },
+
+    { "text": "Tes pieds sont stables.", "pause_after": 2500 },
+    { "text": "Ton corps devient calme.", "pause_after": 3000 },
+
+    { "text": "Respire lentement.", "pause_after": 2500 },
+
+    { "text": "Observe ton souffle.", "pause_after": 2500 },
+    { "text": "Il entre.", "pause_after": 2000 },
+    { "text": "Il sort.", "pause_after": 3000 },
+
+    { "text": "Ne force rien.", "pause_after": 2000 },
+    { "text": "Juste respirer.", "pause_after": 3000 },
+
+    { "text": "Si une pensée arrive.", "pause_after": 2000 },
+    { "text": "Laisse la passer.", "pause_after": 3000 },
+
+    { "text": "Ramène doucement ton attention sur la respiration.", "pause_after": 4000 },
+
+    { "text": "Ton esprit devient clair.", "pause_after": 2500 },
+    { "text": "Ton corps est présent.", "pause_after": 2500 },
+
+    { "text": "Tu es ici.", "pause_after": 2000 },
+    { "text": "Maintenant.", "pause_after": 4000 },
+
+    { "text": "Prépare-toi.", "pause_after": 2000 },
+    { "text": "Le corps est prêt.", "pause_after": 2000 },
+    { "text": "L'esprit est prêt.", "pause_after": 3000 }
+  ]
+}
