@@ -153,23 +153,21 @@ return await r.json()
 
 async function runMeditation(){
 
-setStep(1)
+const res = await fetch("../data/warmup.json");
+const data = await res.json();
 
-let data=await loadJSON("../data/meditation.json")
+/* on prend le premier exercice */
+const meditation = data[0];
 
-let select=document.getElementById("meditationSelect")
-
-let session=data[0]
-
-if(select && data.length){
-session=data[select.selectedIndex]
+if(!meditation){
+console.error("Aucune méditation trouvée");
+return;
 }
 
-for(let s of session.segments){
+for(const seg of meditation.segments){
 
-if(stopRequested) return
-
-await speakPause(s.text,s.pause_after)
+await speak(seg.text);
+await wait(seg.pause_after);
 
 }
 
