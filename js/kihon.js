@@ -12,6 +12,19 @@ const compteJap=[
 ]
 const beep = new Audio("../sound/beep.mp3")
 
+const modeDescriptions={
+
+solo:"Réalisation de techniques simples. Possibilité de choix dans le menu ou aléatoire. En mode aléatoire, choix du nombre de techniques.",
+
+combo:"Réalisation de duo de techniques. Possibilité de choix dans le menu ou aléatoire. En mode aléatoire, choix du nombre de combo.",
+
+sparring:"Répondre à l’assaut annoncé par une technique de défense à la canne.",
+
+sensei:"Réaliser les techniques annoncées par le sensei.",
+
+multi:"Choisir le paramétrage (technique, combo ou sparring), à chaque annonce, réaliser l’exercice dans une direction différente."
+
+}
 /* LOAD JSON */
 
 async function init(){
@@ -86,8 +99,33 @@ ${video}
 `
 
 }
+/* CHOIX NOMBRE TECHNIQUES */
+function updateSelectors(){
 
+let mode=document.getElementById("modeSelect").value
+let random=document.getElementById("randomMode").checked
 
+// nombre de techniques / combos
+document.getElementById("randomCount").classList.toggle(
+"hidden",
+!(random && (mode==="solo" || mode==="combo"))
+)
+let isMulti = mode==="multi"
+
+document.getElementById("countSelect").classList.toggle("hidden",isMulti)
+document.getElementById("sparringCount").classList.toggle("hidden",isMulti)
+
+document.getElementById("techniqueSelect").classList.toggle("hidden",isMulti)
+document.getElementById("techniqueSelect2").classList.toggle("hidden",isMulti)
+
+document.getElementById("surpriseBtn").classList.toggle("hidden",isMulti)
+
+let isSensei = mode==="sensei"
+
+document.getElementById("countSelect").classList.toggle("hidden",isSensei)
+document.getElementById("techniqueSelect").classList.toggle("hidden",isSensei)
+document.getElementById("techniqueSelect2").classList.toggle("hidden",isSensei)
+}
 /* SURPRISE */
 
 function randomTechnique(){
@@ -201,20 +239,20 @@ const j=document.getElementById("techniqueSelect2").value
 await speak(kihon[i].nom)
 await speak(kihon[j].nom)
 
-await speak("Kamae")
-await speak("Hajime")
+await speak("Kamaé")
+await speak("Hajimé")
 
 await dojoCount()
 
-await speak("Mawate")
+await speak("Mawaté")
 
 await dojoCount()
 
-await speak("Yame")
+await speak("Yamé")
 
 await wait(2000)
 
-await speak("Yassme")
+await speak("Yassmé")
 
 }
 function randomAssaut(){
@@ -252,7 +290,6 @@ async function sparringMode(){
 let n=document.getElementById("sparringCount").value
 let interval=parseInt(document.getElementById("sparringInterval").value)
 
-await speak("Mode sparring")
 
 await speak("Kamae")
 await speak("Hajime")
@@ -261,7 +298,7 @@ let sequence=generateSmartSparring(n)
 
 for(let a of sequence){
 
-await speak(a.categorie + " : " + a.nom)
+await speak(a.nom)
 
 beep.play()
 
@@ -282,11 +319,9 @@ await speak("Yassme")
 
 async function senseiMode(){
 
-await speak("Mode sensei")
-
 await speak("Yoi")
-await speak("Kamae")
-await speak("Hajime")
+await speak("Kamaé")
+await speak("Hajimé")
 
 let n=document.getElementById("sparringCount").value
 
@@ -296,15 +331,15 @@ let t=kihon[Math.floor(Math.random()*kihon.length)]
 
 await speak(t.nom)
 
-await wait(2000)
+await wait(4000)
 
 }
 
-await speak("Yame")
+await speak("Yamé")
 
 await wait(2000)
 
-await speak("Yassme")
+await speak("Yassmé")
 
 }
 async function multiSequence(type,speed){
@@ -320,6 +355,7 @@ for(let k=0;k<5;k++){
 
 await speak(compteJap[k])
 
+let speed=parseInt(document.getElementById("speedSelect").value)
 await wait(speed)
 
 }
@@ -338,6 +374,7 @@ for(let k=0;k<5;k++){
 
 await speak(compteJap[k])
 
+let speed=parseInt(document.getElementById("speedSelect").value)
 await wait(speed)
 
 }
@@ -350,8 +387,9 @@ let sequence=generateSmartSparring(5)
 
 for(let a of sequence){
 
-await speak(a.categorie + " : " + a.nom)
+await speak(a.nom)
 
+let speed=parseInt(document.getElementById("speedSelect").value)
 await wait(speed)
 
 }
@@ -366,24 +404,30 @@ async function multiMode(){
 
 let type=document.getElementById("multiType").value
 let speed=parseInt(document.getElementById("speedSelect").value)
+let type=document.getElementById("multiType").value
 
-await speak("Kamae")
-await speak("Hajime")
+await speak("Multi directionnel")
+
+if(type==="tech") await speak("Technique")
+if(type==="combo") await speak("Combo")
+if(type==="sparring") await speak("Sparring")
+await speak("Kamaé")
+await speak("Hajimé")
 
 await multiSequence(type,speed)
 
 await speak("Yoi")
 
-await speak("Kamae")
-await speak("Hajime")
+await speak("Kamaé")
+await speak("Hajimé")
 
 await multiSequence(type,speed)
 
-await speak("Yame")
+await speak("Yamé")
 
 await wait(2000)
 
-await speak("Yassme")
+await speak("Yassmé")
 
 }
 
@@ -415,6 +459,22 @@ mode!=="multi"
 )
 
 }
+function updateModeInfo(){
+
+let mode=document.getElementById("modeSelect").value
+
+document.getElementById("modeInfo").innerText=
+modeDescriptions[mode] || ""
+
+}
+document
+.getElementById("modeSelect")
+.addEventListener("change",()=>{
+
+updateSelectors()
+updateModeInfo()
+
+})
 /* VOICE */
 
 function speak(text){
@@ -440,3 +500,5 @@ function wait(ms){
 return new Promise(r=>setTimeout(r,ms))
 
 }
+document.getElementById("modeSelect").addEventListener("change",updateSelectors)
+document.getElementById("randomMode").addEventListener("change",updateSelectors)
