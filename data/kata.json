@@ -1,0 +1,17 @@
+[
+{
+"id":1,
+"nom":"Kata fondamental",
+"duration":60
+},
+{
+"id":2,
+"nom":"Kata défense",
+"duration":90
+},
+{
+"id":3,
+"nom":"Kata avancé",
+"duration":120
+}
+]
