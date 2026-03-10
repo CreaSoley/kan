@@ -1,0 +1,59 @@
+{
+  "id": "full_body_stretch_3min",
+  "title": "Étirement complet",
+  "duration": 180,
+  "segments": [
+
+    {"text":"Tiens toi debout.", "pause_after":2000},
+    {"text":"Pieds écartés à la largeur des épaules.", "pause_after":2500},
+    {"text":"Respire calmement.", "pause_after":3000},
+
+    {"text":"Lève les bras au dessus de la tête.", "pause_after":2000},
+    {"text":"Étire toi vers le plafond.", "pause_after":3000},
+    {"text":"Allonge la colonne.", "pause_after":3000},
+    {"text":"Maintiens l’étirement.", "pause_after":4000},
+    {"text":"Relâche doucement les bras.", "pause_after":3000},
+
+    {"text":"Penche la tête vers la droite.", "pause_after":2000},
+    {"text":"Étire le côté du cou.", "pause_after":4000},
+    {"text":"Reviens au centre.", "pause_after":2000},
+
+    {"text":"Penche la tête vers la gauche.", "pause_after":2000},
+    {"text":"Étire l’autre côté du cou.", "pause_after":4000},
+    {"text":"Reviens au centre.", "pause_after":2500},
+
+    {"text":"Étire un bras devant toi.", "pause_after":2000},
+    {"text":"Tire doucement les doigts vers toi.", "pause_after":4000},
+    {"text":"Relâche.", "pause_after":2000},
+
+    {"text":"Change de bras.", "pause_after":2000},
+    {"text":"Tire doucement les doigts vers toi.", "pause_after":4000},
+    {"text":"Relâche.", "pause_after":2500},
+
+    {"text":"Place les mains sur les hanches.", "pause_after":2000},
+    {"text":"Fais un cercle lent avec le bassin.", "pause_after":4000},
+    {"text":"Continue le mouvement.", "pause_after":4000},
+    {"text":"Change de sens.", "pause_after":4000},
+
+    {"text":"Penche le buste vers l’avant.", "pause_after":2000},
+    {"text":"Laisse les bras descendre.", "pause_after":4000},
+    {"text":"Relâche le dos.", "pause_after":4000},
+    {"text":"Remonte doucement.", "pause_after":4000},
+
+    {"text":"Attrape une cheville derrière toi.", "pause_after":2000},
+    {"text":"Étire l’avant de la cuisse.", "pause_after":4000},
+    {"text":"Relâche.", "pause_after":2000},
+
+    {"text":"Change de jambe.", "pause_after":2000},
+    {"text":"Étire l’avant de la cuisse.", "pause_after":4000},
+    {"text":"Relâche.", "pause_after":3000},
+
+    {"text":"Monte sur la pointe des pieds.", "pause_after":2000},
+    {"text":"Bras vers le ciel.", "pause_after":3000},
+    {"text":"Étire tout le corps.", "pause_after":4000},
+
+    {"text":"Relâche.", "pause_after":3000},
+    {"text":"Respire profondément.", "pause_after":4000}
+
+  ]
+}
