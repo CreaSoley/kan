@@ -10,6 +10,7 @@ const compteJap=[
 "Ichi","Ni","San","Shi","Go",
 "Roku","Shichi","Hachi","Ku","Ju"
 ]
+const beep = new Audio("../sound/beep.mp3")
 
 /* LOAD JSON */
 
@@ -133,10 +134,12 @@ stopTraining()
 
 async function startTraining(){
 
+let mode=document.getElementById("modeSelect").value
+
+await speak("Mode " + mode)
+
 running=true
 paused=false
-
-const mode=document.getElementById("modeSelect").value
 
 if(mode==="solo") soloMode()
 if(mode==="combo") comboMode()
@@ -245,6 +248,9 @@ return result
 async function sparringMode(){
 
 let n=document.getElementById("sparringCount").value
+let interval=parseInt(document.getElementById("sparringInterval").value)
+
+await speak("Mode sparring")
 
 await speak("Kamae")
 await speak("Hajime")
@@ -255,11 +261,17 @@ for(let a of sequence){
 
 await speak(a.categorie + " : " + a.nom)
 
-await wait(3000)
+beep.play()
+
+await wait(interval)
 
 }
 
 await speak("Yame")
+
+await wait(2000)
+
+await speak("Yassme")
 
 }
 
@@ -267,6 +279,12 @@ await speak("Yame")
 /* SENSEI */
 
 async function senseiMode(){
+
+await speak("Mode sensei")
+
+await speak("Yoi")
+await speak("Kamae")
+await speak("Hajime")
 
 let n=document.getElementById("sparringCount").value
 
@@ -277,6 +295,14 @@ let t=kihon[Math.floor(Math.random()*kihon.length)]
 await speak(t.nom)
 
 await wait(2000)
+
+}
+
+await speak("Yame")
+
+await wait(2000)
+
+await speak("Yassme")
 
 }
 
