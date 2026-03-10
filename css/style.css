@@ -592,3 +592,9 @@ video{
 .hidden{
   display:none !important;
 }
+.controls{
+display:grid;
+grid-template-columns:auto 1fr;
+gap:6px 10px;
+align-items:center;
+}
