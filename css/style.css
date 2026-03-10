@@ -139,7 +139,7 @@ h1 {
 .tech-card {
   width: 95%;
   max-width: 600px;
-  background: linear-gradient(to right,#43e97b,#38f9d7);
+  background: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
   padding: 20px;
   border-radius: 20px;
   color: white;
