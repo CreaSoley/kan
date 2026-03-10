@@ -598,3 +598,19 @@ grid-template-columns:auto 1fr;
 gap:6px 10px;
 align-items:center;
 }
+.progress-container{
+width:90%;
+max-width:500px;
+height:10px;
+background:#eee;
+border-radius:10px;
+overflow:hidden;
+margin:10px auto;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:linear-gradient(to right,#43e97b,#38f9d7);
+transition:width .3s;
+}
