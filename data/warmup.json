@@ -1,0 +1,139 @@
+[
+{
+"id":"warmup_full",
+"title":"Échauffement complet",
+"duration":360,
+
+"segments":[
+
+{"text":"Commence l'échauffement.", "pause_after":2000},
+
+{"text":"Tiens toi droit.", "pause_after":2000},
+{"text":"Respire calmement.", "pause_after":2500},
+
+{"text":"Rotation de la tête.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":3000},
+{"text":"Change de sens.", "pause_after":3000},
+
+{"text":"Mouvement de la tête de haut en bas.", "pause_after":3000},
+{"text":"Puis de gauche à droite.", "pause_after":3000},
+
+{"text":"Place les mains sur les épaules.", "pause_after":2000},
+{"text":"Rotation des épaules.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre sens.", "pause_after":3000},
+
+{"text":"Bras tendus.", "pause_after":2000},
+{"text":"Rotation des bras.", "pause_after":2000},
+{"text":"Lentement.", "pause_after":3000},
+{"text":"Plus rapidement.", "pause_after":3000},
+{"text":"Réduis l'amplitude.", "pause_after":3000},
+
+{"text":"Change de sens.", "pause_after":2000},
+{"text":"Rotation des bras.", "pause_after":3000},
+
+{"text":"Mobilité des poignets.", "pause_after":2000},
+{"text":"Rotation dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre sens.", "pause_after":3000},
+
+{"text":"Clé articulaire main droite.", "pause_after":3000},
+{"text":"Clé articulaire main gauche.", "pause_after":3000},
+
+{"text":"Mains sur les hanches.", "pause_after":2000},
+{"text":"Rotation du bassin.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre.", "pause_after":3000},
+
+{"text":"Rotation du tronc.", "pause_after":2000},
+{"text":"Vers la gauche.", "pause_after":2500},
+{"text":"Puis vers la droite.", "pause_after":2500},
+
+{"text":"Amplifie le mouvement.", "pause_after":2500},
+{"text":"Regarde derrière toi.", "pause_after":2500},
+
+{"text":"Mains sur les genoux.", "pause_after":2000},
+{"text":"Rotation des genoux.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre.", "pause_after":3000},
+
+{"text":"Mouvement des genoux d'avant en arrière.", "pause_after":3000},
+
+{"text":"Coup de pied souple vers l'avant.", "pause_after":2000},
+{"text":"Jambe gauche.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Jambe droite.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Coup de pied latéral.", "pause_after":2000},
+{"text":"Jambe gauche.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Jambe droite.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Coup de pied vers l'arrière.", "pause_after":2000},
+{"text":"Jambe droite.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Jambe gauche.", "pause_after":1500},
+{"text":"Ichi.", "pause_after":800},
+{"text":"Ni.", "pause_after":800},
+{"text":"San.", "pause_after":800},
+{"text":"Shi.", "pause_after":800},
+{"text":"Go.", "pause_after":1500},
+
+{"text":"Au sol.", "pause_after":2000},
+
+{"text":"Mobilité de la cheville droite.", "pause_after":2000},
+{"text":"Rotation dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre.", "pause_after":3000},
+
+{"text":"Mobilité de la cheville gauche.", "pause_after":2000},
+{"text":"Rotation dans un sens.", "pause_after":3000},
+{"text":"Puis dans l'autre.", "pause_after":3000},
+
+{"text":"Souplesse.", "pause_after":2000},
+{"text":"Touche le pied droit.", "pause_after":3000},
+{"text":"Regarde devant toi.", "pause_after":2000},
+{"text":"Garde le dos droit.", "pause_after":3000},
+
+{"text":"Touche le pied gauche.", "pause_after":3000},
+
+{"text":"Allonge toi sur le dos.", "pause_after":3000},
+
+{"text":"Pédalo.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":4000},
+{"text":"Puis dans l'autre.", "pause_after":4000},
+
+{"text":"Souplesse du dos.", "pause_after":2000},
+{"text":"Culbuto.", "pause_after":4000},
+
+{"text":"Redresse toi lentement.", "pause_after":4000},
+
+{"text":"Échauffement terminé.", "pause_after":3000}
+
+]
+
+}
+]
