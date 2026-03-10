@@ -614,3 +614,52 @@ width:0%;
 background:linear-gradient(to right,#43e97b,#38f9d7);
 transition:width .3s;
 }
+.param-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.param-row label {
+  min-width: 150px; /* largeur uniforme pour tous les labels */
+  font-size: 0.85em;
+  font-weight: 600;
+  text-align: left;
+}
+
+.param-row select {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: "Fredoka";
+}
+/* CARD COULEUR TRAINING */
+.training-card {
+  background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+}
+/* CARD COULEUR DEXT */
+.dext-card {
+  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+}
+.training-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 500px;
+}
+.training-bar .badge {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  background: #eee;
+  transition: background 0.3s;
+}
+.training-bar .badge.active {
+  background: linear-gradient(to right,#43e97b,#38f9d7);
+}
