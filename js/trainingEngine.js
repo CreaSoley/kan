@@ -87,7 +87,21 @@ updateDisplay("Prêt.")
 document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"))
 
 }
+function senseiMode(){
 
+document.getElementById("flowDuration").value=[3,5,10][Math.floor(Math.random()*3)]
+
+let multi=["tech","combo","sparring"]
+
+document.getElementById("multiType").value=random(multi)
+
+let repeat=[1,2,3]
+
+document.getElementById("kataRepeat").value=random(repeat)
+
+startTraining()
+
+}
 async function startTraining(){
 
 if(running) return
