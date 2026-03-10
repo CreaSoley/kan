@@ -6,13 +6,13 @@
 <title>TaïKan — Kihon</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body class="page-flex">
 
-<!-- HEADER -->
 <div class="top-bar">
 <a href="../index.html">
 <img src="../images/logo.png" class="logo-inline">
@@ -21,35 +21,52 @@
 </div>
 
 <!-- MODE -->
+
 <div class="controls">
 
 <select id="modeSelect" class="kata-select">
-<option value="solo">Technique solo</option>
+<option value="solo">Technique</option>
 <option value="combo">Combo</option>
 <option value="sparring">Sparring</option>
 <option value="sensei">Sensei</option>
 <option value="multi">Multi-directionnel</option>
 </select>
+
 <div id="modeInfo" class="mode-info"></div>
+
 <select id="techniqueSelect" class="kata-select"></select>
 
 <select id="techniqueSelect2" class="kata-select"></select>
 
-<button class="kawaii-btn" onclick="randomTechnique()">🎲 Surprise</button>
+<button id="surpriseBtn" class="kawaii-btn">🎲 Surprise</button>
 
 </div>
-<select id="multiType" class="kata-select">
+
+<!-- MULTI -->
+
+<div class="controls">
+
+<select id="multiType" class="kata-select hidden">
 <option value="tech">Technique</option>
 <option value="combo">Combo</option>
 <option value="sparring">Sparring</option>
 </select>
-  
+
+</div>
+
 <!-- OPTIONS -->
+
 <div class="controls">
 
 <select id="countSelect" class="kata-select">
 <option value="5">Compte 5</option>
 <option value="10">Compte 10</option>
+</select>
+
+<select id="speedSelect" class="kata-select">
+<option value="2000">Lent</option>
+<option value="1200">Normal</option>
+<option value="700">Rapide</option>
 </select>
 
 <select id="sparringCount" class="kata-select">
@@ -61,11 +78,13 @@
 <option value="10">10 assauts</option>
 </select>
 
-<select id="speedSelect" class="kata-select">
-<option value="2000">Lent</option>
-<option value="1200">Normal</option>
-<option value="700">Rapide</option>
+<select id="sparringInterval" class="kata-select">
+<option value="3000">3 s</option>
+<option value="5000">5 s</option>
+<option value="7000">7 s</option>
+<option value="10000">10 s</option>
 </select>
+
 <select id="randomCount" class="kata-select hidden">
 <option value="1">1</option>
 <option value="2">2</option>
@@ -73,14 +92,11 @@
 <option value="4">4</option>
 <option value="5">5</option>
 </select>
+
 </div>
-<select id="sparringInterval" class="kata-select">
-<option value="3000">3s</option>
-<option value="5000">5s</option>
-<option value="7000">7s</option>
-<option value="10000">10s</option>
-</select>
+
 <!-- CONTROLES -->
+
 <div class="button-row">
 
 <button class="btn-kawaii start" onclick="startTraining()">▶</button>
@@ -90,8 +106,12 @@
 
 </div>
 
-<!-- CARD -->
+<!-- AFFICHAGE ENTRAINEMENT -->
+
 <div id="trainingDisplay" class="result-display"></div>
+
+<!-- CARD -->
+
 <div id="card" class="tech-card kihon-card"></div>
 
 <script src="../js/kihon.js"></script>
