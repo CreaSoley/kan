@@ -308,7 +308,33 @@ speechSynthesis.speak(utter)
 })
 
 }
+function speak(text,mode="normal"){
 
+return new Promise(resolve=>{
+
+let utter = new SpeechSynthesisUtterance(text)
+
+utter.lang="fr-FR"
+
+if(mode==="meditation"){
+
+utter.rate = 0.8
+utter.pitch = 0.9
+
+}else{
+
+utter.rate = 0.95
+utter.pitch = 1
+
+}
+
+utter.onend = resolve
+
+speechSynthesis.speak(utter)
+
+})
+
+}
 
 /* =========================================================
    EXECUTION SEGMENTS
@@ -345,7 +371,7 @@ if(!meditation) return
 
 await speak(meditation.title)
 await runSegments(meditation.segments)
-
+await speak(segment.text,"meditation")
 }
 
 
@@ -451,57 +477,76 @@ await speak("stop")
 
 async function runKihon(){
 
-if(kihonData.length === 0) return
+display("Kihon")
 
 await speak("Kihon")
 
-const japaneseCount = [
-"ichi",
-"ni",
-"san",
-"shi",
-"go"
-]
+/* 3 techniques */
 
-function randomTechnique(){
+for(let i=0;i<3;i++){
 
-return kihonData[Math.floor(Math.random()*kihonData.length)]
+let t = kihon[Math.floor(Math.random()*kihon.length)]
 
-}
+display(t.nom)
 
-for(let i=1;i<=3;i++){
+await speak("Technique")
 
-const tech = randomTechnique()
+await wait(2000)
 
-await speak("Technique " + i)
+await speak(t.nom)
 
-await speak(tech.nom)
+await wait(2000)
 
 await speak("Yoi")
-
-await wait(1000)
-
 await speak("Kamae")
-
-await wait(1000)
-
 await speak("Hajime")
 
-for(const c of japaneseCount){
+for(let c of compteJap){
 
 await speak(c)
 
-await wait(800)
+await wait(1500)
 
 }
 
 await speak("Mawate")
 
-for(const c of japaneseCount){
+for(let c of compteJap){
 
 await speak(c)
 
-await wait(800)
+await wait(1500)
+
+}
+
+}
+
+/* 3 combos */
+
+for(let i=0;i<3;i++){
+
+let a = kihon[Math.floor(Math.random()*kihon.length)]
+let b = kihon[Math.floor(Math.random()*kihon.length)]
+
+display(a.nom+" + "+b.nom)
+
+await speak("Combo")
+
+await wait(2000)
+
+await speak(a.nom)
+
+await wait(2000)
+
+await speak(b.nom)
+
+await speak("Hajime")
+
+for(let c of compteJap){
+
+await speak(c)
+
+await wait(1500)
 
 }
 
@@ -509,7 +554,7 @@ await wait(800)
 
 await speak("Yame")
 
-await wait(1000)
+await wait(2000)
 
 await speak("Yassme")
 
