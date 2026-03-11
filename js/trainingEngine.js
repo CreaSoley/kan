@@ -70,6 +70,7 @@ await loadData()
 displayText("Prêt.")
 
 }
+console.log("Training engine prêt")
 /* =========================================================
    ALIMENTATION POPULATION KATA
 ========================================================= */
