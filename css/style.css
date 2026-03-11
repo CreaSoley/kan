@@ -517,12 +517,16 @@ video{
 
 /* ===== RESULT DISPLAY ===== */
 .result-display{
-  background:white;
-  border-radius:18px;
-  padding:18px;
-  text-align:center;
-  font-size:1.4em;
-  margin-top:6px;
+
+background:white;
+color:#333;
+font-family:"Fredoka";
+border-radius:12px;
+padding:14px;
+margin-top:12px;
+min-height:60px;
+text-align:center;
+
 }
 
 /* ===== BUTTONS ===== */
