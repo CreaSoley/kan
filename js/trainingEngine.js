@@ -132,7 +132,7 @@ VOICE ENGINE
 ========================================================= */
 
 function speak(text,mode="normal"){
-
+displayText(text)
 return new Promise(resolve=>{
 
 if(!text){resolve();return}
