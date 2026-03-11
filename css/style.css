@@ -697,3 +697,31 @@ justify-content:center;
 .training-bar .badge.active {
   background: linear-gradient(to right,#43e97b,#38f9d7);
 }
+.badge{
+
+font-size:20px;
+
+width:32px;
+height:32px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#ffffff;
+
+transition:0.3s;
+
+}
+
+.badge.active{
+
+background:#00c853;
+
+color:white;
+
+transform:scale(1.2);
+
+}
