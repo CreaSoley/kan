@@ -2,14 +2,12 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <title>TaïKan — Entraînement</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 
 <body class="page-flex">
@@ -37,68 +35,70 @@ séance complète guidée — self défense avec canne
 
 <div id="trainingConfig" class="accordion-content open">
 
-  <div class="param-row">
-    <label for="meditationSelect">Méditation</label>
-    <select id="meditationSelect">
-      <option value="0">Ancrage et respiration</option>
-      <option value="1">Respiration profonde</option>
-      <option value="2">Calme intérieur</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="meditationSelect">🧘 Méditation</label>
+<select id="meditationSelect">
+<option value="0">Ancrage et respiration</option>
+<option value="1">Respiration profonde</option>
+<option value="2">Calme intérieur</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="warmupSelect">Échauffement</label>
-    <select id="warmupSelect">
-      <option value="0">Échauffement complet</option>
-      <option value="1">Échauffement court</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="warmupSelect">🔥 Échauffement</label>
+<select id="warmupSelect">
+<option value="0">Échauffement complet</option>
+<option value="1">Échauffement court</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="flowDuration">Flow manipulation de canne</label>
-    <select id="flowDuration">
-      <option value="1">1 minute</option>
-      <option value="3">3 minutes</option>
-      <option value="5">5 minutes</option>
-      <option value="10">10 minutes</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="flowDuration">🦯 Flow manipulation de canne</label>
+<select id="flowDuration">
+<option value="1">1 minute</option>
+<option value="3">3 minutes</option>
+<option value="5">5 minutes</option>
+<option value="10">10 minutes</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="multiType">Multi-directionnel</label>
-    <select id="multiType">
-      <option value="tech">Technique</option>
-      <option value="combo">Combo</option>
-      <option value="sparring">Sparring</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="multiType">⚔️ Multi-directionnel</label>
+<select id="multiType">
+<option value="tech">Technique</option>
+<option value="combo">Combo</option>
+<option value="sparring">Sparring</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="kataSelect">Kata</label>
-    <select id="kataSelect">
-      <option value="1">Kata 1</option>
-      <option value="2">Kata 2</option>
-      <option value="3">Kata 3</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="kataSelect">🥋 Kata</label>
+<select id="kataSelect">
+<option value="1">Kata 1</option>
+<option value="2">Kata 2</option>
+<option value="3">Kata 3</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="kataGuidance">Guidage Kata</label>
-    <select id="kataGuidance">
-      <option value="audio">Guidage audio</option>
-      <option value="tts">Synthèse vocale</option>
-      <option value="none">Sans guidage</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="kataGuidance">🎧 Guidage kata</label>
+<select id="kataGuidance">
+<option value="audio">Guidage audio</option>
+<option value="tts">Synthèse vocale</option>
+<option value="none">Sans guidage</option>
+</select>
+</div>
 
-  <div class="param-row">
-    <label for="kataRepeat">Nombre de répétitions</label>
-    <select id="kataRepeat">
-      <option value="1">1 répétition</option>
-      <option value="2">2 répétitions</option>
-      <option value="3">3 répétitions</option>
-    </select>
-  </div>
+<div class="param-row">
+<label for="kataRepeat">🔁 Répétitions</label>
+<select id="kataRepeat">
+<option value="1">1 répétition</option>
+<option value="2">2 répétitions</option>
+<option value="3">3 répétitions</option>
+</select>
+</div>
+
+</div>
 
 </div>
 
@@ -143,7 +143,7 @@ Prêt.
 🔄 Reset
 </button>
 
-<button class="btn-kawaii" onclick="senseiMode()">
+<button class="btn-kawaii" onclick="toggleSensei()">
 🥋 Mode Sensei
 </button>
 
@@ -152,17 +152,11 @@ Prêt.
 <script src="../js/trainingEngine.js"></script>
 
 <script>
-
 function toggleAccordion(){
-
-const panel = document.getElementById("trainingConfig")
-
-panel.classList.toggle("open")
-
+  const panel = document.getElementById("trainingConfig")
+  panel.classList.toggle("open")
 }
-
 </script>
 
 </body>
-
 </html>
