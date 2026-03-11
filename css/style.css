@@ -614,27 +614,27 @@ width:0%;
 background:linear-gradient(to right,#43e97b,#38f9d7);
 transition:width .3s;
 }
-.param-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  margin: 6px 0;
+/* PARAMÈTRES */
+.param-row{
+display:flex;
+align-items:center;
+gap:10px;
+margin:6px 0;
 }
 
-.param-row label {
-  min-width: 150px; /* largeur uniforme pour tous les labels */
-  font-size: 0.85em;
-  font-weight: 600;
-  text-align: left;
+.param-row label{
+min-width:140px;
+font-size:0.85em;
+font-weight:600;
+text-align:left;
 }
 
-.param-row select {
-  flex: 1;
-  padding: 6px 8px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-family: "Fredoka";
+.param-row select{
+flex:1;
+border-radius:10px;
+border:none;
+padding:6px 8px;
+font-family:"Fredoka";
 }
 /* CARD COULEUR TRAINING */
 .training-card {
