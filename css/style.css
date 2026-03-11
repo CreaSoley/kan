@@ -519,13 +519,26 @@ video{
 .result-display{
 
 background:white;
-color:#333;
-font-family:"Fredoka";
-border-radius:12px;
-padding:14px;
-margin-top:12px;
-min-height:60px;
+
+font-family:'Fredoka',sans-serif;
+
+font-size:32px;
+
 text-align:center;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+min-height:120px;
+
+border-radius:12px;
+
+margin-top:20px;
+
+padding:20px;
 
 }
 
@@ -648,14 +661,14 @@ font-family:"Fredoka";
 .dext-card {
   background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
 }
-.training-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4px;
-  margin: 10px auto;
-  width: 90%;
-  max-width: 500px;
+.training-bar{
+display:flex;
+justify-content:center;
+gap:12px;
+margin:25px auto;
+width:100%;
+
+}
 }
 .training-bar .badge {
   flex: 1;
