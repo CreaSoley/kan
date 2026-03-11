@@ -325,8 +325,7 @@ const meditation = meditationData[index]
 
 if(!meditation) return
 
-await speak("Méditation")
-
+await speak(meditation.title)
 await runSegments(meditation.segments)
 
 }
