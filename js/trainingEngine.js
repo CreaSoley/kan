@@ -39,7 +39,6 @@ let kataData = []
 
 /* DOM */
 
-let display
 let badges
 
 
@@ -102,7 +101,7 @@ async function loadData(){
 meditationData = await loadJSON("../data/meditation.json")
 warmupData = await loadJSON("../data/warmup.json")
 kihonData = await loadJSON("../data/kihon.json")
-kataData = await fetchJSON("../data/kata.json")
+kataData = await loadJSON("../data/kata.json")
 
 populateKataSelect()
 
@@ -154,7 +153,7 @@ if(trainingRunning) return
 
 trainingRunning = true
 trainingPaused = false
-
+await loadAllData()
 progress = 0
 totalSteps = 0
 
@@ -164,11 +163,10 @@ await runStep(0, runMeditation)
 await runStep(1, runWarmup)
 await runStep(2, runFlow)
 await runStep(3, runKihon)
-await runStep(4, runMulti)
+await runStep(4, multiMode)
 await runStep(5, runKata)
 await runStep(6, runStretch)
 await runStep(7, runCooldown)
-await loadAllData()
 await speak("Entraînement terminé")
 
 displayText("Séance terminée")
@@ -303,36 +301,6 @@ resolve()
    SYNTHÈSE VOCALE
 ========================================================= */
 
-function speak(text){
-
-return new Promise(resolve=>{
-
-if(!text){
-
-resolve()
-return
-
-}
-
-displayText(text)
-
-const utter = new SpeechSynthesisUtterance(text)
-
-utter.lang = "fr-FR"
-
-/* mode sensei = plus lent */
-
-utter.rate = senseiMode ? 0.85 : 1
-
-utter.pitch = 1
-
-utter.onend = resolve
-
-speechSynthesis.speak(utter)
-
-})
-
-}
 function speak(text,mode="normal"){
 
 return new Promise(resolve=>{
@@ -642,73 +610,6 @@ await speak("Yassme")
 
 }
 
-
-/* =========================================================
-   SEQUENCES MULTIDIRECTIONNEL
-========================================================= */
-
-async function multiSequence(type,speed){
-
-if(type==="tech"){
-
-let t = kihon[Math.floor(Math.random()*kihon.length)]
-
-display(t.nom)
-
-await speak(t.nom)
-
-for(let i=0;i<5;i++){
-
-display(compteJap[i])
-
-await speak(compteJap[i])
-
-await wait(speed)
-
-}
-
-}
-
-if(type==="combo"){
-
-let a = kihon[Math.floor(Math.random()*kihon.length)]
-let b = kihon[Math.floor(Math.random()*kihon.length)]
-
-display(a.nom + " / " + b.nom)
-
-await speak(a.nom)
-await wait(2000)
-
-await speak(b.nom)
-
-for(let i=0;i<5;i++){
-
-await speak(compteJap[i])
-
-await wait(speed)
-
-}
-
-}
-
-if(type==="sparring"){
-
-let seq = generateSmartSparring(5)
-
-for(let a of seq){
-
-display(a.nom)
-
-await speak(a.nom)
-
-await wait(speed)
-
-}
-
-}
-
-}
-
 /* =========================================================
    6 KATA
 ========================================================= */
@@ -723,7 +624,7 @@ const repeat = parseInt(document.getElementById("kataRepeat").value)
 
 const guidance = document.getElementById("kataGuidance").value
 
-const kata = kataData[kataIndex-1]
+const kata = kataData[kataIndex]
 
 if(!kata) return
 
