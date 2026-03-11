@@ -71,8 +71,28 @@ await loadData()
 displayText("Prêt.")
 
 }
+/* =========================================================
+   ALIMENTATION POPULATION KATA
+========================================================= */
+function populateKataSelect(){
 
+const select = document.getElementById("kataSelect")
 
+select.innerHTML=""
+
+kataData.forEach((k,i)=>{
+
+const opt = document.createElement("option")
+
+opt.value = i
+
+opt.textContent = k.nom
+
+select.appendChild(opt)
+
+})
+
+}
 /* =========================================================
    CHARGEMENT DES JSON
 ========================================================= */
@@ -82,7 +102,9 @@ async function loadData(){
 meditationData = await loadJSON("../data/meditation.json")
 warmupData = await loadJSON("../data/warmup.json")
 kihonData = await loadJSON("../data/kihon.json")
-kataData = await loadJSON("../data/kata.json")
+kataData = await fetchJSON("../data/kata.json")
+
+populateKataSelect()
 
 }
 
@@ -187,10 +209,13 @@ badges[index].classList.add("active")
    AFFICHAGE TEXTE
 ========================================================= */
 
-function displayText(text){
+function display(text){
 
-if(display)
-display.innerText = text
+const zone = document.getElementById("trainingDisplay")
+
+if(!zone) return
+
+zone.innerText = text
 
 }
 
@@ -361,19 +386,18 @@ await wait(seg.pause_after || 1000)
 
 async function runMeditation(){
 
-if(meditationData.length === 0) return
-
-const index = document.getElementById("meditationSelect").value
-
-const meditation = meditationData[index]
-
-if(!meditation) return
-
-await speak(meditation.title)
-await runSegments(meditation.segments)
+let index = document.getElementById("meditationSelect").value
+let meditation = meditationData[index]
+display(meditation.title)
+await speak(meditation.title,"meditation")
+for(const segment of meditation.segments){
+display(segment.text)
 await speak(segment.text,"meditation")
+await wait(segment.pause_after)
+
 }
 
+}
 
 /* =========================================================
    2 ECHAUFFEMENT
@@ -566,27 +590,54 @@ await speak("Yassme")
 
 async function multiMode(){
 
-let type = document.getElementById("multiType").value
-let speed = 1500
-
 display("Multi directionnel")
 
 await speak("Multi directionnel")
-await wait(2000)
 
-await speak("Kamae")
-await speak("Hajime")
+/* GARDE GAUCHE */
 
-await multiSequence(type,speed)
+await speak("Garde gauche")
 
 await speak("Yoi")
 await speak("Kamae")
 await speak("Hajime")
 
-await multiSequence(type,speed)
+for(let i=0;i<5;i++){
+
+let a = assaut[Math.floor(Math.random()*assaut.length)]
+
+display(a.nom)
+
+await speak(a.nom)
+
+await wait(1500)
+
+}
+
+/* GARDE DROITE */
+
+await speak("Garde droite")
+
+await speak("Yoi")
+await speak("Kamae")
+await speak("Hajime")
+
+for(let i=0;i<5;i++){
+
+let a = assaut[Math.floor(Math.random()*assaut.length)]
+
+display(a.nom)
+
+await speak(a.nom)
+
+await wait(1500)
+
+}
 
 await speak("Yame")
+
 await wait(2000)
+
 await speak("Yassme")
 
 }
