@@ -662,20 +662,37 @@ font-family:"Fredoka";
   background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
 }
 .training-bar{
+
 display:flex;
+
 justify-content:center;
-gap:12px;
-margin:25px auto;
-width:100%;
+
+align-items:center;
+
+gap:8px;
+
+margin:15px auto;
+
+flex-wrap:wrap;
 
 }
-}
-.training-bar .badge {
-  flex: 1;
-  height: 10px;
-  border-radius: 5px;
-  background: #eee;
-  transition: background 0.3s;
+
+font-size:20px;
+
+width:34px;
+
+height:34px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+background:white;
+
 }
 .training-bar .badge.active {
   background: linear-gradient(to right,#43e97b,#38f9d7);
