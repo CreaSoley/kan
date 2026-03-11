@@ -25,6 +25,10 @@ let senseiMode = false
 
 let progress = 0
 let totalSteps = 0
+let kihon = []
+let assaut = []
+
+const compteJap = ["ichi","ni","san","shi","go"]
 
 /* données JSON */
 
@@ -102,7 +106,21 @@ return []
 }
 
 }
+async function loadAllData(){
 
+try{
+
+const kihonRes = await fetch("../data/kihon.json")
+kihon = await kihonRes.json()
+
+const assautRes = await fetch("../data/assaut.json")
+assaut = await assautRes.json()
+
+}catch(e){
+console.log("erreur chargement JSON",e)
+}
+
+}
 
 /* =========================================================
    CONTROLE ENTRAINEMENT
@@ -128,7 +146,7 @@ await runStep(4, runMulti)
 await runStep(5, runKata)
 await runStep(6, runStretch)
 await runStep(7, runCooldown)
-
+await loadAllData()
 await speak("Entraînement terminé")
 
 displayText("Séance terminée")
@@ -501,77 +519,99 @@ await speak("Yassme")
    5 MULTI DIRECTIONNEL
 ========================================================= */
 
-async function runMulti(){
+async function multiMode(){
 
-const type = document.getElementById("multiType").value
+let type = document.getElementById("multiType").value
+let speed = 1500
+
+display("Multi directionnel")
 
 await speak("Multi directionnel")
+await wait(2000)
 
-await speak("Yoi")
-
-await wait(1000)
-
+await speak("Kamae")
 await speak("Hajime")
 
-for(let i=0;i<5;i++){
+await multiSequence(type,speed)
 
-await speak(randomTechnique(type))
+await speak("Yoi")
+await speak("Kamae")
+await speak("Hajime")
 
+await multiSequence(type,speed)
+
+await speak("Yame")
 await wait(2000)
-
-}
-
-await speak("Changement de garde")
-
-await wait(2000)
-
-for(let i=0;i<5;i++){
-
-await speak(randomTechnique(type))
-
-await wait(2000)
-
-}
+await speak("Yassme")
 
 }
 
 
 /* =========================================================
-   TECHNIQUES ALEATOIRES
+   SEQUENCES MULTIDIRECTIONNEL
 ========================================================= */
 
-function randomTechnique(type){
+async function multiSequence(type,speed){
 
-const tech = [
-"frappe jodan",
-"frappe chudan",
-"frappe gedan",
-"crochetage",
-"blocage circulaire"
-]
+if(type==="tech"){
 
-const combo = [
-"blocage puis frappe",
-"frappe puis balayage",
-"crochetage puis projection"
-]
+let t = kihon[Math.floor(Math.random()*kihon.length)]
 
-const spar = [
-"attaque libre",
-"contre attaque",
-"esquive et frappe"
-]
+display(t.nom)
 
-if(type === "tech")
-return randomItem(tech)
+await speak(t.nom)
 
-if(type === "combo")
-return randomItem(combo)
+for(let i=0;i<5;i++){
 
-return randomItem(spar)
+display(compteJap[i])
+
+await speak(compteJap[i])
+
+await wait(speed)
 
 }
 
+}
+
+if(type==="combo"){
+
+let a = kihon[Math.floor(Math.random()*kihon.length)]
+let b = kihon[Math.floor(Math.random()*kihon.length)]
+
+display(a.nom + " / " + b.nom)
+
+await speak(a.nom)
+await wait(2000)
+
+await speak(b.nom)
+
+for(let i=0;i<5;i++){
+
+await speak(compteJap[i])
+
+await wait(speed)
+
+}
+
+}
+
+if(type==="sparring"){
+
+let seq = generateSmartSparring(5)
+
+for(let a of seq){
+
+display(a.nom)
+
+await speak(a.nom)
+
+await wait(speed)
+
+}
+
+}
+
+}
 
 /* =========================================================
    6 KATA
