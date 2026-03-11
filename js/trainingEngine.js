@@ -1,60 +1,39 @@
 /* =========================================================
-   TaïKan Training Engine PRO
-   version pédagogique commentée
-   compatible PWA TaïKan
-
-   8 étapes :
-   1 méditation
-   2 échauffement
-   3 flow
-   4 kihon
-   5 multi-directionnel
-   6 kata
-   7 étirements
-   8 retour au calme
+TaïKan Training Engine PRO
+version stable PWA
 ========================================================= */
-
 
 /* =========================================================
-   VARIABLES GLOBALES
+GLOBAL STATE
 ========================================================= */
 
-let trainingRunning = false
-let trainingPaused = false
-let senseiMode = false
+let trainingRunning=false
+let trainingPaused=false
+let senseiMode=false
 
-let progress = 0
-let totalSteps = 0
-let kihon = []
-let assaut = []
+let displayZone
 
-const compteJap = ["ichi","ni","san","shi","go"]
+let meditationData=[]
+let warmupData=[]
+let kihonData=[]
+let kataData=[]
+let assautData=[]
 
-/* données JSON */
+let badges=[]
 
-let meditationData = []
-let warmupData = []
-let kihonData = []
-let kataData = []
-
-/* DOM */
-
-let badges
-
+const compteJap=["ichi","ni","san","shi","go"]
 
 /* =========================================================
-   INITIALISATION
+INIT
 ========================================================= */
 
-window.addEventListener("DOMContentLoaded", init)
+window.addEventListener("DOMContentLoaded",init)
 
 async function init(){
 
-display = document.getElementById("trainingDisplay")
+displayZone=document.getElementById("trainingDisplay")
 
-/* badges de progression */
-
-badges = [
+badges=[
 document.getElementById("step1"),
 document.getElementById("step2"),
 document.getElementById("step3"),
@@ -67,230 +46,142 @@ document.getElementById("step8")
 
 await loadData()
 
+populateKataSelect()
+
 displayText("Prêt.")
 
-}
 console.log("Training engine prêt")
+
+}
+
 /* =========================================================
-   ALIMENTATION POPULATION KATA
+DISPLAY
 ========================================================= */
+
+function displayText(text){
+
+if(!displayZone) return
+
+displayZone.innerText=text
+
+}
+
+/* =========================================================
+JSON LOADING
+========================================================= */
+
+async function loadJSON(path){
+
+try{
+
+const res=await fetch(path)
+
+if(!res.ok){
+console.warn("JSON introuvable:",path)
+return []
+}
+
+return await res.json()
+
+}catch(e){
+
+console.warn("Erreur JSON:",path)
+return []
+
+}
+
+}
+
+async function loadData(){
+
+meditationData=await loadJSON("../data/meditation.json")
+warmupData=await loadJSON("../data/warmup.json")
+kihonData=await loadJSON("../data/kihon.json")
+kataData=await loadJSON("../data/kata.json")
+assautData=await loadJSON("../data/assaut.json")
+
+}
+
+/* =========================================================
+POPULATE KATA SELECT
+========================================================= */
+
 function populateKataSelect(){
 
-const select = document.getElementById("kataSelect")
+const select=document.getElementById("kataSelect")
+
+if(!select) return
 
 select.innerHTML=""
 
 kataData.forEach((k,i)=>{
 
-const opt = document.createElement("option")
+const opt=document.createElement("option")
 
-opt.value = i
-
-opt.textContent = k.nom
+opt.value=i
+opt.textContent=k.nom || k.name || ("Kata "+(i+1))
 
 select.appendChild(opt)
 
 })
 
 }
+
 /* =========================================================
-   CHARGEMENT DES JSON
+VOICE ENGINE
 ========================================================= */
 
-async function loadData(){
+function speak(text,mode="normal"){
 
-meditationData = await loadJSON("../data/meditation.json")
-warmupData = await loadJSON("../data/warmup.json")
-kihonData = await loadJSON("../data/kihon.json")
-kataData = await loadJSON("../data/kata.json")
+return new Promise(resolve=>{
 
-populateKataSelect()
+if(!text){resolve();return}
 
-}
+displayText(text)
 
-async function loadJSON(path){
+const utter=new SpeechSynthesisUtterance(text)
 
-try{
+utter.lang="fr-FR"
 
-const res = await fetch(path)
+if(mode==="meditation"){
 
-if(!res.ok) return []
+utter.rate=0.8
+utter.pitch=0.9
 
-return await res.json()
+}else{
 
-}
-catch(e){
-
-console.warn("Erreur chargement JSON:",path)
-
-return []
+utter.rate=senseiMode?0.85:1
+utter.pitch=1
 
 }
 
-}
-async function loadAllData(){
+utter.onend=resolve
 
-try{
+speechSynthesis.speak(utter)
 
-const kihonRes = await fetch("../data/kihon.json")
-kihon = await kihonRes.json()
-
-const assautRes = await fetch("../data/assaut.json")
-assaut = await assautRes.json()
-
-}catch(e){
-console.log("erreur chargement JSON",e)
-}
+})
 
 }
 
 /* =========================================================
-   CONTROLE ENTRAINEMENT
-========================================================= */
-
-async function startTraining(){
-
-if(trainingRunning) return
-
-trainingRunning = true
-trainingPaused = false
-await loadAllData()
-progress = 0
-totalSteps = 0
-
-displayText("Début de la séance")
-
-await runStep(0, runMeditation)
-await runStep(1, runWarmup)
-await runStep(2, runFlow)
-await runStep(3, runKihon)
-await runStep(4, multiMode)
-await runStep(5, runKata)
-await runStep(6, runStretch)
-await runStep(7, runCooldown)
-await speak("Entraînement terminé")
-
-displayText("Séance terminée")
-
-trainingRunning = false
-
-}
-
-
-/* =========================================================
-   GESTION DES ETAPES
-========================================================= */
-
-async function runStep(stepIndex, stepFunction){
-
-highlightStep(stepIndex)
-
-await stepFunction()
-
-}
-
-
-/* =========================================================
-   BARRE PROGRESSION
-========================================================= */
-
-function highlightStep(index){
-
-badges.forEach(b => b.classList.remove("active"))
-
-if(badges[index])
-badges[index].classList.add("active")
-
-}
-
-
-/* =========================================================
-   AFFICHAGE TEXTE
-========================================================= */
-
-function display(text){
-
-const zone = document.getElementById("trainingDisplay")
-
-if(!zone) return
-
-zone.innerText = text
-
-}
-
-function displayText(text){
-
-display(text)
-
-}
-/* =========================================================
-   PAUSE
-========================================================= */
-
-function pauseTraining(){
-
-trainingPaused = !trainingPaused
-
-if(trainingPaused)
-displayText("Pause")
-
-}
-
-
-/* =========================================================
-   STOP
-========================================================= */
-
-function stopTraining(){
-
-trainingRunning = false
-
-speechSynthesis.cancel()
-
-displayText("Arrêt")
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetTraining(){
-
-stopTraining()
-
-progress = 0
-
-badges.forEach(b => b.classList.remove("active"))
-
-displayText("Prêt.")
-
-}
-
-
-/* =========================================================
-   ATTENTE AVEC PAUSE
+WAIT ENGINE
 ========================================================= */
 
 function wait(ms){
 
-return new Promise(resolve => {
+return new Promise(resolve=>{
 
-let elapsed = 0
+let elapsed=0
 
-let interval = setInterval(()=>{
+let interval=setInterval(()=>{
 
 if(!trainingPaused){
-
-elapsed += 100
-
+elapsed+=100
 }
 
-if(elapsed >= ms){
+if(elapsed>=ms){
 
 clearInterval(interval)
-
 resolve()
 
 }
@@ -301,41 +192,8 @@ resolve()
 
 }
 
-
 /* =========================================================
-   SYNTHÈSE VOCALE
-========================================================= */
-
-function speak(text,mode="normal"){
-
-return new Promise(resolve=>{
-
-let utter = new SpeechSynthesisUtterance(text)
-
-utter.lang="fr-FR"
-
-if(mode==="meditation"){
-
-utter.rate = 0.8
-utter.pitch = 0.9
-
-}else{
-
-utter.rate = 0.95
-utter.pitch = 1
-
-}
-
-utter.onend = resolve
-
-speechSynthesis.speak(utter)
-
-})
-
-}
-
-/* =========================================================
-   EXECUTION SEGMENTS
+SEGMENT EXECUTION
 ========================================================= */
 
 async function runSegments(segments){
@@ -346,26 +204,109 @@ if(!trainingRunning) return
 
 await speak(seg.text)
 
-await wait(seg.pause_after || 1000)
+await wait(seg.pause_after || 1500)
 
 }
 
 }
-
 
 /* =========================================================
-   1 MEDITATION
+PROGRESS BAR
+========================================================= */
+
+function highlightStep(i){
+
+badges.forEach(b=>b.classList.remove("active"))
+
+if(badges[i])
+badges[i].classList.add("active")
+
+}
+
+/* =========================================================
+CONTROL
+========================================================= */
+
+async function startTraining(){
+
+if(trainingRunning) return
+
+trainingRunning=true
+trainingPaused=false
+
+displayText("Début de la séance")
+
+await runStep(0,runMeditation)
+await runStep(1,runWarmup)
+await runStep(2,runFlow)
+await runStep(3,runKihon)
+await runStep(4,runMulti)
+await runStep(5,runKata)
+await runStep(6,runStretch)
+await runStep(7,runCooldown)
+
+await speak("Entraînement terminé")
+
+displayText("Séance terminée")
+
+trainingRunning=false
+
+}
+
+async function runStep(index,fn){
+
+highlightStep(index)
+
+await fn()
+
+}
+
+function pauseTraining(){
+
+trainingPaused=!trainingPaused
+
+displayText(trainingPaused?"Pause":"Reprise")
+
+}
+
+function stopTraining(){
+
+trainingRunning=false
+
+speechSynthesis.cancel()
+
+displayText("Arrêt")
+
+}
+
+function resetTraining(){
+
+stopTraining()
+
+badges.forEach(b=>b.classList.remove("active"))
+
+displayText("Prêt.")
+
+}
+
+/* =========================================================
+MEDITATION
 ========================================================= */
 
 async function runMeditation(){
 
-let index = document.getElementById("meditationSelect").value
-let meditation = meditationData[index]
-display(meditation.title)
+if(meditationData.length===0) return
+
+let index=document.getElementById("meditationSelect").value
+
+let meditation=meditationData[index]
+
 await speak(meditation.title,"meditation")
+
 for(const segment of meditation.segments){
-display(segment.text)
+
 await speak(segment.text,"meditation")
+
 await wait(segment.pause_after)
 
 }
@@ -373,16 +314,16 @@ await wait(segment.pause_after)
 }
 
 /* =========================================================
-   2 ECHAUFFEMENT
+WARMUP
 ========================================================= */
 
 async function runWarmup(){
 
-if(warmupData.length === 0) return
+if(warmupData.length===0) return
 
-const index = document.getElementById("warmupSelect").value
+const index=document.getElementById("warmupSelect").value
 
-const warmup = warmupData[index]
+const warmup=warmupData[index]
 
 await speak("Échauffement")
 
@@ -390,18 +331,17 @@ await runSegments(warmup.segments)
 
 }
 
-
 /* =========================================================
-   3 FLOW
+FLOW INFINI
 ========================================================= */
 
 async function runFlow(){
 
-const duration = parseInt(document.getElementById("flowDuration").value)
+let duration=parseInt(document.getElementById("flowDuration").value)
 
 await speak("Flow manipulation de canne")
 
-const moves = [
+const moves=[
 "cercle extérieur",
 "cercle intérieur",
 "huit horizontal",
@@ -410,7 +350,7 @@ const moves = [
 "cercle large"
 ]
 
-const footwork = [
+const footwork=[
 "pas à droite",
 "pas à gauche",
 "avance",
@@ -418,7 +358,7 @@ const footwork = [
 "pivot"
 ]
 
-const variations = [
+const variations=[
 "change de main",
 "ralentis",
 "accélère légèrement",
@@ -426,79 +366,61 @@ const variations = [
 "mouvement plus court"
 ]
 
-function random(arr){
-return arr[Math.floor(Math.random()*arr.length)]
-}
+function rand(a){return a[Math.floor(Math.random()*a.length)]}
 
-let totalTime = duration * 60000
-let elapsed = 0
+let total=duration*60000
+let elapsed=0
 
-while(elapsed < totalTime){
+while(elapsed<total){
 
 let text
 
-if(elapsed < totalTime * 0.3){
+if(elapsed<total*0.3)
+text=rand(moves)
 
-text = random(moves)
+else if(elapsed<total*0.7)
+text=rand(moves)+" "+rand(footwork)
 
-}
-else if(elapsed < totalTime * 0.7){
-
-text = random(moves) + " " + random(footwork)
-
-}
-else{
-
-text = random(moves) + " " + random(variations)
-
-}
+else
+text=rand(moves)+" "+rand(variations)
 
 await speak(text)
 
 await wait(5000)
 
-elapsed += 5000
+elapsed+=5000
 
 }
 
 await speak("ralentis progressivement")
 
-await wait(6000)
+await wait(5000)
 
 await speak("stop")
 
 }
+
 /* =========================================================
-   4 KIHON
+KIHON
 ========================================================= */
 
 async function runKihon(){
 
-display("Kihon")
-
 await speak("Kihon")
-
-/* 3 techniques */
 
 for(let i=0;i<3;i++){
 
-let t = kihon[Math.floor(Math.random()*kihon.length)]
-
-display(t.nom)
+let t=randomItem(kihonData)
 
 await speak("Technique")
 
-await wait(2000)
-
 await speak(t.nom)
-
-await wait(2000)
 
 await speak("Yoi")
 await speak("Kamae")
 await speak("Hajime")
 
-for(let c of compteJap){
+for(const c of compteJap){
 
 await speak(c)
 
@@ -508,7 +430,7 @@ await wait(1500)
 
 await speak("Mawate")
 
-for(let c of compteJap){
+for(const c of compteJap){
 
 await speak(c)
 
@@ -518,28 +440,22 @@ await wait(1500)
 
 }
 
-/* 3 combos */
+/* combos */
 
 for(let i=0;i<3;i++){
 
-let a = kihon[Math.floor(Math.random()*kihon.length)]
-let b = kihon[Math.floor(Math.random()*kihon.length)]
-
-display(a.nom+" + "+b.nom)
+let a=randomItem(kihonData)
+let b=randomItem(kihonData)
 
 await speak("Combo")
 
-await wait(2000)
-
 await speak(a.nom)
-
-await wait(2000)
 
 await speak(b.nom)
 
 await speak("Hajime")
 
-for(let c of compteJap){
+for(const c of compteJap){
 
 await speak(c)
 
@@ -558,16 +474,12 @@ await speak("Yassme")
 }
 
 /* =========================================================
-   5 MULTI DIRECTIONNEL
+MULTI SPARRING
 ========================================================= */
 
-async function multiMode(){
-
-display("Multi directionnel")
+async function runMulti(){
 
 await speak("Multi directionnel")
-
-/* GARDE GAUCHE */
 
 await speak("Garde gauche")
 
@@ -577,17 +489,13 @@ await speak("Hajime")
 
 for(let i=0;i<5;i++){
 
-let a = assaut[Math.floor(Math.random()*assaut.length)]
-
-display(a.nom)
+let a=randomItem(assautData)
 
 await speak(a.nom)
 
 await wait(1500)
 
 }
-
-/* GARDE DROITE */
 
 await speak("Garde droite")
 
@@ -597,9 +505,7 @@ await speak("Hajime")
 
 for(let i=0;i<5;i++){
 
-let a = assaut[Math.floor(Math.random()*assaut.length)]
-
-display(a.nom)
+let a=randomItem(assautData)
 
 await speak(a.nom)
 
@@ -616,24 +522,22 @@ await speak("Yassme")
 }
 
 /* =========================================================
-   6 KATA
+KATA
 ========================================================= */
 
 async function runKata(){
 
-if(kataData.length === 0) return
+if(kataData.length===0) return
 
-const kataIndex = document.getElementById("kataSelect").value
+const index=document.getElementById("kataSelect").value
 
-const repeat = parseInt(document.getElementById("kataRepeat").value)
+const repeat=parseInt(document.getElementById("kataRepeat").value)
 
-const guidance = document.getElementById("kataGuidance").value
+const guidance=document.getElementById("kataGuidance").value
 
-const kata = kataData[kataIndex]
+const kata=kataData[index]
 
-if(!kata) return
-
-await speak(kata.name)
+await speak(kata.nom || kata.name)
 
 for(let r=0;r<repeat;r++){
 
@@ -641,7 +545,7 @@ for(const part of kata.parts){
 
 await speak(part.name)
 
-if(guidance === "none"){
+if(guidance==="none"){
 
 await wait(4000)
 
@@ -657,23 +561,20 @@ await runSegments(part.segments)
 
 }
 
-
 /* =========================================================
-   7 ETIREMENTS
+STRETCH
 ========================================================= */
 
 async function runStretch(){
 
 await speak("Étirements")
 
-const stretches = [
-
+const stretches=[
 "étirement bras droit",
 "étirement bras gauche",
 "étirement épaules",
 "étirement jambes",
 "étirement dos"
-
 ]
 
 for(const s of stretches){
@@ -686,9 +587,8 @@ await wait(4000)
 
 }
 
-
 /* =========================================================
-   8 RETOUR AU CALME
+COOLDOWN
 ========================================================= */
 
 async function runCooldown(){
@@ -711,9 +611,8 @@ await speak("fin de la séance")
 
 }
 
-
 /* =========================================================
-   UTILITAIRES
+UTILS
 ========================================================= */
 
 function randomItem(list){
@@ -722,23 +621,14 @@ return list[Math.floor(Math.random()*list.length)]
 
 }
 
-
 /* =========================================================
-   MODE SENSEI
+SENSEI MODE
 ========================================================= */
 
 function toggleSensei(){
 
-senseiMode = !senseiMode
+senseiMode=!senseiMode
 
-if(senseiMode){
-
-speak("Mode Sensei activé")
-
-}else{
-
-speak("Mode Sensei désactivé")
-
-}
+speak(senseiMode?"Mode Sensei activé":"Mode Sensei désactivé")
 
 }
