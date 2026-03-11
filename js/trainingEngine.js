@@ -361,17 +361,73 @@ const duration = parseInt(document.getElementById("flowDuration").value)
 
 await speak("Flow manipulation de canne")
 
-for(let i = duration; i > 0; i--){
+const moves = [
+"cercle extérieur",
+"cercle intérieur",
+"huit horizontal",
+"huit vertical",
+"rotation de poignet",
+"cercle large"
+]
 
-await speak(i + " minute")
+const footwork = [
+"pas à droite",
+"pas à gauche",
+"avance",
+"recule",
+"pivot"
+]
 
-await wait(60000)
+const variations = [
+"change de main",
+"ralentis",
+"accélère légèrement",
+"mouvement plus large",
+"mouvement plus court"
+]
+
+function random(arr){
+return arr[Math.floor(Math.random()*arr.length)]
+}
+
+let totalTime = duration * 60000
+let elapsed = 0
+
+while(elapsed < totalTime){
+
+let text
+
+if(elapsed < totalTime * 0.3){
+
+text = random(moves)
+
+}
+else if(elapsed < totalTime * 0.7){
+
+text = random(moves) + " " + random(footwork)
+
+}
+else{
+
+text = random(moves) + " " + random(variations)
 
 }
 
+await speak(text)
+
+await wait(5000)
+
+elapsed += 5000
+
 }
 
+await speak("ralentis progressivement")
 
+await wait(6000)
+
+await speak("stop")
+
+}
 /* =========================================================
    4 KIHON
 ========================================================= */
@@ -382,12 +438,65 @@ if(kihonData.length === 0) return
 
 await speak("Kihon")
 
-const kihon = randomItem(kihonData)
+const japaneseCount = [
+"ichi",
+"ni",
+"san",
+"shi",
+"go"
+]
 
-await runSegments(kihon.segments)
+function randomTechnique(){
+
+return kihonData[Math.floor(Math.random()*kihonData.length)]
 
 }
 
+for(let i=1;i<=3;i++){
+
+const tech = randomTechnique()
+
+await speak("Technique " + i)
+
+await speak(tech.nom)
+
+await speak("Yoi")
+
+await wait(1000)
+
+await speak("Kamae")
+
+await wait(1000)
+
+await speak("Hajime")
+
+for(const c of japaneseCount){
+
+await speak(c)
+
+await wait(800)
+
+}
+
+await speak("Mawate")
+
+for(const c of japaneseCount){
+
+await speak(c)
+
+await wait(800)
+
+}
+
+}
+
+await speak("Yame")
+
+await wait(1000)
+
+await speak("Yassme")
+
+}
 
 /* =========================================================
    5 MULTI DIRECTIONNEL
