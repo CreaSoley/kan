@@ -1,3 +1,138 @@
+[
+{
+"id":"taikan_shodan",
+"name":"Taïkan Shodan",
+"belt":"intermédiaire",
+"parts":[
+
+{
+"id":"part1",
+"name":"Première partie",
+"segments":[
+{"text":"Première partie", "pause_after":2000},
+{"text":"Ramener la canne sous le bras par un moulinet", "pause_after":2500},
+{"text":"Saluer", "pause_after":2500},
+{"text":"Kamae", "pause_after":2000},
+{"text":"Lance à deux mains niveau jodan en zenkutsu dachi", "pause_after":3000},
+{"text":"Avancer pied droit", "pause_after":2000},
+{"text":"Crochetage dans le dos", "pause_after":2000},
+{"text":"Tirer vers soi, yori ashi", "pause_after":2500},
+{"text":"Coup sec vers l’aine avec la partie basse de la canne", "pause_after":3000}
+]
+},
+
+{
+"id":"part2",
+"name":"Deuxième partie",
+"segments":[
+{"text":"Deuxième partie", "pause_after":2000},
+{"text":"Mae geri jambe gauche", "pause_after":2000},
+{"text":"Reposer devant", "pause_after":2000},
+{"text":"Mawashi geri jambe droite", "pause_after":2000},
+{"text":"Reposer", "pause_after":1500},
+{"text":"Sursaut arrière", "pause_after":1500},
+{"text":"Position de la grue", "pause_after":2000},
+{"text":"Avancer pied gauche", "pause_after":2000},
+{"text":"Blocage latéral bas à deux mains", "pause_after":2500}
+]
+},
+
+{
+"id":"part3",
+"name":"Troisième partie",
+"segments":[
+{"text":"Troisième partie", "pause_after":2000},
+{"text":"Avancer pied droit", "pause_after":2000},
+{"text":"Frappe à l’aine avec le crochet en retournant la canne", "pause_after":3000},
+{"text":"Remonter la canne entre les jambes de l’adversaire", "pause_after":3000},
+{"text":"Taper pied droit", "pause_after":1500},
+{"text":"Impulsion", "pause_after":1500},
+{"text":"Frapper la tête avec le haut de la canne", "pause_after":3000}
+]
+},
+
+{
+"id":"part4",
+"name":"Quatrième partie",
+"segments":[
+{"text":"Quatrième partie", "pause_after":2000},
+{"text":"Avancer pied gauche", "pause_after":2000},
+{"text":"Coup latéral, frappe visage en rame", "pause_after":2500},
+{"text":"Ramener vers la gauche", "pause_after":2000},
+{"text":"Regard à gauche", "pause_after":1500},
+{"text":"Se retourner à gauche en kokutsu dachi", "pause_after":2500},
+{"text":"Canne devant soi tenue à deux mains", "pause_after":2500},
+{"text":"Tsugi ashi", "pause_after":1500},
+{"text":"Lance à deux mains niveau chudan", "pause_after":2500},
+{"text":"Avancer pied gauche", "pause_after":2000},
+{"text":"Frappe descendante en hache vers la tête", "pause_after":2500},
+{"text":"Main gauche sous la droite", "pause_after":2000},
+{"text":"Yori ashi", "pause_after":1500},
+{"text":"Frappe remontante vers le menton avec la pointe", "pause_after":2500},
+{"text":"Blocage horizontal haut à deux mains", "pause_after":2500},
+{"text":"Écrasement du visage", "pause_after":2500}
+]
+},
+
+{
+"id":"part5",
+"name":"Cinquième partie",
+"segments":[
+{"text":"Cinquième partie", "pause_after":2000},
+{"text":"Mae geri jambe gauche", "pause_after":2000},
+{"text":"Reposer arrière en kiba dachi", "pause_after":2500},
+{"text":"Blocage latéral fouetté bas main droite", "pause_after":2500},
+{"text":"Mouvement de hanche", "pause_after":1500},
+{"text":"Changer la saisie de la canne", "pause_after":2000},
+{"text":"Main gauche au milieu", "pause_after":2000},
+{"text":"Zenkutsu dachi", "pause_after":1500},
+{"text":"Gyaku taté tsuki", "pause_after":2000},
+{"text":"Canne verticale", "pause_after":1500},
+{"text":"Crochet vers le bas", "pause_after":2000}
+]
+},
+
+{
+"id":"part6",
+"name":"Sixième partie",
+"segments":[
+{"text":"Sixième partie", "pause_after":2000},
+{"text":"Mae geri jambe droite", "pause_after":2000},
+{"text":"Reposer devant", "pause_after":2000},
+{"text":"Mawashi geri jambe gauche en retournant", "pause_after":2500},
+{"text":"Pied droit derrière le genou gauche", "pause_after":2000},
+{"text":"Canne au sol pour aider", "pause_after":2000},
+{"text":"Rotation de la canne par la droite", "pause_after":2000},
+{"text":"Lever la canne horizontale", "pause_after":2000},
+{"text":"Changer de main", "pause_after":2000},
+{"text":"Zenkutsu dachi", "pause_after":1500},
+{"text":"Blocage bas horizontal main gauche", "pause_after":2500},
+{"text":"Crochet côté gauche", "pause_after":2500}
+]
+},
+
+{
+"id":"part7",
+"name":"Septième partie",
+"segments":[
+{"text":"Septième partie", "pause_after":2000},
+{"text":"Mawashi geri jambe gauche", "pause_after":2000},
+{"text":"Ura mawashi geri jambe droite", "pause_after":2500},
+{"text":"Zenkutsu dachi", "pause_after":1500},
+{"text":"Frappe type batte de baseball vers le bas", "pause_after":2500},
+{"text":"Adversaire au sol", "pause_after":1500},
+{"text":"Pied gauche devant", "pause_after":1500},
+{"text":"Récupérer l’anse de la canne main droite", "pause_after":2000},
+{"text":"Deux mouvements infinity en reculant", "pause_after":3000},
+{"text":"Main gauche en protection", "pause_after":2000},
+{"text":"Changer de main", "pause_after":2000},
+{"text":"Un mouvement infinity", "pause_after":2000},
+{"text":"Ramener la canne sous l’aisselle par un moulinet", "pause_after":3000}
+]
+}
+]
+},
+
 {
 "id":"taikan_nidan",
 "name":"Taïkan Nidan",
@@ -19,8 +154,7 @@
 {"text":"Hiza geri jambe gauche en ramenant la canne côté gauche, kiaï", "pause_after":3000},
 {"text":"Coup latéral bas de bas en haut", "pause_after":2500},
 {"text":"Ramener la canne à droite", "pause_after":2000},
-{"text":"Reculer trois pas", "pause_after":2000},
-{"text":"Trois moulinets latéraux", "pause_after":2500},
+{"text":"Reculer trois pas, trois moulinets latéraux", "pause_after":3000},
 {"text":"Retour heiko dachi, canne sous le bras droit", "pause_after":3000}
 ]
 },
@@ -44,182 +178,8 @@
 {"text":"Tirer vers le bas", "pause_after":2000},
 {"text":"Avancer pied gauche", "pause_after":2000},
 {"text":"Mawashi empi, canne sous le bras, kiaï", "pause_after":3000},
-{"text":"Reculer trois pas", "pause_after":2000},
+{"text":"Reculer trois pas", "pause_after":2500},
 {"text":"Trois moulinets latéraux", "pause_after":2500},
 {"text":"Retour heiko dachi", "pause_after":3000}
-]
-},
-
-{
-"id":"part3",
-"name":"Troisième partie",
-"segments":[
-{"text":"Troisième partie", "pause_after":2000},
-{"text":"Reculer pied droit en glissant", "pause_after":2000},
-{"text":"Poussée de pointe arrière, deux mains sur la crosse", "pause_after":3000},
-{"text":"Se retourner", "pause_after":2000},
-{"text":"Avancer pied gauche", "pause_after":2000},
-{"text":"Crochetage de la tête", "pause_after":2500},
-{"text":"Ramener au sol", "pause_after":2000},
-{"text":"Écraser pied gauche au sol", "pause_after":2000},
-{"text":"Coup de crosse au sol, kiaï", "pause_after":3000},
-{"text":"Blocage haut canne à deux mains, crosse devant", "pause_after":3000}
-]
-},
-
-{
-"id":"part4",
-"name":"Quatrième partie",
-"segments":[
-{"text":"Quatrième partie", "pause_after":2000},
-{"text":"Avancer pied droit, lance à deux mains", "pause_after":2500},
-{"text":"Avancer pied gauche", "pause_after":2000},
-{"text":"Crochetage épaule", "pause_after":2000},
-{"text":"Ramener vers le bas", "pause_after":2000},
-{"text":"Appuyer la canne au sol main droite", "pause_after":2000},
-{"text":"Mae geri jambe droite", "pause_after":2000},
-{"text":"Mawashi geri jambe gauche", "pause_after":2000},
-{"text":"Mawate", "pause_after":2000},
-{"text":"Blocage canne à deux mains, crosse vers l'extérieur côté droit", "pause_after":2500},
-{"text":"Heiko dachi", "pause_after":2500}
-]
-},
-
-{
-"id":"part5",
-"name":"Cinquième partie",
-"segments":[
-{"text":"Cinquième partie", "pause_after":2000},
-{"text":"Avancer pied droit", "pause_after":2000},
-{"text":"Lance à deux mains niveau jodan", "pause_after":2500},
-{"text":"Coup de tête sec sur la tête", "pause_after":2500},
-{"text":"Canne à deux mains", "pause_after":2000},
-{"text":"Retourner la canne", "pause_after":2000},
-{"text":"Saisir la canne à deux mains par le bas", "pause_after":2000},
-{"text":"Crochetage tête latéral à deux mains", "pause_after":2500},
-{"text":"Ramener au sol sur le côté", "pause_after":2500},
-{"text":"Mawate", "pause_after":2000},
-{"text":"Balayage chudan", "pause_after":2000},
-{"text":"Main sur la crosse", "pause_after":2500}
-]
-},
-
-{
-"id":"part6",
-"name":"Sixième partie",
-"segments":[
-{"text":"Sixième partie", "pause_after":2000},
-{"text":"Avancer pied droit", "pause_after":2000},
-{"text":"Lance à deux mains", "pause_after":2500},
-{"text":"Désarmement, saisie croisée de la canne", "pause_after":2500},
-{"text":"En fudo dachi", "pause_after":2000},
-{"text":"Mae geri jambe gauche", "pause_after":2000},
-{"text":"Reposer devant", "pause_after":2000},
-{"text":"Kokutsu jambe gauche", "pause_after":2000},
-{"text":"Désarmement intérieur bas gauche", "pause_after":2500},
-{"text":"Main droite en protection", "pause_after":2000},
-{"text":"Regard à droite", "pause_after":1500},
-{"text":"Changer la canne de main", "pause_after":2000},
-{"text":"Se retourner", "pause_after":2000},
-{"text":"Kokutsu droit", "pause_after":2000},
-{"text":"Désarmement intérieur bas droit", "pause_after":2500},
-{"text":"Main gauche en protection", "pause_after":2000},
-{"text":"Regard devant", "pause_after":1500},
-{"text":"Déplacement 90 degrés pied gauche devant", "pause_after":2000},
-{"text":"Parade haute", "pause_after":2000},
-{"text":"Coup latéral avec la main gauche", "pause_after":2500}
-]
-},
-
-{
-"id":"part7",
-"name":"Septième partie",
-"segments":[
-{"text":"Septième partie", "pause_after":2000},
-{"text":"Attraper revers main gauche", "pause_after":2000},
-{"text":"Hiza geri droit", "pause_after":2000},
-{"text":"Taper le genou avec la main gauche", "pause_after":2000},
-{"text":"Reposer en kiba dachi", "pause_after":2000},
-{"text":"Deux coups de crosse sur la main", "pause_after":2500},
-{"text":"Petit mawashi tsuki main gauche", "pause_after":2500},
-{"text":"Reculer", "pause_after":2000},
-{"text":"Quatre moulinets latéraux", "pause_after":3000},
-{"text":"Canne sous le bras", "pause_after":2000},
-{"text":"Garde à gauche", "pause_after":2000}
-]
-},
-
-{
-"id":"part8",
-"name":"Huitième partie",
-"segments":[
-{"text":"Huitième partie", "pause_after":2000},
-{"text":"Avancer pied droit", "pause_after":2000},
-{"text":"Poussée crosse, canne sous le bras", "pause_after":2500},
-{"text":"Avancer hiza geri jambe gauche", "pause_after":2000},
-{"text":"Main frappe le genou", "pause_after":2000},
-{"text":"Tendre bras gauche", "pause_after":2000},
-{"text":"Frappe circulaire vers le bas", "pause_after":2500},
-{"text":"Canne sous le bras", "pause_after":2000},
-{"text":"Kiba dachi", "pause_after":2000},
-{"text":"Frappe au sol avec la pointe de la canne", "pause_after":2500},
-{"text":"Enfoncer de façon circulaire", "pause_after":2500},
-{"text":"Frappe du pied gauche au sol niveau tête", "pause_after":2500},
-{"text":"Saisie main droite niveau crosse", "pause_after":2000},
-{"text":"Mawate balayage côté droit", "pause_after":2500},
-{"text":"Garde à droite, canne devant", "pause_after":3000}
-]
-},
-
-{
-"id":"part9",
-"name":"Neuvième partie",
-"segments":[
-{"text":"Neuvième partie", "pause_after":2000},
-{"text":"Avancer pied gauche", "pause_after":2000},
-{"text":"Frappe tête de haut en bas", "pause_after":2500},
-{"text":"Avancer pied droit", "pause_after":2000},
-{"text":"Frappe remontante menton", "pause_after":2500},
-{"text":"Position de la grue", "pause_after":2000},
-{"text":"Genou gauche levé", "pause_after":2000},
-{"text":"Canne touche le côté du pied", "pause_after":2000},
-{"text":"Reposer pied gauche en arrière", "pause_after":2500},
-{"text":"Avancer pied droit", "pause_after":2000},
-{"text":"Présenter la canne main droite crosse vers l'extérieur", "pause_after":2500},
-{"text":"Mawashi geri jambe gauche", "pause_after":2500},
-{"text":"Ura mawashi geri jambe droite", "pause_after":2500},
-{"text":"Frappe de la crosse au sol main droite", "pause_after":2500},
-{"text":"Trois moulinets latéraux en reculant", "pause_after":3000},
-{"text":"Canne sous le bras", "pause_after":2000},
-{"text":"Regard à droite", "pause_after":1500},
-{"text":"Regard à gauche", "pause_after":1500},
-{"text":"Main gauche en garde", "pause_after":2500}
-]
-},
-
-{
-"id":"part10",
-"name":"Dixième partie",
-"segments":[
-{"text":"Dixième partie", "pause_after":2000},
-{"text":"Déplacement 45 degrés vers la gauche", "pause_after":2000},
-{"text":"Trois parades main droite", "pause_after":3000},
-{"text":"Coup latéral vers le bas", "pause_after":2500},
-{"text":"Canne contre le flanc gauche", "pause_after":2000},
-{"text":"Changer de main", "pause_after":2000},
-{"text":"Déplacement 45 degrés vers la droite", "pause_after":2000},
-{"text":"Trois parades hautes", "pause_after":3000},
-{"text":"Coup latéral vers le bas", "pause_after":2500},
-{"text":"Canne contre le flanc droit", "pause_after":2000},
-{"text":"Reculer en faisant trois moulinets main gauche", "pause_after":2500},
-{"text":"Trois moulinets main droite", "pause_after":2500},
-{"text":"Retour à la place initiale", "pause_after":2500},
-{"text":"Regard à droite", "pause_after":1500},
-{"text":"Regard à gauche", "pause_after":1500},
-{"text":"Heiko dachi, poings en bas, canne sous le bras", "pause_after":2500},
-{"text":"Yoi, saluer", "pause_after":3000}
-]
-}
-
 ]
 }
