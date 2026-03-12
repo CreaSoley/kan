@@ -719,3 +719,25 @@ color:white;
 transform:scale(1.2);
 
 }
+/* ===== MODE APP MOBILE SUR DESKTOP ===== */
+
+body{
+
+display:flex;
+justify-content:center;
+
+}
+
+.page-flex{
+
+width:100%;
+max-width:420px;
+
+margin:auto;
+
+}
+.logo-inline{
+width:72px;
+max-width:72px;
+height:auto;
+}  
