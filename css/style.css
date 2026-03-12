@@ -101,7 +101,7 @@ h1 {
  .menu-icon{
   font-size:22px;
  }
-
+}
 /* LAYOUT PAGE */
 .page-flex {
   min-height: 100vh;
@@ -741,3 +741,12 @@ width:72px;
 max-width:72px;
 height:auto;
 }  
+/* correction logo universelle */
+
+.logo-pwa,
+.logo-inline{
+
+width:72px !important;
+height:auto;
+
+}
