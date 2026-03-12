@@ -60,6 +60,10 @@ DISPLAY
 
 function displayText(text){
 
+document.getElementById("resultDisplay").textContent = text
+
+}
+
 if(!displayZone) return
 
 displayZone.innerText=text
