@@ -54,6 +54,35 @@ console.log("Training engine prêt")
 
 }
 /* =========================================================
+WAKE LOCK (empêche la mise en veille)
+========================================================= */
+
+let wakeLock=null
+
+async function enableWakeLock(){
+
+try{
+
+if("wakeLock" in navigator){
+
+wakeLock = await navigator.wakeLock.request("screen")
+
+console.log("WakeLock activé")
+
+wakeLock.addEventListener("release",()=>{
+console.log("WakeLock relâché")
+})
+
+}
+
+}catch(err){
+
+console.log("WakeLock erreur",err)
+
+}
+
+}
+/* =========================================================
 DISPLAY
 ========================================================= */
 
@@ -238,7 +267,7 @@ trainingRunning=true
 trainingPaused=false
 
 displayText("Début de la séance")
-
+await enableWakeLock()
 await runStep(0,runMeditation)
 await runStep(1,runWarmup)
 await runStep(2,runFlow)
