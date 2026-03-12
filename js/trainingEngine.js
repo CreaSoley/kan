@@ -89,7 +89,7 @@ DISPLAY
 function displayText(text){
 
 const displayZone = document.getElementById("resultDisplay")
-
+console.log("DISPLAY:", text)
 if(!displayZone){
 console.warn("resultDisplay introuvable")
 return
