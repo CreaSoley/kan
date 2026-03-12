@@ -44,5 +44,93 @@
     { "text": "Le corps est prêt.", "pause_after": 2000 },
     { "text": "L'esprit est prêt.", "pause_after": 3000 }
   ]
+},
+  {
+  "session_id": "meditation_pre_warmup_2",
+  "title": "Respiration profonde",
+  "duration_sec": 180,
+  "segments": [
+    { "text": "Ferme doucement les yeux.", "pause_after": 2500 },
+    { "text": "Amène ton attention sur la respiration.", "pause_after": 3000 },
+
+    { "text": "Inspire profondément par le nez.", "pause_after": 3500 },
+    { "text": "Sens l'air remplir ta poitrine.", "pause_after": 3000 },
+
+    { "text": "Expire lentement par la bouche.", "pause_after": 3500 },
+    { "text": "Laisse le corps se détendre.", "pause_after": 3000 },
+
+    { "text": "Encore une respiration profonde.", "pause_after": 2500 },
+
+    { "text": "Inspire.", "pause_after": 3500 },
+    { "text": "Garde un instant.", "pause_after": 2000 },
+    { "text": "Expire lentement.", "pause_after": 3500 },
+
+    { "text": "Chaque souffle calme un peu plus le corps.", "pause_after": 3500 },
+
+    { "text": "Inspire profondément.", "pause_after": 3500 },
+    { "text": "Expire doucement.", "pause_after": 3500 },
+
+    { "text": "Relâche le visage.", "pause_after": 2500 },
+    { "text": "Relâche la mâchoire.", "pause_after": 2500 },
+    { "text": "Relâche les épaules.", "pause_after": 3000 },
+
+    { "text": "Respire lentement.", "pause_after": 3000 },
+
+    { "text": "Le souffle entre.", "pause_after": 2500 },
+    { "text": "Le souffle sort.", "pause_after": 3000 },
+
+    { "text": "Ton corps se détend.", "pause_after": 3000 },
+    { "text": "Ton esprit ralentit.", "pause_after": 3000 },
+
+    { "text": "Continue de respirer profondément.", "pause_after": 3500 },
+
+    { "text": "Le calme s'installe.", "pause_after": 3000 },
+    { "text": "Prends encore un souffle lent.", "pause_after": 3500 },
+
+    { "text": "Puis laisse la respiration revenir naturelle.", "pause_after": 4000 }
+  ]
+},
+{
+  "session_id": "meditation_pre_warmup_3",
+  "title": "calme intérieur",
+  "duration_sec": 180,
+  "segments": [
+    { "text": "Prends un moment pour t'immobiliser.", "pause_after": 3000 },
+    { "text": "Respire naturellement.", "pause_after": 3000 },
+
+    { "text": "Observe simplement ta respiration.", "pause_after": 3500 },
+
+    { "text": "À chaque inspiration.", "pause_after": 2500 },
+    { "text": "Un peu plus de calme entre.", "pause_after": 3500 },
+
+    { "text": "À chaque expiration.", "pause_after": 2500 },
+    { "text": "Les tensions quittent le corps.", "pause_after": 3500 },
+
+    { "text": "Laisse le visage se détendre.", "pause_after": 3000 },
+    { "text": "Les épaules deviennent lourdes.", "pause_after": 3000 },
+
+    { "text": "Le souffle est tranquille.", "pause_after": 3000 },
+
+    { "text": "Si une pensée apparaît.", "pause_after": 2500 },
+    { "text": "Observe-la.", "pause_after": 2000 },
+    { "text": "Puis laisse-la partir.", "pause_after": 3000 },
+
+    { "text": "Reviens doucement à la respiration.", "pause_after": 3500 },
+
+    { "text": "Un espace de calme se crée.", "pause_after": 3500 },
+    { "text": "Un espace de silence.", "pause_after": 3500 },
+
+    { "text": "Reste simplement présent.", "pause_after": 3500 },
+
+    { "text": "Respire.", "pause_after": 3000 },
+
+    { "text": "Ton esprit devient paisible.", "pause_after": 3500 },
+    { "text": "Ton corps est stable.", "pause_after": 3000 },
+
+    { "text": "Profite de ce calme intérieur.", "pause_after": 4000 },
+
+    { "text": "Quand tu es prêt.", "pause_after": 2500 },
+    { "text": "Garde ce calme avec toi.", "pause_after": 3500 }
+  ]
 }
 ]
