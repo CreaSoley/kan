@@ -628,14 +628,19 @@ transition:width .3s;
 }
 /* PARAMÈTRES */
 .param-row{
-display:flex;
+display:grid;
+grid-template-columns:28px 1fr;
+gap:8px;
 align-items:center;
-gap:10px;
 margin:6px 0;
 }
 
 .param-row label{
-min-width:140px;
+display:flex;
+align-items:center;
+gap:6px;
+
+min-width:auto;
 font-size:0.85em;
 font-weight:600;
 text-align:left;
