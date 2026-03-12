@@ -57,19 +57,22 @@ console.log("Training engine prêt")
 /* =========================================================
 DISPLAY
 ========================================================= */
+/* =========================================================
+DISPLAY
+========================================================= */
 
 function displayText(text){
 
-document.getElementById("resultDisplay").textContent = text
+const displayZone = document.getElementById("resultDisplay")
 
+if(!displayZone){
+console.warn("resultDisplay introuvable")
+return
 }
 
-if(!displayZone) return
-
-displayZone.innerText=text
+displayZone.textContent = text
 
 }
-
 /* =========================================================
 JSON LOADING
 ========================================================= */
