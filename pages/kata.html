@@ -28,11 +28,17 @@ Enchaînements techniques structurés pour travailler la coordination et la mém
   <button class="nav-btn" onclick="nextKata()">▶</button>
   <button class="kawaii-btn" onclick="randomKata()">🎲 Surprise</button>
 </div>
-  <div class="voice-controls">
-  <button onclick="startVoiceGuide()">▶ Guidage vocal</button>
-  <button onclick="pauseVoiceGuide()">⏸ Pause</button>
-  <button onclick="stopVoiceGuide()">⏹ Stop</button>
+<div class="voice-controls">
+  <button id="startVoiceBtn">▶ Guidage vocal</button>
+  <button id="pauseVoiceBtn">⏸ Pause</button>
+  <button id="stopVoiceBtn">⏹ Stop</button>
 </div>
+
+<label for="partSelect">Parties à répéter :</label>
+<select id="partSelect" multiple size="4"></select>
+
+<label for="repeatCount">Nombre de répétitions :</label>
+<input type="number" id="repeatCount" value="1" min="1" style="width:50px;">
 
 <div id="resultDisplay" class="voice-display"></div>
 <div id="card" class="tech-card kata-card"></div>
