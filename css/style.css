@@ -101,13 +101,7 @@ h1 {
  .menu-icon{
   font-size:22px;
  }
-}
-.page-flex{
- min-height:100vh;
- justify-content:flex-start;
- gap:6px;
- padding:6px 0;
-}
+
 /* LAYOUT PAGE */
 .page-flex {
   min-height: 100vh;
@@ -194,11 +188,6 @@ h1 {
   margin: 2px 0 6px 0;
 }
 
-.page-flex {
-  justify-content: flex-start;
-  padding: 6px;
-  gap: 4px;
-}
 .kawaii-btn {
   padding: 12px 18px;
   border-radius: 25px;
@@ -274,7 +263,7 @@ h1 {
   align-items: stretch;
   gap: 4px;                      /* ← contrôle global des espacements */
 }
-}
+
 /* ===== TOP BAR COMPACT MOBILE SAFE ===== */
 .top-bar {
   display: flex;
@@ -518,27 +507,31 @@ video{
 /* ===== RESULT DISPLAY ===== */
 .result-display{
 
+width:90%;
+max-width:500px;
+
 background:white;
 
-font-family:'Fredoka',sans-serif;
+font-family:"Fredoka",sans-serif;
 
 font-size:32px;
+font-weight:600;
 
 text-align:center;
 
 display:flex;
-
 align-items:center;
-
 justify-content:center;
 
 min-height:120px;
 
-border-radius:12px;
+border-radius:14px;
 
-margin-top:20px;
+margin:12px auto;
 
 padding:20px;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
 
 }
 
@@ -614,6 +607,8 @@ display:grid;
 grid-template-columns:auto 1fr;
 gap:6px 10px;
 align-items:center;
+width:90%;
+max-width:500px;
 }
 .progress-container{
 width:90%;
@@ -693,7 +688,6 @@ justify-content:center;
 
 }
 
-}
 .training-bar .badge.active {
   background: linear-gradient(to right,#43e97b,#38f9d7);
 }
