@@ -2,10 +2,11 @@
 Kata Data (affichage)
 ========================================================= */
 const data = [
- { id: "taikan_shodan", nom:"Kata 1", video:"../video/kata1.mp4", pdf:"../video/kata1.pdf" },
- { id: "taikan_nidan", nom:"Kata 2", video:"../video/kata2.mp4", pdf:"../video/kata2.pdf" },
+ { id: "taikan_shodan", nom:"Kata 4", video:"../video/kata4.mp4", pdf:"../video/kata4.pdf" },
+ { id: "taikan_nidan", nom:"Kata 6", video:"../video/kata6.mp4", pdf:"../video/kata6.pdf" },
  { id: "kata3", nom:"Kata 3", video:"../video/kata3.mp4", pdf:"../video/kata3.pdf" },
- { id: "kata4", nom:"Kata 4", video:"../video/kata4.mp4", pdf:"../video/kata4.pdf" },
+ { id: "taikan_ryutai", nom:"Kata 1", video:"../video/kata1.mp4", pdf:"../video/kata1.pdf" },
+ { id: "kata1", nom:"Kata 2", video:"../video/kata2.mp4", pdf:"../video/kata2.pdf" },
  { id: "kata5", nom:"Kata 5", video:"../video/kata5.mp4", pdf:"../video/kata5.pdf" }
 ];
 
