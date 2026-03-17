@@ -1,7 +1,7 @@
 [
 {
-"id":"taikan_shodan",
-"name":"Taïkan Shodan",
+"id":"o_mizu",
+"name":"O_mizu",
 "belt":"intermédiaire",
 "parts":[
 
@@ -135,8 +135,8 @@
 },
 
 {
-"id":"taikan_nidan",
-"name":"Taïkan Nidan",
+"id":"o_cha",
+"name":"O_cha",
 "belt":"avancé",
 "parts":[
 
@@ -360,8 +360,8 @@
 ]
 },
 {
-"id":"taikan_ryutai",
-"name":"Taïkan Ryūtaï",
+"id":"ryutai",
+"name":"Ryūtaï",
 "belt":"débutant",
 "parts":[
 
