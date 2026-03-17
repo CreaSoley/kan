@@ -78,7 +78,7 @@
 "id":"part5",
 "name":"Cinquième partie",
 "segments":[
-{"text":"Cinquième partie",repère : blocage latéral fouetté,"pause_after":2000},
+{"text":"Cinquième partie, repère : blocage latéral fouetté","pause_after":2000},
 {"text":"Mae geri jambe gauche","pause_after":2000},
 {"text":"Reposer arrière en kiba dachi","pause_after":2500},
 {"text":"Blocage latéral fouetté bas main droite","pause_after":2500},
