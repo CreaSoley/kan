@@ -374,25 +374,27 @@ let duration=parseInt(document.getElementById("flowDuration").value)
 await speak("Flow manipulation de canne")
 
 const moves=[
-"cercle extérieur",
-"cercle intérieur",
-"huit horizontal",
-"huit vertical",
-"rotation de poignet",
+"cercle en hauteur",
+"cercle niveau median",
+"infinity",
+"passage de canne dans le dos",
+"passage de canne niveau median",
 "cercle large"
 ]
 
 const footwork=[
 "pas à droite",
 "pas à gauche",
-"avance",
-"recule",
-"pivot"
+"en avançant",
+"en reculant",
+"en pivotant sur le pied avant",  
+"en pivot sur le pied arrière"
 ]
 
 const variations=[
 "change de main",
 "ralentis",
+"change de sens",
 "accélère légèrement",
 "mouvement plus large",
 "mouvement plus court"
@@ -460,7 +462,7 @@ await wait(1500)
 
 }
 
-await speak("Mawate")
+await speak("Mawaté")
 
 for(const c of compteJap){
 
@@ -501,7 +503,7 @@ await speak("Yame")
 
 await wait(2000)
 
-await speak("Yassme")
+await speak("Yassmé")
 
 }
 
@@ -549,7 +551,7 @@ await speak("Yame")
 
 await wait(2000)
 
-await speak("Yassme")
+await speak("Yassmé")
 
 }
 
