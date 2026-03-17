@@ -130,7 +130,7 @@ meditationData=await loadJSON("../data/meditation.json")
 warmupData=await loadJSON("../data/warmup.json")
 kihonData=await loadJSON("../data/kihon.json")
 kataData=await loadJSON("../data/kata.json")
-assautData=await loadJSON("../data/assaut.json")
+assautData=await loadJSON("../data/assauts.json")
 
 }
 
