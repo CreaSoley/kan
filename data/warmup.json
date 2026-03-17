@@ -3,7 +3,6 @@
 "id":"warmup_full",
 "title":"Échauffement complet",
 "duration":360,
-
 "segments":[
 
 {"text":"Commence l'échauffement.", "pause_after":2000},
@@ -134,14 +133,12 @@
 {"text":"Échauffement terminé.", "pause_after":3000}
 
 ]
-
 },
-  [
+
 {
 "id":"warmup_short",
 "title":"Échauffement court",
 "duration":120,
-
 "segments":[
 
 {"text":"Commence l'échauffement.", "pause_after":2000},
@@ -185,12 +182,11 @@
 
 ]
 },
-[
+
 {
 "id":"warmup_kumite_explosive",
 "title":"Échauffement kumite explosif",
 "duration":130,
-
 "segments":[
 
 {"text":"Commence l'échauffement.", "pause_after":1500},
@@ -239,4 +235,5 @@
 
 ]
 }
-]   
+
+]
