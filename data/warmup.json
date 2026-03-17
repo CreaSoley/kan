@@ -135,5 +135,110 @@
 
 ]
 
+},
+  [
+{
+"id":"warmup_short",
+"title":"Échauffement court",
+"duration":120,
+
+"segments":[
+
+{"text":"Commence l'échauffement.", "pause_after":2000},
+
+{"text":"Tiens toi droit.", "pause_after":2000},
+{"text":"Respire calmement.", "pause_after":2000},
+
+{"text":"Rotation de la tête.", "pause_after":2000},
+{"text":"Dans un sens.", "pause_after":2000},
+{"text":"Puis dans l'autre.", "pause_after":2000},
+
+{"text":"Rotation des épaules.", "pause_after":2000},
+{"text":"Vers l'avant.", "pause_after":2000},
+{"text":"Puis vers l'arrière.", "pause_after":2000},
+
+{"text":"Rotation des bras.", "pause_after":2000},
+{"text":"Lentement.", "pause_after":2000},
+{"text":"Accélère.", "pause_after":2000},
+
+{"text":"Rotation des poignets.", "pause_after":2000},
+
+{"text":"Mains sur les hanches.", "pause_after":2000},
+{"text":"Rotation du bassin.", "pause_after":2000},
+
+{"text":"Rotation du tronc.", "pause_after":2000},
+{"text":"Gauche et droite.", "pause_after":2000},
+
+{"text":"Rotation des genoux.", "pause_after":2000},
+
+{"text":"Petits coups de pied vers l'avant.", "pause_after":2000},
+{"text":"Alterne les jambes.", "pause_after":4000},
+
+{"text":"Mobilité des chevilles.", "pause_after":2000},
+
+{"text":"Penche toi en avant.", "pause_after":2000},
+{"text":"Garde le dos droit.", "pause_after":2000},
+
+{"text":"Remonte doucement.", "pause_after":2000},
+
+{"text":"Échauffement terminé.", "pause_after":2000}
+
+]
+},
+[
+{
+"id":"warmup_kumite_explosive",
+"title":"Échauffement kumite explosif",
+"duration":130,
+
+"segments":[
+
+{"text":"Commence l'échauffement.", "pause_after":1500},
+
+{"text":"Garde une posture légère.", "pause_after":1500},
+{"text":"Respiration active.", "pause_after":1500},
+
+{"text":"Petits sauts sur place.", "pause_after":3000},
+
+{"text":"Montées de genoux rapides.", "pause_after":4000},
+
+{"text":"Talons fesses.", "pause_after":4000},
+
+{"text":"Rotation des épaules.", "pause_after":2000},
+{"text":"Active les bras.", "pause_after":2000},
+
+{"text":"Shadow boxing léger.", "pause_after":2000},
+{"text":"Jab, cross.", "pause_after":4000},
+
+{"text":"Ajoute les esquives.", "pause_after":4000},
+
+{"text":"Position garde.", "pause_after":1500},
+{"text":"Déplacements rapides.", "pause_after":3000},
+{"text":"Avant, arrière.", "pause_after":3000},
+{"text":"Gauche, droite.", "pause_after":3000},
+
+{"text":"Explosivité.", "pause_after":1500},
+{"text":"Jab rapide.", "pause_after":3000},
+{"text":"Gyaku tsuki.", "pause_after":3000},
+
+{"text":"Enchaînement.", "pause_after":1500},
+{"text":"Jab, cross, recul.", "pause_after":4000},
+
+{"text":"Coup de pied frontal rapide.", "pause_after":2000},
+{"text":"Alterne les jambes.", "pause_after":4000},
+
+{"text":"Coup de pied circulaire léger.", "pause_after":2000},
+{"text":"Alterne les jambes.", "pause_after":4000},
+
+{"text":"Dernière accélération.", "pause_after":1500},
+{"text":"Shadow boxing rapide.", "pause_after":5000},
+
+{"text":"Relâche.", "pause_after":2000},
+
+{"text":"Échauffement terminé.", "pause_after":2000}
+
+]
 }
+]   
+
 ]
