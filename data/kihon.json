@@ -1,212 +1,212 @@
 [
-  {
-    "id": 1,
-    "nom": "Coup à l’aine",
-    "categorie": "Frappe",
-    "objectif": "Mettre de la distance",
-    "zone": "Basse",
-    "angle": "Verticale montante",
-    "description": "Coup sec du bas de canne au niveau de l'entre-jambe",
-    "video": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=885"
-  },
-  {
-    "id": 2,
-    "nom": "Lance à deux mains",
-    "categorie": "Frappe",
-    "objectif": "Mettre de la distance",
-    "zone": "Pointe",
-    "angle": "Estoc",
-    "description": "Coup sec avec la pointe avec saisie de la canne à une main",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=353"
-  },
-  {
-    "id": 3,
-    "nom": "Lance à une main",
-    "categorie": "Frappe",
-    "objectif": "Mettre de la distance",
-    "zone": "Pointe",
-    "angle": "Estoc",
-    "description": "Coup sec avec la pointe avec saisie de la canne à deux mains",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=162"
-  },
-  {
-    "id": 4,
-    "nom": "Poussée",
-    "categorie": "Frappe",
-    "objectif": "Mettre de la distance",
-    "zone": "Crosse",
-    "angle": "Estoc",
-    "description": "Coup sec vers l'avant avec la crosse ou l'arriève avec la pointe\nCanne saisie à deux mains, mouvement de poussée",
-    "video": null
-  },
-  {
-    "id": 5,
-    "nom": "Poussée à coulisse",
-    "categorie": "Frappe",
-    "objectif": "Mettre de la distance",
-    "zone": "Crosse ou pointe",
-    "angle": "Horizontale",
-    "description": "Coup sec vers l'avant avec la crosse ou l'arriève avec la pointe\nCanne saisie à deux mains, mouvement de coulisse",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=45"
-  },
-  {
-    "id": 6,
-    "nom": "Coup de hache",
-    "categorie": "Frappe",
-    "objectif": "Mettre hors d'état de nuire",
-    "zone": "Milieu",
-    "angle": "Verticale descendante",
-    "description": "Coup ample, canne saisie à deux mains",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=890"
-  },
-  {
-    "id": 7,
-    "nom": "Revers",
-    "categorie": "Frappe",
-    "objectif": "Mettre hors d'état de nuire",
-    "zone": "Milieu",
-    "angle": "Diagonale descendante",
-    "description": "Saisie de la canne niveau bas ou haut de manche\nMouvement de retour de bâton",
-    "video": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1258"
-  },
-  {
-    "id": 8,
-    "nom": "Suivi de revers",
-    "categorie": "Frappe",
-    "objectif": "Mettre hors d'état de nuire",
-    "zone": "Milieu",
-    "angle": "Diagonale descendante",
-    "description": "Coup sec, viser l'os de la jambe pour repère",
-    "video": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1542"
-  },
-  {
-    "id": 9,
-    "nom": "Rame à deux mains",
-    "categorie": "Frappe",
-    "objectif": "Mettre hors d'état de nuire",
-    "zone": "Crosse puis pointe",
-    "angle": "Diagonale descendante",
-    "description": "La canne est saisie à deux mains en pronation, puis ramenée sur le côté par un mouvement de rame",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=735"
-  },
-  {
-    "id": 10,
-    "nom": "Frappe base-Ball",
-    "categorie": "Frappe",
-    "objectif": "Mettre hors d'état de nuire",
-    "zone": "Crosse",
-    "angle": "Diagonale descendante",
-    "description": "Canne saisie à deux mains par une des extrémintés, le mouvement est ample",
-    "video": "https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=115"
-  },
-  {
-    "id": 11,
-    "nom": "Parade haute",
-    "categorie": "Défense",
-    "objectif": "Mettre à distance",
-    "zone": "Non concerné",
-    "angle": "Circulaire haut",
-    "description": "Mouvement de style hélicoptère au dessus de la tête",
-    "video": null
-  },
-  {
-    "id": 12,
-    "nom": "Balayage latéral",
-    "categorie": "Défense",
-    "objectif": "Mettre à distance",
-    "zone": "Non concerné",
-    "angle": "Horizontal 180°",
-    "description": "Canne saisie au niveau du crochet, à une mains\nmouvement de balayage horizontal",
-    "video": "https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=324"
-  },
-  {
-    "id": 13,
-    "nom": "Coup de balai",
-    "categorie": "Défense",
-    "objectif": "Mettre à distance",
-    "zone": "Non concerné",
-    "angle": "Basse 180°",
-    "description": "Canne saisie à deux mains , haut et milieu de canne, mouvement de balayage vif",
-    "video": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=383"
-  },
-  {
-    "id": 14,
-    "nom": "Crochetage",
-    "categorie": "Défense",
-    "objectif": "Deséquilibrer",
-    "zone": "Non concerné",
-    "angle": "Varié",
-    "description": "Frappe à proximité d'une articulation\nPuis mouvement de hameçonnage pour contre-carrer le mouvement articulaire",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1120"
-  },
-  {
-    "id": 15,
-    "nom": "Infinity",
-    "categorie": "Défense",
-    "objectif": "Mettre à distance",
-    "zone": "Non concerné",
-    "angle": "Forme de huit",
-    "description": "Canne saisie au crochet, former un signe infini\nLe changement de main se fait dans le dos ou par devant",
-    "video": "https://www.youtube-nocookie.com/embed/-w7La7XxMAk?start=43"
-  },
-  {
-    "id": 16,
-    "nom": "Blocage horizontal",
-    "categorie": "blocage",
-    "objectif": "Mettre à distance",
-    "zone": "Canne entière",
-    "angle": "Horizontal haut",
-    "description": "Canne saisie à deux mains, il s'agit de faire un écrasement au niveau du visage",
-    "video": null
-  },
-  {
-    "id": 17,
-    "nom": "Bouclier",
-    "categorie": "blocage",
-    "objectif": "Protection tête",
-    "zone": "Canne entière",
-    "angle": "Vertical",
-    "description": "Pivoter le crochet de la canne vers l'extérieur\nHaut du bras plaqué contre le corps\nPlier le poignet à 90°\nla canne se trouve pile devant le nez\nl'autre bras est en garde derrière la canne",
-    "video": "https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1105"
-  },
-  {
-    "id": 18,
-    "nom": "Batelier",
-    "categorie": "blocage",
-    "objectif": "Parade coup chudan",
-    "zone": "Canne entière",
-    "angle": "diagonale descendante",
-    "description": "Lever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nOuvrir la main qui tient le crochet faire un mouvement de hanches\nFrapper latéralement vers le bas, le mouvement est sec",
-    "video": "https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=983"
-  },
-  {
-    "id": 19,
-    "nom": "Frappe horizontale",
-    "categorie": "blocage",
-    "objectif": "Parade coup chudan",
-    "zone": "Canne entière",
-    "angle": "horizontal bas",
-    "description": "Saisie de la canne horizontale, un tiers haut, une tiers bas.\nGarder les coudes bien pliés et donner un cou sec vers le bas",
-    "video": "https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=383"
-  },
-  {
-    "id": 20,
-    "nom": "Moulinet",
-    "categorie": "Défense",
-    "objectif": "Mettre de la distance",
-    "zone": "Canne entière",
-    "angle": "Latéral circulaire",
-    "description": "Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet\nLa partie longue de la canne vers l’extérieur\nFaire tourner la canne en formant un cercle vers l’avant, en poussant\nLa main doit être souple, fermée et légère sans serrer trop fort.",
-    "video": "https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=45"
-  },
-  {
-    "id": 21,
-    "nom": "Rotation simple",
-    "categorie": "Défense",
-    "objectif": "Mettre de la distance",
-    "zone": "Canne entière",
-    "angle": "Frontal circulaire",
-    "description": "Tenir la canne à proximité du corps, bras souple, au milieu de la canne, coude près du corps.\nLa main est verticale, pouce vers le haut.\nFaire pivoter la canne vers l’index, elle est retenue par le pouce.",
-    "video": "https://www.youtube-nocookie.com/embed/1k-4gFsyY-E?start=1"
-  }
+   {
+      "id":1,
+      "nom":"Coup à l’aine",
+      "categorie":"Frappe",
+      "objectif":"Mettre de la distance",
+      "zone":"Basse",
+      "angle":"Verticale montante",
+      "description":"Coup sec du bas de canne au niveau de l'entre-jambe",
+      "video":"https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=885"
+   },
+   {
+      "id":2,
+      "nom":"Lance à deux mains",
+      "categorie":"Frappe",
+      "objectif":"Mettre de la distance",
+      "zone":"Pointe",
+      "angle":"Estoc",
+      "description":"Coup sec avec la pointe avec saisie de la canne à une main",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=353"
+   },
+   {
+      "id":3,
+      "nom":"Lance à une main",
+      "categorie":"Frappe",
+      "objectif":"Mettre de la distance",
+      "zone":"Pointe",
+      "angle":"Estoc",
+      "description":"Coup sec avec la pointe avec saisie de la canne à deux mains",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=162"
+   },
+   {
+      "id":4,
+      "nom":"Poussée",
+      "categorie":"Frappe",
+      "objectif":"Mettre de la distance",
+      "zone":"Crosse",
+      "angle":"Estoc",
+      "description":"Coup sec vers l'avant avec la crosse ou l'arriève avec la pointe\nCanne saisie à deux mains, mouvement de poussée",
+      "video":null
+   },
+   {
+      "id":5,
+      "nom":"Poussée à coulisse",
+      "categorie":"Frappe",
+      "objectif":"Mettre de la distance",
+      "zone":"Crosse ou pointe",
+      "angle":"Horizontale",
+      "description":"Coup sec vers l'avant avec la crosse ou l'arriève avec la pointe\nCanne saisie à deux mains, mouvement de coulisse",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=45"
+   },
+   {
+      "id":6,
+      "nom":"Coup de hache",
+      "categorie":"Frappe",
+      "objectif":"Mettre hors d'état de nuire",
+      "zone":"Milieu",
+      "angle":"Verticale descendante",
+      "description":"Coup ample, canne saisie à deux mains",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=890"
+   },
+   {
+      "id":7,
+      "nom":"Revers",
+      "categorie":"Frappe",
+      "objectif":"Mettre hors d'état de nuire",
+      "zone":"Milieu",
+      "angle":"Diagonale descendante",
+      "description":"Saisie de la canne niveau bas ou haut de manche\nMouvement de retour de bâton",
+      "video":"https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1258"
+   },
+   {
+      "id":8,
+      "nom":"Suivi de revers",
+      "categorie":"Frappe",
+      "objectif":"Mettre hors d'état de nuire",
+      "zone":"Milieu",
+      "angle":"Diagonale descendante",
+      "description":"Coup sec, viser l'os de la jambe pour repère",
+      "video":"https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1542"
+   },
+   {
+      "id":9,
+      "nom":"Rame à deux mains",
+      "categorie":"Frappe",
+      "objectif":"Mettre hors d'état de nuire",
+      "zone":"Crosse puis pointe",
+      "angle":"Diagonale descendante",
+      "description":"La canne est saisie à deux mains en pronation, puis ramenée sur le côté par un mouvement de rame",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=735"
+   },
+   {
+      "id":10,
+      "nom":"Frappe base-Ball",
+      "categorie":"Frappe",
+      "objectif":"Mettre hors d'état de nuire",
+      "zone":"Crosse",
+      "angle":"Diagonale descendante",
+      "description":"Canne saisie à deux mains par une des extrémintés, le mouvement est ample",
+      "video":"https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=115"
+   },
+   {
+      "id":11,
+      "nom":"Parade haute",
+      "categorie":"Défense",
+      "objectif":"Mettre à distance",
+      "zone":"Non concerné",
+      "angle":"Circulaire haut",
+      "description":"Mouvement de style hélicoptère au dessus de la tête",
+      "video":null
+   },
+   {
+      "id":12,
+      "nom":"Balayage latéral",
+      "categorie":"Défense",
+      "objectif":"Mettre à distance",
+      "zone":"Non concerné",
+      "angle":"Horizontal 180°",
+      "description":"Canne saisie au niveau du crochet, à une mains\nmouvement de balayage horizontal",
+      "video":"https://www.youtube-nocookie.com/embed/S95bK26EWYo?start=324"
+   },
+   {
+      "id":13,
+      "nom":"Coup de balai",
+      "categorie":"Défense",
+      "objectif":"Mettre à distance",
+      "zone":"Non concerné",
+      "angle":"Basse 180°",
+      "description":"Canne saisie à deux mains , haut et milieu de canne, mouvement de balayage vif",
+      "video":"https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=383"
+   },
+   {
+      "id":14,
+      "nom":"Crochetage",
+      "categorie":"Défense",
+      "objectif":"Deséquilibrer",
+      "zone":"Non concerné",
+      "angle":"Varié",
+      "description":"Frappe à proximité d'une articulation\nPuis mouvement de hameçonnage pour contre-carrer le mouvement articulaire",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=1120"
+   },
+   {
+      "id":15,
+      "nom":"Infinity",
+      "categorie":"Défense",
+      "objectif":"Mettre à distance",
+      "zone":"Non concerné",
+      "angle":"Forme de huit",
+      "description":"Canne saisie au crochet, former un signe infini\nLe changement de main se fait dans le dos ou par devant",
+      "video":"https://www.youtube-nocookie.com/embed/-w7La7XxMAk?start=43"
+   },
+   {
+      "id":16,
+      "nom":"Blocage horizontal",
+      "categorie":"blocage",
+      "objectif":"Mettre à distance",
+      "zone":"Canne entière",
+      "angle":"Horizontal haut",
+      "description":"Canne saisie à deux mains, il s'agit de faire un écrasement au niveau du visage",
+      "video":null
+   },
+   {
+      "id":17,
+      "nom":"Bouclier",
+      "categorie":"blocage",
+      "objectif":"Protection tête",
+      "zone":"Canne entière",
+      "angle":"Vertical",
+      "description":"Pivoter le crochet de la canne vers l'extérieur\nHaut du bras plaqué contre le corps\nPlier le poignet à 90°\nla canne se trouve pile devant le nez\nl'autre bras est en garde derrière la canne",
+      "video":"https://www.youtube-nocookie.com/embed/6b1SabbmM7M?start=1105"
+   },
+   {
+      "id":18,
+      "nom":"Batelier",
+      "categorie":"blocage",
+      "objectif":"Parade coup chudan",
+      "zone":"Canne entière",
+      "angle":"diagonale descendante",
+      "description":"Lever la canne vers l'aine\nSaisir la canne avec la deuxième main en son milieu (prise en pronation)\nOuvrir la main qui tient le crochet faire un mouvement de hanches\nFrapper latéralement vers le bas, le mouvement est sec",
+      "video":"https://www.youtube-nocookie.com/embed/flBC2qKM4Cc?start=983"
+   },
+   {
+      "id":19,
+      "nom":"Frappe horizontale",
+      "categorie":"blocage",
+      "objectif":"Parade coup chudan",
+      "zone":"Canne entière",
+      "angle":"horizontal bas",
+      "description":"Saisie de la canne horizontale, un tiers haut, une tiers bas.\nGarder les coudes bien pliés et donner un cou sec vers le bas",
+      "video":"https://www.youtube-nocookie.com/embed/lmBuYITGx04?start=383"
+   },
+   {
+      "id":20,
+      "nom":"Moulinet",
+      "categorie":"Défense",
+      "objectif":"Mettre de la distance",
+      "zone":"Canne entière",
+      "angle":"Latéral circulaire",
+      "description":"Prendre la canne, crochet vers le haut, la paume de la main sur la partie intérieure du crochet\nLa partie longue de la canne vers l’extérieur\nFaire tourner la canne en formant un cercle vers l’avant, en poussant\nLa main doit être souple, fermée et légère sans serrer trop fort.",
+      "video":"https://www.youtube-nocookie.com/embed/JzhKkDDlJQQ?start=45"
+   },
+   {
+      "id":21,
+      "nom":"Rotation simple",
+      "categorie":"Défense",
+      "objectif":"Mettre de la distance",
+      "zone":"Canne entière",
+      "angle":"Frontal circulaire",
+      "description":"Tenir la canne à proximité du corps, bras souple, au milieu de la canne, coude près du corps.\nLa main est verticale, pouce vers le haut.\nFaire pivoter la canne vers l’index, elle est retenue par le pouce.",
+      "video":"https://www.youtube-nocookie.com/embed/1k-4gFsyY-E?start=1"
+   }
 ]
